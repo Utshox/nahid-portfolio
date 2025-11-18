@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MF Web Portal - Case Study</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <style>
+    :root {
+      --primary-black: #101113;
+      --secondary-color: #454953;
+      --card-grey: #e5e8ef;
+      --light-background: #f4f6fa;
+      --border-color: #cecede;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    #artboard {
+      width: 100%;
+      margin: 0;
+      background: var(--light-background);
+    }
+
+    main {
+      background: var(--light-background);
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .page-hero {
+      padding: 140px 170px 40px 170px;
+      background: var(--light-background);
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1101px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .hero-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--secondary-color);
+      font-size: 14px;
+      font-family: 'Naga Space', sans-serif;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .page-title {
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.26;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Naga Space', sans-serif;
+    }
+
+    .meta-info-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 80px;
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 300px;
+    }
+
+    .meta-label {
+      font-size: 16px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      margin: 0;
+      font-weight: 400;
+      line-height: 1.34;
+    }
+
+    .meta-value {
+      font-size: 18px;
+      color: var(--primary-black);
+      margin: 0;
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.34;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Project Overview Section */
+    .project-overview {
+      padding: 240px 170px;
+      display: flex;
+      justify-content: center;
+      background: var(--light-background);
+    }
+
+    .project-overview-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .overview-text {
+      font-family: 'Naga Space', sans-serif;
+      font-size: 34px;
+      line-height: 1.5;
+      color: var(--primary-black);
+      margin: 0;
+    }
+
+    /* Section Blocks */
+    .section-block {
+      padding: 100px 170px;
+      display: flex;
+      justify-content: center;
+      background: var(--light-background);
+    }
+
+    /* Challenges Section - specific padding */
+    .challenges-section {
+      padding: 100px 170px 80px 170px;
+    }
+
+    /* Solution Section - specific padding */
+    .solution-section {
+      padding: 140px 170px;
+    }
+
+    /* Dashboard Overview Section - specific padding and gap */
+    .dashboard-overview-section {
+      padding: 80px 170px;
+    }
+
+    .dashboard-overview-section .section-container {
+      gap: 26px;
+    }
+
+    .dashboard-overview-section .section-title {
+      font-size: 48px;
+      text-transform: lowercase;
+    }
+
+    .dashboard-overview-section .section-description {
+      font-size: 22px;
+    }
+
+    /* Member Management Section - specific padding and gap */
+    .member-management-section {
+      padding: 80px 170px;
+    }
+
+    .member-management-section .section-container {
+      gap: 26px;
+    }
+
+    .member-management-section .section-title {
+      font-size: 48px;
+      text-transform: lowercase;
+    }
+
+    .member-management-section .keypoint-item {
+      gap: 20px;
+    }
+
+    /* Approval Workflow Section - specific padding and gap */
+    .approval-workflow-section {
+      padding: 80px 170px;
+    }
+
+    .approval-workflow-section .section-container {
+      gap: 26px;
+    }
+
+    .approval-workflow-section .section-title-wrapper {
+      max-width: 710px;
+    }
+
+    .approval-workflow-section .section-title {
+      font-size: 48px;
+      text-transform: lowercase;
+    }
+
+    .approval-workflow-section .keypoint-item {
+      gap: 20px;
+    }
+
+    .approval-workflow-section .keypoint-list {
+      margin-bottom: 26px;
+    }
+
+    /* Buffer Loan Section - specific padding and gap */
+    .buffer-loan-section {
+      padding: 80px 170px;
+    }
+
+    .buffer-loan-section .section-container {
+      gap: 26px;
+    }
+
+    .buffer-loan-section .section-title {
+      font-size: 44px;
+      text-transform: lowercase;
+    }
+
+    .buffer-loan-section .section-description {
+      font-size: 22px;
+    }
+
+    /* Performance Tracking Section - specific padding and gap */
+    .performance-tracking-section {
+      padding: 80px 170px;
+    }
+
+    .performance-tracking-section .section-container {
+      gap: 26px;
+    }
+
+    .performance-tracking-section .section-title {
+      font-size: 48px;
+      text-transform: lowercase;
+    }
+
+    .performance-tracking-section .section-description {
+      font-size: 22px;
+    }
+
+    /* Reporting & Analytics Section - specific padding and gap */
+    .reporting-analytics-section {
+      padding: 80px 170px;
+    }
+
+    .reporting-analytics-section .section-container {
+      gap: 26px;
+    }
+
+    .reporting-analytics-section .section-title {
+      font-size: 44px;
+      text-transform: lowercase;
+    }
+
+    .reporting-analytics-section .section-description {
+      font-size: 22px;
+    }
+
+    /* Results & Impact Section - specific padding and gap */
+    .results-impact-section {
+      padding: 80px 170px;
+    }
+
+    .results-impact-section .section-container {
+      gap: 60px;
+    }
+
+    .results-impact-section .section-title {
+      font-size: 44px;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+
+    .results-impact-section .keypoint-item {
+      gap: 20px;
+    }
+
+    .section-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    /* Challenges container - specific gap */
+    .challenges-section .section-container {
+      gap: 60px;
+    }
+
+    /* Challenges section - align subtitle with keypoint description column */
+    .challenges-section .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .challenges-section .section-title-wrapper {
+      max-width: 672px;
+    }
+
+    .challenges-section .section-subtitle-wrapper {
+      align-items: flex-end;
+      justify-content: flex-end;
+      align-self: stretch;
+      margin-left: calc(3% + 0px);
+    }
+
+    .challenges-section .section-description {
+      max-width: 540px;
+      text-align: left;
+    }
+
+    /* Challenge/Feature Sections with Title + Subtitle Pattern */
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .section-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 672px;
+    }
+
+    .section-subtitle-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Naga Space', sans-serif;
+      text-transform: lowercase;
+    }
+
+    .section-title .accent {
+      color: var(--secondary-color);
+      font-style: italic;
+      font-family: 'Naga Space', sans-serif;
+      font-weight: 400;
+    }
+
+    .section-description {
+      font-size: 20px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+      margin: 0;
+      max-width: 540px;
+      font-weight: 400;
+    }
+
+    /* Keypoint Lists */
+    .keypoint-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+    }
+
+    .keypoint-item {
+        border-top: 1px solid var(--Outline, #CECEDE);
+        display: flex;
+        padding: 22px 0;
+        align-items: flex-start;
+        gap: 80px;
+        align-self: stretch;
+    }
+
+    .keypoint-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary-black);
+      margin: 0;
+      font-family: 'Naga Space', sans-serif;
+      flex: 1 0 0;
+      line-height: 1.4;
+      max-width: 540px;
+    }
+
+    .keypoint-description {
+      font-size: 18px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      margin: 0;
+      line-height: 1.4;
+      flex: 1 0 0;
+      font-weight: 400;
+      max-width: 540px;
+    }
+
+    /* Feature Grid (3 columns) */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .feature-card {
+      background: var(--card-grey);
+      padding: 30px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    /* Key Features section specific styles */
+    .key-features-section .section-title {
+      font-size: 48px;
+    }
+
+    .key-features-section .section-description {
+      font-size: 22px;
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+    }
+
+    /* Image Sections */
+    .section-image-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .section-image {
+      width: 540px;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Final Overview Section */
+    .final-overview-section {
+      padding: 120px 170px 140px 170px;
+      display: flex;
+      justify-content: center;
+      background: var(--light-background);
+    }
+
+    .final-overview-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 100px;
+      min-height: 506px;
+    }
+
+    .final-overview-text {
+      font-family: 'Naga Space', sans-serif;
+      font-size: 34px;
+      line-height: 1.5;
+      color: var(--primary-black);
+      margin: 0;
+    }
+
+    .next-design-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-black);
+      padding: 22px 26px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-black);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: 'Naga Space', sans-serif;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .next-design-btn:hover {
+      background: var(--primary-black);
+      color: #fff;
+    }
+
+    @media (max-width: 960px) {
+      .page-hero,
+      .project-overview,
+      .section-block,
+      .final-overview-section {
+        padding: 80px 24px;
+      }
+
+      .meta-info {
+        flex-direction: column;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Nahid home">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot" aria-hidden="true"></span>
+      </div>
+      <nav class="nav-right" aria-label="Primary">
+        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="artboard">
+    <main>
+      <section class="page-hero">
+        <div class="hero-container">
+          <div class="hero-text-wrapper">
+            <a href="index.html" class="back-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#454953" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Back
+            </a>
+            <h1 class="page-title">Streamlining Financial Operations with a Centralized Portal</h1>
+          </div>
+          <div class="meta-info-wrapper">
+            <div class="meta-info">
+              <div class="meta-item">
+                <p class="meta-label">My Role</p>
+                <p class="meta-value">UX &amp; UI Design, Phototyping</p>
+              </div>
+              <div class="meta-item">
+                <p class="meta-label">Teams</p>
+                <p class="meta-value">Business Analyst, PM, Dev</p>
+              </div>
+              <div class="meta-item">
+                <p class="meta-label">Timeframe</p>
+                <p class="meta-value">Aug 2024 - Jan 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Project%20Banner.png" alt="MF Web Portal Overview" class="hero-image">
+      </section>
+
+      <section class="project-overview">
+        <div class="project-overview-container">
+          <p class="overview-text">We work closely with partners around the world to conceptualize and implement user centric digital platform. Throughout the years, we've been privileged to collaborate with top companies and build life changing products for people around the globe. Explore some of our selected work below to see how we've helped our clients succeed.</p>
+        </div>
+      </section>
+
+      <section class="section-block challenges-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title"><span class="accent">the challenge,</span> operational inefficiency</h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">A financial services provider struggled with an inefficient workflow where new applications required sequential approval from a long chain of managers (POs to RMs) before final sign-off in their core ERP.</p>
+            </div>
+          </div>
+          <div class="keypoint-list">
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Slow Approval Times</h3>
+              <p class="keypoint-description">The manual hand-off between managers created bottlenecks, significantly delaying the disbursement of loans and the onboarding of new members.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Lack of Visibility</h3>
+              <p class="keypoint-description">Senior managers had no centralized way to track the status of applications in real-time, making it difficult to identify delays or manage team performance.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Data Inconsistencies</h3>
+              <p class="keypoint-description">Information was scattered across multiple sources, leading to a high risk of errors and difficulty in making informed decisions.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Ineffective Performance Management</h3>
+              <p class="keypoint-description">Setting and tracking performance targets for loan disbursement, member acquisition, and savings was a cumbersome, manual process.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block solution-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title">Our solution: <span class="accent">a unified financial platform</span></h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">We designed and developed the MF Web Portal to centralize financial operations, streamline workflows, and provide real-time insights. The platform empowers employees with intuitive tools while ensuring compliance, security, and scalability for long-term growth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block key-features-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title"><span class="accent">key</span> features & functionality</h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">The application was built with several powerful features tailored to the client's specific operational needs. There are additional more features*</p>
+            </div>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/first%20icon%20unified%20dashboard.svg" alt="">
+              </div>
+              <p class="feature-title">Unified Dashboard and Task Management</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/2nd%20icon%20comprehensive%20member.svg" alt="">
+              </div>
+              <p class="feature-title">Comprehensive Member 360° View</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/3rd%20icon%20streamlined.svg" alt="">
+              </div>
+              <p class="feature-title">Streamlined, Multi-Tier Approval Workflow</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/4th%20icon%20buffer%20adn%20exception.svg" alt="">
+              </div>
+              <p class="feature-title">Buffer & Exception Handling</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fifth%20icon%20terget%20setting%20and%20performance.svg" alt="">
+              </div>
+              <p class="feature-title">Target Setting & Performance Monitoring</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fixth%20icon%20robust%20reporting.svg" alt="">
+              </div>
+              <p class="feature-title">Robust Reporting & Analytics</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block dashboard-overview-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title">Unified Dashboard and Task Management</h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">Upon logging in, Managers can see key metrics at a glance and task list is prioritized so managers know what to do first.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block member-management-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title"><span class="accent">comprehensive</span> Member 360° View</h2>
+            </div>
+          </div>
+          <div class="keypoint-list">
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Proposed Application Details</h3>
+              <p class="keypoint-description">Information on the new loan or savings plan being requested.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Historical Behavior</h3>
+              <p class="keypoint-description">A clear record of past and active loans, payment history, and savings behavior, allowing for a quick assessment of creditworthiness.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Personal & Financial Data</h3>
+              <p class="keypoint-description">All necessary KYC (Know Your Customer) information pulled directly from the ERP.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png" alt="Member Management" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block approval-workflow-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title"><span class="accent">Streamlined, Multi-Tier</span> Approval Workflow</h2>
+            </div>
+          </div>
+          <div class="keypoint-list">
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Confirm/Recommend</h3>
+              <p class="keypoint-description">Advance the application to the next level in the hierarchy.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Send Back</h3>
+              <p class="keypoint-description">Return the application to a subordinate for clarification or correction, with comments.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Reject</h3>
+              <p class="keypoint-description">Reject the application with a justification. This creates a clear, digital audit trail for every application, accessible via the integrated comments and activity log.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block buffer-loan-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title">Buffer & Exception <span class="accent">Handling</span></h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">The application includes dedicated sections for managing "Buffer Member Admissions" and "Buffer Loan Proposals." This allows for the careful review and processing of applications that may fall outside standard parameters before they enter the main approval pipeline.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png" alt="Buffer Loan Management" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block performance-tracking-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title">Target Setting & Performance Monitoring</h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">Use the "Target Set" module to assign quarterly team goals for acquisition, loans, and savings. This shifts performance management from reactive to proactive.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png" alt="Performance Tracking" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block reporting-analytics-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title"><span class="accent">Robust</span> Reporting & Analytics</h2>
+            </div>
+            <div class="section-subtitle-wrapper">
+              <p class="section-description">A powerful reporting module enables managers to generate custom reports based on various filters like region, branch, date range, and report type. These reports can be instantly downloaded in Excel format for further analysis, internal meetings, or strategic planning.</p>
+            </div>
+          </div>
+          <div class="section-image-wrapper">
+            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics" class="section-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block results-impact-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-title-wrapper">
+              <h2 class="section-title">Results & Impact</h2>
+            </div>
+          </div>
+          <div class="keypoint-list">
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Increased Efficiency</h3>
+              <p class="keypoint-description">The pre-approval process was substantially accelerated, drastically cutting down the time required for an application to move through the management chain.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Enhanced Transparency</h3>
+              <p class="keypoint-description">Senior management gained real-time visibility into the entire application pipeline, allowing them to proactively address bottlenecks.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Improved Decision-Making</h3>
+              <p class="keypoint-description">With access to comprehensive member histories, managers could make faster and more accurate approval decisions.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Strengthened Accountability</h3>
+              <p class="keypoint-description">The target-setting and reporting features created a culture of accountability and provided clear metrics for performance evaluation.</p>
+            </div>
+            <div class="keypoint-item">
+              <h3 class="keypoint-title">Reduced Errors</h3>
+              <p class="keypoint-description">By centralizing data and digitizing the workflow, the incidence of manual data entry errors was significantly minimized.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-overview-section">
+        <div class="final-overview-container">
+          <p class="final-overview-text">The administrative web application successfully replaced a fragmented and inefficient manual system with a streamlined, transparent, and powerful digital solution. By empowering managers with the right information and tools, the portal has become an indispensable asset for the institution, accelerating its core business processes and enabling better service for its members.</p>
+          <a href="course-management-lms.html" class="next-design-btn">NEXT DESIGN</a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

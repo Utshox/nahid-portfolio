@@ -1,0 +1,127 @@
+"""
+Summary of all CSS fixes applied and current state
+"""
+
+print("""
+╔══════════════════════════════════════════════════════════════════════╗
+║  HOMEPAGE LAYOUT DEBUGGING - FIXES APPLIED                          ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+FIXES APPLIED SO FAR:
+═══════════════════════════════════════════════════════════════════════
+
+1. ✓ .case-card-link - Added dimensions
+   OLD: display: block; color: inherit; text-decoration: none;
+   NEW: + width: 652px; height: 526px; flex: 0 0 auto;
+   
+2. ✓ .case-row - Changed flex alignment
+   OLD: align-items: center;
+   NEW: align-items: flex-start; flex-wrap: nowrap;
+   
+3. ✓ .case-card - Added flex properties
+   OLD: (no flex properties)
+   NEW: + flex: 0 0 auto;
+
+
+CURRENT CSS STATE:
+═══════════════════════════════════════════════════════════════════════
+
+.case-row {
+  background: var(--light);
+  padding: 20px 58px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.case-card {
+  width: 652px;
+  height: 526px;
+  margin: 0;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.case-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  width: 652px;
+  height: 526px;
+  flex: 0 0 auto;
+}
+
+
+WHAT SHOULD BE HAPPENING:
+═══════════════════════════════════════════════════════════════════════
+
+Layout math:
+  Artboard width: 1440px
+  Left padding:   58px
+  Card 1:         652px
+  Gap:            20px
+  Card 2:         652px
+  Right padding:  58px
+  ─────────────────────
+  Total:          1440px ✓
+
+Visual layout:
+  [58px] [652px card] [20px gap] [652px card] [58px]
+
+
+IF THIS IS STILL NOT WORKING:
+═══════════════════════════════════════════════════════════════════════
+
+Please tell me EXACTLY what you see:
+
+1. Do the case study cards appear:
+   ☐ Side-by-side on the same row?
+   ☐ Stacked vertically (one above the other)?
+   ☐ All overlapping?
+   ☐ Only partial display?
+
+2. Are the cards:
+   ☐ The correct size (roughly 650px wide)?
+   ☐ Too narrow?
+   ☐ Too wide?
+   ☐ Cut off at edges?
+
+3. Is the overall page width:
+   ☐ Correct (1440px)?
+   ☐ Too wide (causing horizontal scroll)?
+   ☐ Too narrow (leaving empty space)?
+
+4. Are images:
+   ☐ Loading correctly?
+   ☐ Showing as broken/missing?
+   ☐ Partially visible?
+
+5. What browser/server are you using:
+   ☐ Live Server extension in VS Code?
+   ☐ Python http.server?
+   ☐ Other (specify)?
+
+
+NEXT DEBUGGING STEPS IF NEEDED:
+═══════════════════════════════════════════════════════════════════════
+
+1. Open browser DevTools (F12)
+2. Go to "Elements" or "Inspector" tab
+3. Find <section class="case-row">
+4. Right-click → "Inspect" or "Inspect Element"
+5. Check the "Layout" panel on the right
+6. Verify:
+   - Container width shows as 1440px
+   - case-row shows padding: 20px 58px
+   - Cards show width: 652px
+   - Cards show flex: 0 0 auto
+
+If dimensions don't match what's shown above, there's a CSS conflict.
+
+═══════════════════════════════════════════════════════════════════════
+""")

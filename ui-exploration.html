@@ -1,0 +1,424 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440, initial-scale=1">
+  <title>UI Exploration</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <style>
+    .ui-exploration-hero {
+      background: var(--light);
+      padding: 240px 58px 100px;
+      margin-top: 80px;
+    }
+
+    .ui-hero-content {
+      width: 1324px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .ui-hero-title {
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
+    }
+
+    .ui-hero-title h1 {
+      font-size: 112px;
+      line-height: 1.14;
+      margin: 0;
+      font-weight: 400;
+      text-transform: lowercase;
+      color: var(--black);
+    }
+
+    .ui-hero-title h1 span.italic {
+      font-style: italic;
+      color: var(--grey);
+    }
+
+    .ui-hero-subtitle {
+      text-align: right;
+      max-width: 653px;
+      margin-left: auto;
+    }
+
+    .ui-hero-subtitle p {
+      font-size: 22px;
+      line-height: 1.34;
+      margin: 0;
+      color: var(--grey);
+    }
+
+    .ui-grid-section {
+      background: var(--light);
+      padding: 80px 58px;
+    }
+
+    .ui-grid-container {
+      width: 1324px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 38px;
+    }
+
+    .ui-grid-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .ui-project-card {
+      background: white;
+      border-radius: 1px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ui-project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .ui-project-card.non-clickable {
+      cursor: default;
+    }
+
+    .ui-project-card.non-clickable:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .ui-project-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 1px;
+    }
+
+    .ui-project-title {
+      font-size: 14px;
+      line-height: 1.34;
+      margin: 0;
+      color: var(--grey);
+      font-style: italic;
+      padding: 0;
+      height: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ui-small-card {
+      width: 100%;
+    }
+
+    .ui-small-card-300 {
+      height: auto;
+    }
+
+    .ui-small-card-280 {
+      height: auto;
+    }
+
+    .ui-small-card-488 {
+      height: auto;
+    }
+
+    .ui-large-card {
+      width: 100%;
+    }
+
+    .ui-large-card-580 {
+      height: auto;
+    }
+
+    .ui-large-card-488 {
+      height: auto;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot"></span>
+      </div>
+      <nav class="nav-right">
+        <a href="ui-exploration.html" class="nav-link hneue medium" aria-current="page">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="artboard">
+    <!-- Hero Section -->
+    <section class="ui-exploration-hero">
+      <div class="ui-hero-content">
+        <div class="ui-hero-title">
+          <h1><span class="italic">explore</span> the arts</h1>
+        </div>
+        <div class="ui-hero-subtitle">
+          <p>Exploring the art of motion to create more intuitive and delightful user experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="ui-grid-section">
+      <div class="ui-grid-container">
+        <!-- Row 1: 3 columns -->
+        <div class="ui-grid-row">
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20dark.png" alt="Analytical dashboard visualization dark" class="ui-project-image">
+            <p class="ui-project-title">Analytical Dashboard Dark</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20light.png" alt="Analytical dashboard visualization light" class="ui-project-image">
+            <p class="ui-project-title">Analytical Dashboard Light</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/App%20analytical%20data%20visualization.png" alt="App analytical data visualization" class="ui-project-image">
+            <p class="ui-project-title">App Analytical Data</p>
+          </div>
+        </div>
+
+        <!-- Row 2: 3 columns -->
+        <div class="ui-grid-row">
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Apple%20Vision%20OS%20visual%20exploration.png" alt="Apple Vision OS visual exploration" class="ui-project-image">
+            <p class="ui-project-title">Apple Vision OS</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20Card%20Exploration.png" alt="Banking App Card Exploration" class="ui-project-image">
+            <p class="ui-project-title">Banking App Card</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20UI%20Exploration.png" alt="Banking App UI Exploration" class="ui-project-image">
+            <p class="ui-project-title">Banking App UI</p>
+          </div>
+        </div>
+
+        <!-- Row 3: 3 columns -->
+        <div class="ui-grid-row">
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Bove%20Marketing%20logo.png" alt="Bove Marketing logo" class="ui-project-image">
+            <p class="ui-project-title">Bove Marketing Logo</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Jassmart%20ecommerce%20logo%20ideation.png" alt="Jassmart ecommerce logo" class="ui-project-image">
+            <p class="ui-project-title">Jassmart Ecommerce</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Lakers%20Clippers%20logo%20inspirations.png" alt="Lakers Clippers logo" class="ui-project-image">
+            <p class="ui-project-title">Lakers Clippers Logo</p>
+          </div>
+        </div>
+
+        <!-- Row 4: 3 columns -->
+        <div class="ui-grid-row">
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Madbee%20logo%20ideation.png" alt="Madbee logo ideation" class="ui-project-image">
+            <p class="ui-project-title">Madbee Logo</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Music%20app%20ui%20exploration.png" alt="Music app ui exploration" class="ui-project-image">
+            <p class="ui-project-title">Music App UI</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Reddoor%20logo%20ideation.png" alt="Reddoor logo ideation" class="ui-project-image">
+            <p class="ui-project-title">Reddoor Logo</p>
+          </div>
+        </div>
+
+        <!-- Row 5: 3 columns -->
+        <div class="ui-grid-row">
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Robi%20app%20home%20page%20ui%20redesign.png" alt="Robi app home page ui redesign" class="ui-project-image">
+            <p class="ui-project-title">Robi App Redesign</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Shop%20ONYX%20minimal%20logo.png" alt="Shop ONYX minimal logo" class="ui-project-image">
+            <p class="ui-project-title">Shop ONYX Logo</p>
+          </div>
+          <div class="ui-project-card ui-small-card">
+            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Spawlding%20Epoxy%20Flooring%20logo%20Ideation.png" alt="Spawlding Epoxy Flooring logo" class="ui-project-image">
+            <p class="ui-project-title">Spawlding Epoxy Logo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Designs in Motion Carousel -->
+    <section id="projects">
+      <div class="projects-content">
+        <div class="project-highlights">
+          <div class="project-title">
+            <h3 class="hneue lower">
+              <span class="italic secondary">Designs in</span> Motion
+            </h3>
+          </div>
+          <p class="hneue secondary small">
+            Exploring the art of motion to create more intuitive and delightful user experiences.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-wrapper">
+        <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous project">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="projects-grid" id="carousel-track">
+          <div class="grid-item w-934 h-520">
+            <img src="assets/project1.png" alt="Design exploration 1" />
+            <video src="assets/project1.mp4" muted loop></video>
+          </div>
+          <div class="grid-item w-876 h-520">
+            <img src="assets/project2.png" alt="Design exploration 2" />
+            <video src="assets/project2.mp4" muted loop></video>
+          </div>
+          <div class="grid-item w-876 h-520">
+            <img src="assets/project3.png" alt="Design exploration 3" />
+            <video src="assets/project3.mp4" muted loop></video>
+          </div>
+        </div>
+        <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Next project">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for project details -->
+  <div id="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 16px; max-width: 900px; max-height: 80vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(0,0,0,0.3); padding: 40px; position: relative;">
+      <button onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border: none; background: rgba(0,0,0,0.1); border-radius: 50%; font-size: 28px; cursor: pointer;">×</button>
+      <img id="modal-img" src="" alt="" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+      <h2 class="hneue medium" style="font-size: 24px; margin: 0; color: var(--black);">UI Design</h2>
+      <p class="hneue" style="font-size: 14px; line-height: 1.6; margin: 8px 0 0 0; color: var(--grey);">Design exploration showcasing user interface patterns and interactions.</p>
+    </div>
+  </div>
+
+  <!-- Email Contact Modal -->
+  <div id="email-modal" class="email-modal-overlay">
+    <div class="email-modal-content">
+      <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <div class="email-modal-container">
+        <div class="email-modal-left">
+          <h2 class="email-modal-title">
+            <span class="italic">Let's build</span> something great
+          </h2>
+          <p class="email-modal-description">
+            Have a project, a new role, or just an idea you want to explore? Let's talk about it.
+          </p>
+          <div class="email-modal-decoration">
+            <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
+          </div>
+        </div>
+        
+        <div class="email-modal-right">
+          <form class="email-modal-form" id="contact-form">
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+            </div>
+            
+            <button type="submit" class="email-modal-submit">SEND EMAIL</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize carousel for UI exploration page
+    document.addEventListener('DOMContentLoaded', () => {
+      initCarousel();
+      initEmailModal();
+      
+      // Add click handlers for all project cards
+      document.querySelectorAll('.ui-project-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          const img = this.querySelector('img');
+          if (img) {
+            document.getElementById('modal-img').src = img.src;
+            document.getElementById('modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+    });
+    
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') closeModal();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

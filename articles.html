@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440, initial-scale=1">
+  <title>Articles – Nahid</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <style>
+    .article-card {
+      background: #e5e8ef;
+      border-radius: 2px;
+      padding: 48px 36px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .article-card:hover {
+      background: #101113;
+    }
+
+    .article-card:hover .article-title,
+    .article-card:hover .article-description {
+      color: #f4f6fa;
+    }
+
+    .article-card:hover .article-link {
+      color: #f4f6fa;
+      text-decoration: underline;
+    }
+
+    .article-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+    }
+
+    .article-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .article-title {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--black);
+      margin: 0;
+      font-family: 'Helvetica Neue', system-ui;
+    }
+
+    .article-description {
+      font-size: 16px;
+      color: #373c48;
+      margin: 0;
+      font-style: italic;
+      line-height: 1.34;
+      font-family: 'Helvetica Neue', system-ui;
+    }
+
+    .article-link {
+      font-size: 20px;
+      color: var(--black);
+      text-decoration: none;
+      font-style: italic;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+      width: fit-content;
+      font-family: 'Helvetica Neue', system-ui;
+    }
+
+    .article-link:hover {
+      opacity: 0.7;
+    }
+
+    .article-image {
+      width: 520px;
+      height: 284px;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .article-hero {
+      background: var(--light);
+      padding: 180px 58px 40px 58px;
+      margin-top: 80px;
+    }
+
+    .article-hero-container {
+      width: 1324px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .article-hero-title {
+      font-size: 112px;
+      font-weight: 500;
+      color: var(--black);
+      margin: 0;
+      font-family: 'Helvetica Neue', system-ui;
+      line-height: 1;
+    }
+
+    .article-hero-title .secondary {
+      color: var(--grey);
+      font-style: italic;
+    }
+
+    .article-hero-subtitle {
+      font-size: 22px;
+      color: #585c66;
+      margin: 0;
+      font-style: italic;
+      line-height: 1.34;
+      font-family: 'Helvetica Neue', system-ui;
+      max-width: 653px;
+      margin-left: auto;
+    }
+
+    .articles-section {
+      background: var(--light);
+      padding: 80px 58px 40px 58px;
+    }
+
+    .articles-list {
+      width: 1324px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Nahid home">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot"></span>
+      </div>
+      <nav class="nav-right">
+        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium" aria-current="page">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Artboard -->
+  <div id="artboard">
+    <!-- Hero Section -->
+    <section class="article-hero">
+      <div class="article-hero-container">
+        <h1 class="article-hero-title">
+          <span class="secondary">Thoughts on</span> Design &amp; Technology
+        </h1>
+        <p class="article-hero-subtitle">
+          A space for deeper reflections on design strategy, user psychology, and the craft of building meaningful experiences.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles List -->
+    <section class="articles-section">
+      <div class="articles-list">
+        <!-- Article 1 -->
+        <article class="article-card">
+          <div class="article-content">
+            <div class="article-header">
+              <h2 class="article-title">SELP Case Study</h2>
+              <p class="article-description">
+                SELP MIS Platform streamlines legal support by centralizing incident tracking, ADR, court case management, and follow-ups, empowering officers to deliver timely and transparent services for better access to justice.
+              </p>
+            </div>
+            <a href="#" class="article-link">Read this in Medium</a>
+          </div>
+          <img src="assets/case-leady.png" alt="SELP Case Study" class="article-image">
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card">
+          <div class="article-content">
+            <div class="article-header">
+              <h2 class="article-title">Design Thinking in Practice</h2>
+              <p class="article-description">
+                Exploring how design thinking methodologies can be applied to solve complex business problems and create user-centric solutions that drive innovation and growth.
+              </p>
+            </div>
+            <a href="#" class="article-link">Read this in Medium</a>
+          </div>
+          <img src="assets/case-leady.png" alt="Design Thinking" class="article-image">
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card">
+          <div class="article-content">
+            <div class="article-header">
+              <h2 class="article-title">User Experience Research</h2>
+              <p class="article-description">
+                Deep dive into qualitative and quantitative research methods that help us understand user behavior, pain points, and motivations to create better digital experiences.
+              </p>
+            </div>
+            <a href="#" class="article-link">Read this in Medium</a>
+          </div>
+          <img src="assets/case-leady.png" alt="User Research" class="article-image">
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card">
+          <div class="article-content">
+            <div class="article-header">
+              <h2 class="article-title">Building Design Systems</h2>
+              <p class="article-description">
+                A guide to creating scalable, maintainable design systems that ensure consistency, improve collaboration between designers and developers, and accelerate product development.
+              </p>
+            </div>
+            <a href="#" class="article-link">Read this in Medium</a>
+          </div>
+          <img src="assets/case-leady.png" alt="Design Systems" class="article-image">
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Email Contact Modal -->
+  <div id="email-modal" class="email-modal-overlay">
+    <div class="email-modal-content">
+      <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <div class="email-modal-container">
+        <div class="email-modal-left">
+          <h2 class="email-modal-title">
+            <span class="italic">Let's build</span> something great
+          </h2>
+          <p class="email-modal-description">
+            Have a project, a new role, or just an idea you want to explore? Let's talk about it.
+          </p>
+          <div class="email-modal-decoration">
+            <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
+          </div>
+        </div>
+        
+        <div class="email-modal-right">
+          <form class="email-modal-form" id="contact-form">
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+            </div>
+            
+            <button type="submit" class="email-modal-submit">SEND EMAIL</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize email modal on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initEmailModal();
+    });
+  </script>
+</body>
+</html>

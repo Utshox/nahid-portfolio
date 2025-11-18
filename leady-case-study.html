@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leady Mobile App - Case Study</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <style>
+    :root {
+      --primary-black: #101113;
+      --secondary-color: #454953;
+      --card-grey: #e5e8ef;
+      --light-background: #f4f6fa;
+      --border-color: #cecede;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    #artboard {
+      width: 100%;
+      margin: 0;
+      background: var(--light-background);
+    }
+
+    main {
+      background: var(--light-background);
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .page-hero {
+      padding: 100px 170px 40px 170px;
+      background: var(--light-background);
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1101px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .hero-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--secondary-color);
+      font-size: 14px;
+      font-family: 'Naga Space', sans-serif;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .page-title {
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.26;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .meta-info-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 80px;
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .meta-label {
+      font-size: 16px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .meta-value {
+      font-size: 18px;
+      color: var(--primary-black);
+      margin: 0;
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Shared section layout */
+    .project-overview,
+    .section-block,
+    .final-overview-section {
+      padding: 140px 170px;
+      display: flex;
+      justify-content: center;
+      background: var(--light-background);
+    }
+
+    .final-overview-section {
+      padding: 140px 170px 120px 170px;
+    }
+
+    .project-overview {
+      padding: 300px 170px;
+    }
+
+    .approach-block {
+      padding: 80px 170px;
+    }
+
+    .user-flow-block {
+      padding: 80px 170px;
+    }
+
+    .project-overview-container,
+    .section-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .user-flow-header {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .user-flow-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 672px;
+    }
+
+    .user-flow-subtitle-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .overview-text,
+    .final-overview-text {
+      font-family: 'Naga Space', sans-serif;
+      font-size: 34px;
+      line-height: 1.5;
+      color: var(--primary-black);
+      margin: 0;
+    }
+
+    .final-overview-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 100px;
+      min-height: 506px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 60px;
+    }
+
+    .section-header.split {
+      gap: 32px;
+    }
+
+    .section-header.split .section-supporting {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .section-header.split .section-supporting p {
+      text-align: right;
+    }
+
+
+
+    .section-header.simple {
+      justify-content: flex-start;
+    }
+
+    .section-title {
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Helvetica Neue', sans-serif;
+      text-transform: lowercase;
+    }
+
+    .section-title .accent {
+      color: var(--secondary-color);
+      font-style: italic;
+      font-family: 'Naga Space', sans-serif;
+      font-weight: 400;
+    }
+
+    .section-supporting {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .section-supporting p {
+      max-width: 540px;
+      margin: 0;
+      font-size: 20px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+    }
+
+    .user-flow-description {
+      font-size: 20px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+      margin: 0;
+      max-width: 540px;
+      font-weight: 400;
+
+    }
+
+    .approach-container {
+      gap: 40px;
+    }
+
+    .user-flow-block .section-container {
+      gap: 20px;
+    }
+
+    .section-supporting.bottom-copy {
+      justify-content: flex-end;
+    }
+
+    /* Vision */
+    .section-vision {
+      background: #0d0e11;
+      color: #f4f6fa;
+      padding: 120px 170px;
+    }
+
+    .section-vision .section-container {
+      gap: 40px;
+    }
+
+    .section-vision .section-title {
+      color: #f4f6fa;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-grey);
+      padding: 30px 22px;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      box-sizing: border-box;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      color: var(--primary-black);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: var(--secondary-color);
+      margin: 0;
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+    }
+
+    /* Approach */
+    .process-steps {
+      width: 100%;
+    }
+
+    .process-steps img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Flow */
+    .flow-board {
+      background: #0d0e11;
+      padding: 0;
+    }
+
+    .flow-image {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Wireframes */
+    .wireframes-block {
+      padding: 100px 170px;
+    }
+
+    .wireframes-header {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .wireframes-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 672px;
+    }
+
+    .wireframes-subtitle-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .wireframes-description {
+      font-size: 20px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
+      margin: 0;
+      max-width: 540px;
+      font-weight: 400;
+    }
+
+    .wireframes-board {
+      width: 100%;
+      max-width: 1100px;
+      height: 520px;
+      background: var(--card-grey);
+      border: 1px solid var(--border-color);
+    }
+
+    /* High fidelity */
+    .high-fidelity-block {
+      padding: 80px 170px;
+    }
+
+    .high-fidelity-container {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .high-fidelity-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .high-fidelity-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .high-fidelity-row {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-end;
+      justify-content: flex-end;
+      border-top: 1px solid var(--border-color);
+      padding-top: 22px;
+      width: 100%;
+    }
+
+    .high-fidelity-text {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .high-fidelity-text.wide-gap {
+      gap: 80px;
+    }
+
+    .high-fidelity-title {
+      font-size: 18px;
+      font-family: 'Naga Space', sans-serif;
+      margin: 0;
+      color: var(--primary-black);
+      line-height: 1.4;
+      font-weight: 400;
+      flex: 1 0 0;
+    }
+
+    .high-fidelity-description {
+      font-size: 18px;
+      color: var(--secondary-color);
+      margin: 0;
+      line-height: 1.4;
+      font-family: 'Naga Space', sans-serif;
+      font-weight: 400;
+      flex: 1 0 0;
+    }
+
+    .high-fidelity-description.fixed-width {
+      flex: none;
+      width: 540px;
+    }
+
+    .high-fidelity-image {
+      width: 540px;
+      height: 343px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .showreel-section {
+      padding: 0;
+      background: var(--light-background);
+    }
+
+    .showreel-video {
+      width: 100%;
+      display: block;
+    }
+
+    .next-design-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-black);
+      padding: 22px 26px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-black);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: 'Naga Space', sans-serif;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .next-design-btn:hover {
+      background: var(--primary-black);
+      color: #fff;
+    }
+
+    @media (max-width: 960px) {
+      .page-hero,
+      .project-overview,
+      .section-block,
+      .final-overview-section {
+        padding: 80px 24px;
+      }
+
+      .section-header {
+        flex-direction: column;
+      }
+
+      .section-supporting p {
+        text-align: left;
+      }
+
+      .process-steps {
+        flex-direction: column;
+      }
+
+      .high-fidelity-row {
+        flex-direction: column;
+      }
+
+      .high-fidelity-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Nahid home">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot" aria-hidden="true"></span>
+      </div>
+      <nav class="nav-right" aria-label="Primary">
+        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="artboard">
+    <main>
+      <section class="page-hero">
+        <div class="hero-container">
+          <div class="hero-text-wrapper">
+            <a href="index.html" class="back-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#454953" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Back
+            </a>
+            <h1 class="page-title">Leady App - Lead Generation Mobile App</h1>
+          </div>
+          <div class="meta-info-wrapper">
+            <div class="meta-info">
+              <div class="meta-item">
+                <p class="meta-label">My Role</p>
+                <p class="meta-value">UX &amp; UI Design, Prototyping</p>
+              </div>
+              <div class="meta-item">
+                <p class="meta-label">Teams</p>
+                <p class="meta-value">Business Analyst, PM, Dev</p>
+              </div>
+              <div class="meta-item">
+                <p class="meta-label">Timeframe</p>
+                <p class="meta-value">Aug 2024 - Jan 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Project%20Banner.png" alt="Leady Mobile App Overview" class="hero-image">
+      </section>
+
+      <section class="project-overview">
+        <div class="project-overview-container">
+          <p class="overview-text">The Leady App streamlines lead generation, enhancing collaboration and efficiency. MFS Agents act as Referrers to collect leads and earn commissions for approved leads, making it engaging and rewarding.</p>
+        </div>
+      </section>
+
+      <section class="section-block section-vision">
+        <div class="section-container">
+          <div class="section-header simple">
+            <h2 class="section-title">the vision <span class="accent">behind the leady app</span></h2>
+          </div>
+          <div class="vision-grid">
+            <article class="card">
+              <div class="card-icon">
+                <img src="assets/improve operational efficiency Icon.svg" alt="Operational efficiency icon">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Designed for a Bangladeshi company aiming to expand its customer base.</h3>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-icon">
+                <img src="assets/Enhance Service Quality and Effectiveness Icon.svg" alt="Service quality icon">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Streamlines the lead collection process as the initial touchpoint for potential clients.</h3>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-icon">
+                <img src="assets/Strengthen Strategic Decision-Making icon.svg" alt="Strategic decision icon">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Optimizes lead management to enhance efficiency.</h3>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-icon">
+                <img src="assets/Increase User Adoption and Satisfaction icon.svg" alt="User adoption icon">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Improves customer acquisition.</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block approach-block">
+        <div class="section-container approach-container">
+          <div class="section-header simple">
+            <h2 class="section-title">approach <span class="accent">to design</span></h2>
+          </div>
+          <div class="process-steps">
+            <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Approach%20to%20design.png" alt="Approach to design diagram">
+          </div>
+          <div class="section-supporting bottom-copy">
+            <p>We gathered client requirements to create a user flow, then refined the design through iterative client feedback to ensure it was functional, user-friendly, and aligned with their vision.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block user-flow-block">
+        <div class="section-container">
+          <div class="user-flow-header">
+            <div class="user-flow-title-wrapper">
+              <h2 class="section-title">the journey <span class="accent">to a seamless experience</span></h2>
+            </div>
+            <div class="user-flow-subtitle-wrapper">
+              <p class="user-flow-description">We mapped out the user flow and refined it with client feedback to create an intuitive journey that aligned both user needs and business goals, focusing on a seamless journey for users from start to finish.</p>
+            </div>
+          </div>
+          <div class="flow-board">
+            <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/The%20journey%20to%20a%20seamless%20experience.png" alt="User journey map" class="flow-image">
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block wireframes-block">
+        <div class="section-container">
+          <div class="wireframes-header">
+            <div class="wireframes-title-wrapper">
+              <h2 class="section-title">wireframe iterations, <span class="accent">refining the blueprint</span></h2>
+            </div>
+            <div class="wireframes-subtitle-wrapper">
+              <p class="wireframes-description">Before adding color or detail, we first drafted the app's blueprint with these low-fidelity wireframes. This allowed us to focus purely on the core structure and flow, ensuring the user's journey was logical and intuitive from the start.</p>
+            </div>
+          </div>
+          <div class="wireframes-board" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="section-block high-fidelity-block">
+        <div class="section-container">
+          <div class="high-fidelity-container">
+            <div class="high-fidelity-title-wrapper">
+              <h2 class="section-title"><span class="accent">bringing the</span> blueprint to life</h2>
+            </div>
+            <div class="high-fidelity-items">
+              <div class="high-fidelity-row">
+                <div class="high-fidelity-text">
+                  <h3 class="high-fidelity-title">Home Page</h3>
+                  <p class="high-fidelity-description">This is a Leady App dashboard designed to centralize their core activities. It provides an at-a-glance view of their commission earnings, a tool for submitting and tracking customer leads, and direct access to view available loan products and promotions.</p>
+                </div>
+                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Home%20Page.png" alt="Home page" class="high-fidelity-image">
+              </div>
+              <div class="high-fidelity-row">
+                <div class="high-fidelity-text wide-gap">
+                  <h3 class="high-fidelity-title">Commission Details Page</h3>
+                  <p class="high-fidelity-description fixed-width">User can see commission summery by default. If they want to see specific date wise transaction then they need to tap on statement tab and they see their commissions.</p>
+                </div>
+                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Commission.png" alt="Commission details" class="high-fidelity-image">
+              </div>
+              <div class="high-fidelity-row">
+                <div class="high-fidelity-text wide-gap">
+                  <h3 class="high-fidelity-title">Lead Status Page</h3>
+                  <p class="high-fidelity-description fixed-width">Here user can see their leads status. If any lead accepted then the refferer got commission based on the accepted leads.</p>
+                </div>
+                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Lead%20Status.png" alt="Lead status" class="high-fidelity-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showreel-section">
+        <video width="100%" height="auto" controls class="showreel-video">
+          <source src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Showreel-Grid-Mobile-1200px%20(1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section class="final-overview-section">
+        <div class="final-overview-container">
+          <p class="final-overview-text">The Leady Mobile App transforms lead generation into an interactive and rewarding process for MFS agents. Its deliberate, user-focused design successfully optimizes lead management and accelerates customer acquisition. The result is an intuitive, scalable platform that effectively aligns business goals with user motivation to drive growth.</p>
+          <a href="mf-web-portal-case-study.html" class="next-design-btn">NEXT DESIGN</a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

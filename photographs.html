@@ -1,0 +1,629 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440, initial-scale=1">
+  <title>Photographs  Nahid</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <style>
+    .photo-hero {
+      background: var(--light);
+      padding: 180px 58px 40px 58px;
+      margin-top: 80px;
+    }
+
+    .photo-hero-container {
+      width: 1324px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .photo-hero-title {
+      font-size: 112px;
+      font-weight: 500;
+      color: var(--black);
+      margin: 0;
+      font-family: 'Helvetica Neue', system-ui;
+      line-height: 1;
+    }
+
+    .photo-hero-title .secondary {
+      color: var(--grey);
+      font-style: italic;
+    }
+
+    .photo-hero-subtitle {
+      font-size: 22px;
+      color: #585c66;
+      margin: 0;
+      font-style: italic;
+      line-height: 1.34;
+      font-family: 'Helvetica Neue', system-ui;
+      max-width: 653px;
+      margin-left: auto;
+    }
+
+    .photos-section {
+      background: var(--light);
+      padding: 80px 58px;
+    }
+
+    .photo-grid {
+      width: 1324px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      grid-auto-rows: 285px;
+    }
+
+    .photo-item {
+      background: white;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .photo-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-item:nth-child(3) { grid-row: span 2; }
+    .photo-item:nth-child(7) { grid-row: span 2; }
+    .photo-item:nth-child(9) { grid-row: span 2; }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #101113;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .modal-close:hover {
+      background: white;
+      transform: rotate(90deg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #101113;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .modal-nav:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .modal-nav:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .modal-prev {
+      left: 20px;
+    }
+
+    .modal-next {
+      right: 20px;
+    }
+
+    .modal-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .modal-content img {
+      animation: slideInImage 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal-content img.slide-left {
+      animation: fadeOutImage 0.3s ease-in-out forwards;
+    }
+
+    .modal-content img.slide-right {
+      animation: fadeOutImage 0.3s ease-in-out forwards;
+    }
+
+    @keyframes slideInImage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOutImage {
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideOutLeft {
+      to {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.98);
+      }
+    }
+
+    @keyframes slideOutRight {
+      to {
+        opacity: 0;
+        transform: translateX(100px) scale(0.98);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Nahid home">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot"></span>
+      </div>
+      <nav class="nav-right">
+        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium" aria-current="page">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="artboard">
+    <section class="photo-hero">
+      <div class="photo-hero-container">
+        <h1 class="photo-hero-title">
+          <span class="secondary">How I See</span> the World
+        </h1>
+        <p class="photo-hero-subtitle">
+          Every photo captures a fleeting moment and a unique narrative. This is a collection of the ones I've found.
+        </p>
+      </div>
+    </section>
+
+    <section class="photos-section">
+      <div class="photo-grid">
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240308_144809.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240308_144809.jpg" alt="Photograph 1">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155037-2.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155037-2.jpg" alt="Photograph 2">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155106.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155106.jpg" alt="Photograph 3">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155250-2.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155250-2.jpg" alt="Photograph 4">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_160827.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_160827.jpg" alt="Photograph 5">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_163414.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_163414.jpg" alt="Photograph 6">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_171211.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_171211.jpg" alt="Photograph 7">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_174739.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_174739.jpg" alt="Photograph 8">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240310_100742.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240310_100742.jpg" alt="Photograph 9">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250110_153342.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250110_153342.JPG" alt="Photograph 10">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_172619.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_172619.JPG" alt="Photograph 11">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174005.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174005.JPG" alt="Photograph 12">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174355.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174355.JPG" alt="Photograph 13">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174417.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174417.JPG" alt="Photograph 14">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174430.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174430.JPG" alt="Photograph 15">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174544.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174544.JPG" alt="Photograph 16">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174707-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174707-2.JPG" alt="Photograph 17">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174728.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174728.JPG" alt="Photograph 18">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174941.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174941.JPG" alt="Photograph 19">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955-2.JPG" alt="Photograph 20">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955.JPG" alt="Photograph 21">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_175006.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_175006.JPG" alt="Photograph 22">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_210604-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_210604-2.JPG" alt="Photograph 23">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115612-3.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115612-3.JPG" alt="Photograph 24">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115639-3.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115639-3.JPG" alt="Photograph 25">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115649.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115649.JPG" alt="Photograph 26">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319-2.JPG" alt="Photograph 27">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319.JPG" alt="Photograph 28">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120516.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120516.JPG" alt="Photograph 29">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620-2.JPG" alt="Photograph 30">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620.JPG" alt="Photograph 31">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850-2.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850-2.JPG" alt="Photograph 32">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850.JPG" alt="Photograph 33">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140000.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140000.JPG" alt="Photograph 34">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140431.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140431.JPG" alt="Photograph 35">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140433.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140433.JPG" alt="Photograph 36">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142140.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142140.JPG" alt="Photograph 37">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142159.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142159.JPG" alt="Photograph 38">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_154408.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_154408.JPG" alt="Photograph 39">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155047.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155047.JPG" alt="Photograph 40">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155449.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155449.JPG" alt="Photograph 41">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161816.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161816.JPG" alt="Photograph 42">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161830.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161830.JPG" alt="Photograph 43">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162041.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162041.JPG" alt="Photograph 44">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162051.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162051.JPG" alt="Photograph 45">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162337.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162337.JPG" alt="Photograph 46">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_171135.JPG">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_171135.JPG" alt="Photograph 47">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211106_155535-2.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211106_155535-2.jpg" alt="Photograph 48">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132004.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132004.jpg" alt="Photograph 49">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132128.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132128.jpg" alt="Photograph 50">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_161440.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_161440.jpg" alt="Photograph 51">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_162224.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_162224.jpg" alt="Photograph 52">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_141534.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_141534.jpg" alt="Photograph 53">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_150221.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_150221.jpg" alt="Photograph 54">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_153438-2.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_153438-2.jpg" alt="Photograph 55">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_160558.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_160558.jpg" alt="Photograph 56">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220730_182045.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220730_182045.jpg" alt="Photograph 57">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_144233.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_144233.jpg" alt="Photograph 58">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_145035.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_145035.jpg" alt="Photograph 59">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_084217.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_084217.jpg" alt="Photograph 60">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_095600.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_095600.jpg" alt="Photograph 61">
+        </div>
+        <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/PXL_20211218_173728264.jpg">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/PXL_20211218_173728264.jpg" alt="Photograph 62">
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="photoModal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <button class="modal-nav modal-prev" id="modalPrev" aria-label="Previous image">‹</button>
+    <button class="modal-nav modal-next" id="modalNext" aria-label="Next image">›</button>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Full size photograph">
+    </div>
+  </div>
+
+  <script>
+    const photoItems = document.querySelectorAll('.photo-item');
+    const photoModal = document.getElementById('photoModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    
+    let currentPhotoIndex = 0;
+    const photoSources = Array.from(photoItems).map(item => item.dataset.src);
+
+    function openModal(index) {
+      currentPhotoIndex = index;
+      modalImage.src = photoSources[index];
+      photoModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      photoModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function goToNext() {
+      modalImage.classList.add('slide-left');
+      setTimeout(() => {
+        modalImage.classList.remove('slide-left');
+        currentPhotoIndex = (currentPhotoIndex + 1) % photoSources.length;
+        modalImage.src = photoSources[currentPhotoIndex];
+      }, 150);
+    }
+
+    function goToPrev() {
+      modalImage.classList.add('slide-right');
+      setTimeout(() => {
+        modalImage.classList.remove('slide-right');
+        currentPhotoIndex = (currentPhotoIndex - 1 + photoSources.length) % photoSources.length;
+        modalImage.src = photoSources[currentPhotoIndex];
+      }, 150);
+    }
+
+    // Photo item click
+    photoItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        openModal(index);
+      });
+    });
+
+    // Close button
+    modalClose.addEventListener('click', closeModal);
+
+    // Overlay click
+    photoModal.addEventListener('click', (e) => {
+      if (e.target === photoModal) {
+        closeModal();
+      }
+    });
+
+    // Navigation buttons
+    modalNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToNext();
+    });
+
+    modalPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToPrev();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!photoModal.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      } else if (e.key === 'ArrowLeft') {
+        goToPrev();
+      }
+    });
+
+    // Initialize email modal
+    initEmailModal();
+  </script>
+
+  <!-- Email Contact Modal -->
+  <div id="email-modal" class="email-modal-overlay">
+    <div class="email-modal-content">
+      <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <div class="email-modal-container">
+        <div class="email-modal-left">
+          <h2 class="email-modal-title">
+            <span class="italic">Let's build</span> something great
+          </h2>
+          <p class="email-modal-description">
+            Have a project, a new role, or just an idea you want to explore? Let's talk about it.
+          </p>
+          <div class="email-modal-decoration">
+            <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
+          </div>
+        </div>
+        
+        <div class="email-modal-right">
+          <form class="email-modal-form" id="contact-form">
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+            </div>
+            
+            <button type="submit" class="email-modal-submit">SEND EMAIL</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

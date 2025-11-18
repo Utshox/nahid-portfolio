@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1440, initial-scale=1" />
+  <title>Nahid – Portfolio</title>
+  <meta name="description" content="UI/UX design portfolio – Nahid" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Fixed Navigation -->
+  <header id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo" aria-label="Nahid home">
+          <span class="logo-text">NAHID</span>
+        </a>
+        <span class="nav-dot" aria-hidden="true"></span>
+      </div>
+      <nav class="nav-right" aria-label="Primary">
+        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
+        <a href="articles.html" class="nav-link hneue medium">Articles</a>
+        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Artboard -->
+  <div id="artboard">
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="intro">
+          <h1 id="hero-title" class="hneue medium">HI, I'M NAHID</h1>
+          <div class="designation">
+            <p class="designation-text inter italic">UI/ UX Designer</p>
+          </div>
+        </div>
+        <div class="hero-sub">
+          <p class="hneue">
+            I design intuitive user experiences that solve business problems, increase conversions,
+            and build customer loyalty.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Heading -->
+    <section id="case-studies-heading">
+      <div class="case-title-heading hneue" aria-label="Click and see, how my design works">
+        <p class="mb-0"><span class="italic secondary lower">Click &amp; See,</span></p>
+        <p class="lower">how my design WORKS..</p>
+      </div>
+    </section>
+
+    <!-- Case Study Cards - Stacked Vertically -->
+    <section class="case-row case-single">
+      <a href="selp-case-study.html" class="case-card-link">
+        <figure class="case-card reveal">
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/SELP%20MIS%20Web%20App%20-%20Landing%20Page.png" alt="SELP MIS Web App case study" />
+          <span class="wash" aria-hidden="true"></span>
+          <div class="case-overlay" aria-hidden="true">
+            <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
+            <figcaption class="case-caption hneue medium lower">SELP MIS Web App</figcaption>
+          </div>
+        </figure>
+      </a>
+    </section>
+
+    <section class="case-row case-single">
+      <a href="leady-case-study.html" class="case-card-link">
+        <figure class="case-card reveal">
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Leady%20App%20-%20Landing%20Page.png" alt="Leady mobile app case study" />
+          <span class="wash" aria-hidden="true"></span>
+          <div class="case-overlay" aria-hidden="true">
+            <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
+            <figcaption class="case-caption hneue medium lower">Leady Mobile App</figcaption>
+          </div>
+        </figure>
+      </a>
+    </section>
+
+    <section class="case-row case-single">
+      <a href="mf-web-portal-case-study.html" class="case-card-link">
+        <figure class="case-card reveal">
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Centralized%20Portal%20-%20Landing%20Page.png" alt="Centralized Portal case study" />
+          <span class="wash" aria-hidden="true"></span>
+          <div class="case-overlay" aria-hidden="true">
+            <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
+            <figcaption class="case-caption hneue medium lower">Centralized Portal</figcaption>
+          </div>
+        </figure>
+      </a>
+    </section>
+
+    <section class="case-row case-single">
+      <a href="course-management-lms.html">
+        <figure class="case-card reveal">
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Redesigning%20the%20ONE%20LMS%20Course%20Creation%20Experience.png" alt="One LMS case study" />
+          <span class="wash" aria-hidden="true"></span>
+          <div class="case-overlay" aria-hidden="true">
+            <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
+            <figcaption class="case-caption hneue medium lower">ONE LMS Course Creation</figcaption>
+          </div>
+        </figure>
+      </a>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="projects">
+      <div class="projects-content">
+        <div class="project-highlights">
+          <div class="project-title">
+            <h3 class="hneue lower">
+              <span class="italic secondary">Designs in</span> Motion
+            </h3>
+          </div>
+          <p class="hneue secondary small">
+            Exploring the art of motion to create more intuitive and delightful user experiences.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-wrapper">
+        <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous project">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="projects-grid" id="carousel-track">
+          <div class="grid-item w-934 h-520">
+            <img src="assets/project1.png" alt="Project 1" />
+            <video src="assets/project1.mp4" muted loop></video>
+          </div>
+          <div class="grid-item w-876 h-520">
+            <img src="assets/project2.png" alt="Project 2" />
+            <video src="assets/project2.mp4" muted loop></video>
+          </div>
+          <div class="grid-item w-876 h-520">
+            <img src="assets/project3.png" alt="Project 3" />
+            <video src="assets/project3.mp4" muted loop></video>
+          </div>
+        </div>
+        <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Next project">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Philosophy Band -->
+    <section id="philosophy">
+      <div class="philo-dots" aria-hidden="true"></div>
+      <div class="philo-content">
+        <div class="philo-pill">
+          <span class="hneue italic secondary">how i think about design</span>
+        </div>
+        <div class="philo-lines">
+          <p class="philo-line hneue">
+            <span class="italic secondary">every</span>
+            <span> dots.</span>
+          </p>
+          <p class="philo-line hneue align-right">
+            <span class="italic secondary">has to be</span>
+            <span> purposeful!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-grid">
+          <figure class="about-image">
+            <img src="assets/portrait.png" alt="Portrait of Nahid" width="428" height="560" />
+          </figure>
+          <div class="about-copy">
+            <div class="about-copy-text">
+              <p class="hneue body">
+                As a UI/UX designer with over 4 years of experience, I am driven by a passion for creating digital
+                experiences that are not only beautiful but are fundamentally intuitive and effective.
+              </p>
+              <p class="hneue body">
+                My design process is a journey of discovery, beginning with a deep dive to understand the core of your
+                business and the unique needs of your audience. I translate these insights into tangible strategies,
+                crafting everything from wireframes to pixel-perfect interfaces through an iterative cycle of creation,
+                testing, and feedback.
+              </p>
+              <p class="hneue body">
+                This methodical approach ensures that every design decision is purposeful, leading to products that are a
+                joy to use and engineered to achieve key business goals, from increased user engagement to higher
+                conversion rates.
+              </p>
+            </div>
+            <ul class="social">
+              <li><a href="#" class="hneue">LinkedIn</a></li>
+              <li><a href="#" class="hneue">Medium</a></li>
+              <li><a href="#" class="hneue">Dribbble</a></li>
+              <li><a href="#" class="hneue">Behance</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+      </div>
+      <div class="footer-cta">
+        <div class="cta-copy">
+          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn">EMAIL ME</button>
+      </div>
+      <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
+        <div class="footer-marquee">
+          <div class="marquee-content">
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Email Contact Modal -->
+  <div id="email-modal" class="email-modal-overlay">
+    <div class="email-modal-content">
+      <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <div class="email-modal-container">
+        <div class="email-modal-left">
+          <h2 class="email-modal-title">
+            <span class="italic">Let's build</span> something great
+          </h2>
+          <p class="email-modal-description">
+            Have a project, a new role, or just an idea you want to explore? Let's talk about it.
+          </p>
+          <div class="email-modal-decoration">
+            <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
+          </div>
+        </div>
+        
+        <div class="email-modal-right">
+          <form class="email-modal-form" id="contact-form">
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+            </div>
+            
+            <button type="submit" class="email-modal-submit">SEND EMAIL</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
