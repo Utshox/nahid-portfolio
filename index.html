@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=1440, initial-scale=1" />
@@ -14,33 +15,20 @@
 </head>
 
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+  <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
     <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo">
+        </feColorMatrix>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+      </filter>
     </defs>
-</svg>
-<div id="cursor"></div>
+  </svg>
+  <div id="cursor"></div>
 
-  <!-- Fixed Navigation -->
-  <header id="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <a href="index.html" class="nav-logo" aria-label="Nahid home">
-          <span class="logo-text">NAHID</span>
-        </a>
-        <span class="nav-dot" aria-hidden="true"></span>
-      </div>
-      <nav class="nav-right" aria-label="Primary">
-        <a href="ui-exploration.html" class="nav-link hneue medium">UI exploration</a>
-        <a href="articles.html" class="nav-link hneue medium">Articles</a>
-        <a href="photographs.html" class="nav-link hneue medium">Photographs</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Navigation Component -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Main Artboard -->
   <div id="artboard">
@@ -74,7 +62,8 @@
     <section class="case-row case-single">
       <a href="selp-case-study.html" class="case-card-link">
         <figure class="case-card reveal">
-          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/SELP%20MIS%20Web%20App%20-%20Landing%20Page.png" alt="SELP MIS Web App case study" />
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/SELP%20MIS%20Web%20App%20-%20Landing%20Page.png"
+            alt="SELP MIS Web App case study" />
           <span class="wash" aria-hidden="true"></span>
           <div class="case-overlay" aria-hidden="true">
             <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
@@ -87,7 +76,8 @@
     <section class="case-row case-single">
       <a href="leady-case-study.html" class="case-card-link">
         <figure class="case-card reveal">
-          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Leady%20App%20-%20Landing%20Page.png" alt="Leady mobile app case study" />
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Leady%20App%20-%20Landing%20Page.png"
+            alt="Leady mobile app case study" />
           <span class="wash" aria-hidden="true"></span>
           <div class="case-overlay" aria-hidden="true">
             <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
@@ -100,7 +90,8 @@
     <section class="case-row case-single">
       <a href="mf-web-portal-case-study.html" class="case-card-link">
         <figure class="case-card reveal">
-          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Centralized%20Portal%20-%20Landing%20Page.png" alt="Centralized Portal case study" />
+          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Centralized%20Portal%20-%20Landing%20Page.png"
+            alt="Centralized Portal case study" />
           <span class="wash" aria-hidden="true"></span>
           <div class="case-overlay" aria-hidden="true">
             <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
@@ -113,7 +104,9 @@
     <section class="case-row case-single">
       <a href="course-management-lms.html">
         <figure class="case-card reveal">
-          <img src="assets/Portfolio%20Design%20Assests/Landing%20Page/Redesigning%20the%20ONE%20LMS%20Course%20Creation%20Experience.png" alt="One LMS case study" />
+          <img
+            src="assets/Portfolio%20Design%20Assests/Landing%20Page/Redesigning%20the%20ONE%20LMS%20Course%20Creation%20Experience.png"
+            alt="One LMS case study" />
           <span class="wash" aria-hidden="true"></span>
           <div class="case-overlay" aria-hidden="true">
             <span class="arrow"><img class="arrow-svg" src="assets/arrow.svg" alt="" /></span>
@@ -140,7 +133,8 @@
       <div class="carousel-wrapper">
         <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous project">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
         <div class="projects-grid" id="carousel-track">
@@ -159,7 +153,8 @@
         </div>
         <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Next project">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -205,7 +200,8 @@
                 testing, and feedback.
               </p>
               <p class="hneue body">
-                This methodical approach ensures that every design decision is purposeful, leading to products that are a
+                This methodical approach ensures that every design decision is purposeful, leading to products that are
+                a
                 joy to use and engineered to achieve key business goals, from increased user engagement to higher
                 conversion rates.
               </p>
@@ -250,7 +246,8 @@
     <!-- Back to Top Button -->
     <button class="backToTopBtn" id="backToTopBtn" aria-label="Scroll to top">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
       </svg>
     </button>
   </div>
@@ -260,10 +257,11 @@
     <div class="email-modal-content">
       <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
-      
+
       <div class="email-modal-container">
         <div class="email-modal-left">
           <h2 class="email-modal-title">
@@ -276,24 +274,25 @@
             <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
           </div>
         </div>
-        
+
         <div class="email-modal-right">
           <form class="email-modal-form" id="contact-form">
             <div class="form-group">
               <label for="fullname" class="form-label">Full Name</label>
               <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
             </div>
-            
+
             <div class="form-group">
               <label for="email" class="form-label">Email</label>
               <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
             </div>
-            
+
             <div class="form-group">
               <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.."
+                required></textarea>
             </div>
-            
+
             <button type="submit" class="email-modal-submit" data-block="button">
               <span class="button__flair"></span>
               <span class="button__label">SEND EMAIL</span>
@@ -326,7 +325,7 @@
           stagger: { amount: 0.6 }
         });
       }
-      
+
       // Animate all other headers
       const headers = document.querySelectorAll('h2, h3, .hneue.title, .designation-text, .case-title-heading p, .philo-line');
       headers.forEach((header) => {
@@ -408,7 +407,7 @@
 
       window.addEventListener('scroll', handleScroll, { passive: true });
       btn.addEventListener('click', scrollToTop);
-      
+
       // Check initial state
       handleScroll();
     }

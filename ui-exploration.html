@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1440, initial-scale=1">
@@ -64,7 +65,7 @@
     }
 
     .ui-grid-container {
-        width: 1324px;
+      width: 1324px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -175,7 +176,7 @@
       transform: scale(1.005);
     }
 
-    .g_visual_wrap > * {
+    .g_visual_wrap>* {
       grid-area: 1 / 1 / 2 / 2;
       width: 100%;
       height: 100%;
@@ -224,21 +225,23 @@
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="scripts/main.js" defer></script>
-</head>
-<body>
-<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
-    </defs>
-</svg>
-<div id="cursor"></div>
 
-<header id="nav">
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo">
+        </feColorMatrix>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+      </filter>
+    </defs>
+  </svg>
+  <div id="cursor"></div>
+
+  <header id="nav">
     <div class="nav-inner">
       <div class="nav-left">
         <a href="index.html" class="nav-logo">
@@ -274,19 +277,25 @@
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20dark.png" alt="Analytical dashboard visualization dark" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20dark.png"
+                alt="Analytical dashboard visualization dark" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Analytical Dashboard Dark</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20light.png" alt="Analytical dashboard visualization light" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20light.png"
+                alt="Analytical dashboard visualization light" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Analytical Dashboard Light</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/App%20analytical%20data%20visualization.png" alt="App analytical data visualization" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/App%20analytical%20data%20visualization.png"
+                alt="App analytical data visualization" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">App Analytical Data</p>
           </div>
@@ -296,19 +305,23 @@
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Apple%20Vision%20OS%20visual%20exploration.png" alt="Apple Vision OS visual exploration" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Apple%20Vision%20OS%20visual%20exploration.png"
+                alt="Apple Vision OS visual exploration" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Apple Vision OS</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20Card%20Exploration.png" alt="Banking App Card Exploration" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20Card%20Exploration.png"
+                alt="Banking App Card Exploration" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Banking App Card</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20UI%20Exploration.png" alt="Banking App UI Exploration" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20UI%20Exploration.png"
+                alt="Banking App UI Exploration" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Banking App UI</p>
           </div>
@@ -318,19 +331,24 @@
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Bove%20Marketing%20logo.png" alt="Bove Marketing logo" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Bove%20Marketing%20logo.png"
+                alt="Bove Marketing logo" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Bove Marketing Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Jassmart%20ecommerce%20logo%20ideation.png" alt="Jassmart ecommerce logo" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Jassmart%20ecommerce%20logo%20ideation.png"
+                alt="Jassmart ecommerce logo" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Jassmart Ecommerce</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Lakers%20Clippers%20logo%20inspirations.png" alt="Lakers Clippers logo" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Lakers%20Clippers%20logo%20inspirations.png"
+                alt="Lakers Clippers logo" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Lakers Clippers Logo</p>
           </div>
@@ -340,19 +358,22 @@
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Madbee%20logo%20ideation.png" alt="Madbee logo ideation" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Madbee%20logo%20ideation.png"
+                alt="Madbee logo ideation" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Madbee Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Music%20app%20ui%20exploration.png" alt="Music app ui exploration" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Music%20app%20ui%20exploration.png"
+                alt="Music app ui exploration" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Music App UI</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Reddoor%20logo%20ideation.png" alt="Reddoor logo ideation" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Reddoor%20logo%20ideation.png"
+                alt="Reddoor logo ideation" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Reddoor Logo</p>
           </div>
@@ -362,19 +383,24 @@
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Robi%20app%20home%20page%20ui%20redesign.png" alt="Robi app home page ui redesign" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Robi%20app%20home%20page%20ui%20redesign.png"
+                alt="Robi app home page ui redesign" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Robi App Redesign</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Shop%20ONYX%20minimal%20logo.png" alt="Shop ONYX minimal logo" class="ui-project-image" data-animate="true">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Shop%20ONYX%20minimal%20logo.png"
+                alt="Shop ONYX minimal logo" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Shop ONYX Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
             <div class="g_visual_wrap">
-              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Spawlding%20Epoxy%20Flooring%20logo%20Ideation.png" alt="Spawlding Epoxy Flooring logo" class="ui-project-image" data-animate="true">
+              <img
+                src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Spawlding%20Epoxy%20Flooring%20logo%20Ideation.png"
+                alt="Spawlding Epoxy Flooring logo" class="ui-project-image" data-animate="true">
             </div>
             <p class="ui-project-title">Spawlding Epoxy Logo</p>
           </div>
@@ -397,7 +423,8 @@
       <div class="carousel-wrapper">
         <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous project">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
         <div class="projects-grid" id="carousel-track">
@@ -416,7 +443,8 @@
         </div>
         <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Next project">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 5L20 15L10 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -450,18 +478,24 @@
     <!-- Back to Top Button -->
     <button class="backToTopBtn" id="backToTopBtn" aria-label="Scroll to top">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
       </svg>
     </button>
   </div>
 
   <!-- Modal for project details -->
-  <div id="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
-    <div style="background: white; border-radius: 16px; max-width: 900px; max-height: 80vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(0,0,0,0.3); padding: 40px; position: relative;">
-      <button onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border: none; background: rgba(0,0,0,0.1); border-radius: 50%; font-size: 28px; cursor: pointer;">×</button>
-      <img id="modal-img" src="" alt="" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+  <div id="modal"
+    style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+    <div
+      style="background: white; border-radius: 16px; max-width: 900px; max-height: 80vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(0,0,0,0.3); padding: 40px; position: relative;">
+      <button onclick="closeModal()"
+        style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border: none; background: rgba(0,0,0,0.1); border-radius: 50%; font-size: 28px; cursor: pointer;">×</button>
+      <img id="modal-img" src="" alt=""
+        style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
       <h2 class="hneue medium" style="font-size: 24px; margin: 0; color: var(--black);">UI Design</h2>
-      <p class="hneue" style="font-size: 14px; line-height: 1.6; margin: 8px 0 0 0; color: var(--grey);">Design exploration showcasing user interface patterns and interactions.</p>
+      <p class="hneue" style="font-size: 14px; line-height: 1.6; margin: 8px 0 0 0; color: var(--grey);">Design
+        exploration showcasing user interface patterns and interactions.</p>
     </div>
   </div>
 
@@ -470,10 +504,11 @@
     <div class="email-modal-content">
       <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </button>
-      
+
       <div class="email-modal-container">
         <div class="email-modal-left">
           <h2 class="email-modal-title">
@@ -486,24 +521,25 @@
             <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
           </div>
         </div>
-        
+
         <div class="email-modal-right">
           <form class="email-modal-form" id="contact-form">
             <div class="form-group">
               <label for="fullname" class="form-label">Full Name</label>
               <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here" required>
             </div>
-            
+
             <div class="form-group">
               <label for="email" class="form-label">Email</label>
               <input type="email" id="email" name="email" class="form-input" placeholder="Type email here" required>
             </div>
-            
+
             <div class="form-group">
               <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
+              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.."
+                required></textarea>
             </div>
-            
+
             <button type="submit" class="email-modal-submit" data-block="button">
               <span class="button__flair"></span>
               <span class="button__label">SEND EMAIL</span>
@@ -520,10 +556,10 @@
       initCarousel();
       initEmailModal();
       initBackToTop();
-      
+
       // Add click handlers for all project cards
       document.querySelectorAll('.ui-project-card').forEach(card => {
-        card.addEventListener('click', function(e) {
+        card.addEventListener('click', function (e) {
           const img = this.querySelector('img');
           if (img) {
             document.getElementById('modal-img').src = img.src;
@@ -533,7 +569,7 @@
         });
       });
     });
-    
+
     // Back to Top functionality
     function initBackToTop() {
       const backToTopBtn = document.getElementById('backToTopBtn');
@@ -557,190 +593,200 @@
 
       // Smooth scroll to top on click using GSAP
       backToTopBtn.addEventListener('click', () => {
-        gsap.to(window, {
+        gsap.to(document.documentElement, {
           duration: 1,
-          scrollTo: { y: 0, autoKill: true },
+          scrollTop: 0,
           ease: "power2.inOut"
         });
       });
     }
-    
+
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
       document.body.style.overflow = 'auto';
     }
-    
+
     document.getElementById('modal').addEventListener('click', (e) => {
       if (e.target.id === 'modal') closeModal();
     });
-    
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Animate headings
-        const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
-        headers.forEach((header) => {
-            // Collect information about spans and their content before splitting
-            const spanMap = new Map();
-            const spans = header.querySelectorAll('span');
-            spans.forEach(span => {
-                const words = span.textContent.trim().split(/\s+/);
-                words.forEach(word => {
-                    spanMap.set(word.toLowerCase(), Array.from(span.classList));
-                });
-            });
-            
-            new SplitType(header, { types: "words", tagName: "span" });
-            const words = header.querySelectorAll('.word');
-            
-            // Reapply classes to words based on their text content
-            words.forEach((word) => {
-                const wordText = word.textContent.trim().toLowerCase();
-                if (spanMap.has(wordText)) {
-                    const classes = spanMap.get(wordText);
-                    word.classList.add(...classes);
-                }
-            });
-            
-            gsap.set(words, { transformPerspective: 1000 });
-            gsap.from(words, {
-                scrollTrigger: {
-                    trigger: header,
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                },
-                rotationX: -90,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                stagger: { amount: 0.6 }
-            });
+      // Register GSAP plugins
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate headings
+      const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+
+      headers.forEach((header, index) => {
+
+        // Collect information about spans and their content before splitting
+        const spanMap = new Map();
+        const spans = header.querySelectorAll('span');
+        spans.forEach(span => {
+          const words = span.textContent.trim().split(/\s+/);
+          words.forEach(word => {
+            spanMap.set(word.toLowerCase(), Array.from(span.classList));
+          });
         });
 
-        // Animate paragraphs
-        const paragraphs = document.querySelectorAll('p:not(.hneue.title):not(.ui-project-title)');
-        paragraphs.forEach((paragraph) => {
-            new SplitType(paragraph, { types: "words", tagName: "span" });
-            const words = paragraph.querySelectorAll('.word');
-            gsap.from(words, {
-                scrollTrigger: {
-                    trigger: paragraph,
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                },
-                opacity: 0,
-                duration: 0.8,
-                ease: "sine.out",
-                stagger: 0.02
-            });
-        });
+        if (typeof SplitType !== 'undefined') {
+          new SplitType(header, { types: "words", tagName: "span" });
+          const words = header.querySelectorAll('.word');
 
-        // Grid Animation for UI Exploration
-        const initialClipPaths = [
-            "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
-            "polygon(33.33% 0%, 33.33% 0%, 33.33% 0%, 33.33% 0%)",
-            "polygon(66.66% 0%, 66.66% 0%, 66.66% 0%, 66.66% 0%)",
-            "polygon(0% 33.33%, 0% 33.33%, 0% 33.33%, 0% 33.33%)",
-            "polygon(33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%)",
-            "polygon(66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%)",
-            "polygon(0% 66.66%, 0% 66.66%, 0% 66.66%, 0% 66.66%)",
-            "polygon(33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%)",
-            "polygon(66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%)"
-        ];
+          // Reapply classes to words based on their text content
+          words.forEach((word) => {
+            const wordText = word.textContent.trim().toLowerCase();
+            if (spanMap.has(wordText)) {
+              const classes = spanMap.get(wordText);
+              word.classList.add(...classes);
+            }
+          });
 
-        const finalClipPaths = [
-            "polygon(0% 0%, 33.33% 0%, 33.33% 33.33%, 0% 33.33%)",
-            "polygon(33.33% 0%, 66.66% 0%, 66.66% 33.33%, 33.33% 33.33%)",
-            "polygon(66.66% 0%, 100% 0%, 100% 33.33%, 66.66% 33.33%)",
-            "polygon(0% 33.33%, 33.33% 33.33%, 33.33% 66.66%, 0% 66.66%)",
-            "polygon(33.33% 33.33%, 66.66% 33.33%, 66.66% 66.66%, 33.33% 66.66%)",
-            "polygon(66.66% 33.33%, 100% 33.33%, 100% 66.66%, 66.66% 66.66%)",
-            "polygon(0% 66.66%, 33.33% 66.66%, 33.33% 100%, 0% 100%)",
-            "polygon(33.33% 66.66%, 66.66% 66.66%, 66.66% 100%, 33.33% 100%)",
-            "polygon(66.66% 66.66%, 100% 66.66%, 100% 100%, 66.66% 100%)"
-        ];
-
-        function createMasks() {
-            const wrappers = document.querySelectorAll(".g_visual_wrap");
-            wrappers.forEach((wrapper) => {
-                const img = wrapper.querySelector(".ui-project-image[data-animate='true']");
-                if (img) {
-                    const imgUrl = img.src;
-                    for (let i = 0; i < 9; i++) {
-                        const mask = document.createElement("div");
-                        mask.classList.add("mask", `m-${i + 1}`);
-                        mask.style.backgroundImage = `url(${imgUrl})`;
-                        mask.style.backgroundSize = 'cover';
-                        mask.style.backgroundPosition = 'center';
-                        mask.style.zIndex = 10;
-                        wrapper.appendChild(mask);
-                    }
-                }
-            });
+          gsap.set(words, { transformPerspective: 1000 });
+          gsap.from(words, {
+            scrollTrigger: {
+              trigger: header,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            },
+            rotationX: -90,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: { amount: 0.6 }
+          });
+        } else {
+          console.error("SplitType is not defined");
         }
+      });
 
-        createMasks();
-
-        // Animate each row as a group
-        const rows = gsap.utils.toArray(".ui-grid-row");
-        console.log("Total rows found:", rows.length);
-
-        rows.forEach((row, rowIndex) => {
-            const wrappers = row.querySelectorAll(".g_visual_wrap");
-            console.log(`Row ${rowIndex + 1} has ${wrappers.length} wrappers`);
-
-            // Set initial clip paths for all masks in this row
-            wrappers.forEach((wrapper) => {
-                const masks = wrapper.querySelectorAll(".mask");
-                masks.forEach((mask, index) => {
-                    gsap.set(mask, {
-                        clipPath: initialClipPaths[index],
-                    });
-                });
-            });
-
-            // Create one timeline for the entire row
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: row,
-                    start: "top 85%",
-                    toggleActions: "play none none none"
-                },
-            });
-
-            const animationOrder = [
-                [".m-1"],
-                [".m-2", ".m-4"],
-                [".m-3", ".m-5", ".m-7"],
-                [".m-6", ".m-8"],
-                [".m-9"]
-            ];
-
-            // Animate all wrappers in this row together
-            animationOrder.forEach((targets, index) => {
-                const allMasks = [];
-                wrappers.forEach((wrapper) => {
-                    targets.forEach((cls) => {
-                        allMasks.push(...wrapper.querySelectorAll(cls));
-                    });
-                });
-
-                tl.to(allMasks, {
-                    clipPath: (i, el) => {
-                        const wrapper = el.closest('.g_visual_wrap');
-                        const masks = wrapper.querySelectorAll(".mask");
-                        return finalClipPaths[Array.from(masks).indexOf(el)];
-                    },
-                    duration: 1.2,
-                    ease: "power2.out",
-                    stagger: 0.08,
-                }, index * 0.35);
-            });
+      // Animate paragraphs
+      const paragraphs = document.querySelectorAll('p:not(.hneue.title):not(.ui-project-title)');
+      paragraphs.forEach((paragraph) => {
+        new SplitType(paragraph, { types: "words", tagName: "span" });
+        const words = paragraph.querySelectorAll('.word');
+        gsap.from(words, {
+          scrollTrigger: {
+            trigger: paragraph,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          },
+          opacity: 0,
+          duration: 0.8,
+          ease: "sine.out",
+          stagger: 0.02
         });
+      });
+
+      // Grid Animation for UI Exploration
+      const initialClipPaths = [
+        "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
+        "polygon(33.33% 0%, 33.33% 0%, 33.33% 0%, 33.33% 0%)",
+        "polygon(66.66% 0%, 66.66% 0%, 66.66% 0%, 66.66% 0%)",
+        "polygon(0% 33.33%, 0% 33.33%, 0% 33.33%, 0% 33.33%)",
+        "polygon(33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%)",
+        "polygon(66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%)",
+        "polygon(0% 66.66%, 0% 66.66%, 0% 66.66%, 0% 66.66%)",
+        "polygon(33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%)",
+        "polygon(66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%)"
+      ];
+
+      const finalClipPaths = [
+        "polygon(0% 0%, 33.33% 0%, 33.33% 33.33%, 0% 33.33%)",
+        "polygon(33.33% 0%, 66.66% 0%, 66.66% 33.33%, 33.33% 33.33%)",
+        "polygon(66.66% 0%, 100% 0%, 100% 33.33%, 66.66% 33.33%)",
+        "polygon(0% 33.33%, 33.33% 33.33%, 33.33% 66.66%, 0% 66.66%)",
+        "polygon(33.33% 33.33%, 66.66% 33.33%, 66.66% 66.66%, 33.33% 66.66%)",
+        "polygon(66.66% 33.33%, 100% 33.33%, 100% 66.66%, 66.66% 66.66%)",
+        "polygon(0% 66.66%, 33.33% 66.66%, 33.33% 100%, 0% 100%)",
+        "polygon(33.33% 66.66%, 66.66% 66.66%, 66.66% 100%, 33.33% 100%)",
+        "polygon(66.66% 66.66%, 100% 66.66%, 100% 100%, 66.66% 100%)"
+      ];
+
+      function createMasks() {
+        const wrappers = document.querySelectorAll(".g_visual_wrap");
+        wrappers.forEach((wrapper) => {
+          const img = wrapper.querySelector(".ui-project-image[data-animate='true']");
+          if (img) {
+            const imgUrl = img.src;
+            for (let i = 0; i < 9; i++) {
+              const mask = document.createElement("div");
+              mask.classList.add("mask", `m-${i + 1}`);
+              mask.style.backgroundImage = `url(${imgUrl})`;
+              mask.style.backgroundSize = 'cover';
+              mask.style.backgroundPosition = 'center';
+              mask.style.zIndex = 10;
+              wrapper.appendChild(mask);
+            }
+          }
+        });
+      }
+
+      createMasks();
+
+      // Animate each row as a group
+      const rows = gsap.utils.toArray(".ui-grid-row");
+      console.log("Total rows found:", rows.length);
+
+      rows.forEach((row, rowIndex) => {
+        const wrappers = row.querySelectorAll(".g_visual_wrap");
+        console.log(`Row ${rowIndex + 1} has ${wrappers.length} wrappers`);
+
+        // Set initial clip paths for all masks in this row
+        wrappers.forEach((wrapper) => {
+          const masks = wrapper.querySelectorAll(".mask");
+          masks.forEach((mask, index) => {
+            gsap.set(mask, {
+              clipPath: initialClipPaths[index],
+            });
+          });
+        });
+
+        // Create one timeline for the entire row
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+        });
+
+        const animationOrder = [
+          [".m-1"],
+          [".m-2", ".m-4"],
+          [".m-3", ".m-5", ".m-7"],
+          [".m-6", ".m-8"],
+          [".m-9"]
+        ];
+
+        // Animate all wrappers in this row together
+        animationOrder.forEach((targets, index) => {
+          const allMasks = [];
+          wrappers.forEach((wrapper) => {
+            targets.forEach((cls) => {
+              allMasks.push(...wrapper.querySelectorAll(cls));
+            });
+          });
+
+          tl.to(allMasks, {
+            clipPath: (i, el) => {
+              const wrapper = el.closest('.g_visual_wrap');
+              const masks = wrapper.querySelectorAll(".mask");
+              return finalClipPaths[Array.from(masks).indexOf(el)];
+            },
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.05,
+          }, index * 0.2);
+        });
+      });
     });
   </script>
 </body>
+
 </html>

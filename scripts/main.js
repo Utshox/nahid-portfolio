@@ -6,12 +6,51 @@ const COLORS = {
   bgBlack: '#212225'
 };
 
+// Component Loading
+async function loadComponents() {
+  try {
+    // Load navbar
+    const navbarResponse = await fetch('components/navbar.html');
+    const navbarHTML = await navbarResponse.text();
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    if (navbarPlaceholder) {
+      navbarPlaceholder.outerHTML = navbarHTML;
+      setActiveNavLink();
+    }
+
+    // Load footer (includes back-to-top button and email modal)
+    const footerResponse = await fetch('components/footer.html');
+    const footerHTML = await footerResponse.text();
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+      footerPlaceholder.outerHTML = footerHTML;
+    }
+  } catch (error) {
+    console.error('Error loading components:', error);
+  }
+}
+
+function setActiveNavLink() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+
 // Fluid Cursor Animation
 const TAIL_LENGTH = 20;
 let mouseX = 0;
 let mouseY = 0;
 let cursorCircles;
-let cursorHistory = Array(TAIL_LENGTH).fill({x: 0, y: 0});
+let cursorHistory = Array(TAIL_LENGTH).fill({ x: 0, y: 0 });
 
 function onMouseMove(event) {
   mouseX = event.clientX;
@@ -21,7 +60,7 @@ function onMouseMove(event) {
 function initCursor() {
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
-  
+
   for (let i = 0; i < TAIL_LENGTH; i++) {
     let div = document.createElement('div');
     div.classList.add('cursor-circle');
@@ -30,20 +69,20 @@ function initCursor() {
   cursorCircles = Array.from(document.querySelectorAll('.cursor-circle'));
 }
 
-function updateCursor() {  
+function updateCursor() {
   cursorHistory.shift();
   cursorHistory.push({ x: mouseX, y: mouseY });
-    
+
   for (let i = 0; i < TAIL_LENGTH; i++) {
     let current = cursorHistory[i];
     let next = cursorHistory[i + 1] || cursorHistory[TAIL_LENGTH - 1];
-    
+
     let xDiff = next.x - current.x;
     let yDiff = next.y - current.y;
-    
+
     current.x += xDiff * 0.35;
     current.y += yDiff * 0.35;
-    cursorCircles[i].style.transform = `translate(${current.x}px, ${current.y}px) scale(${i/TAIL_LENGTH})`;  
+    cursorCircles[i].style.transform = `translate(${current.x}px, ${current.y}px) scale(${i / TAIL_LENGTH})`;
   }
   requestAnimationFrame(updateCursor);
 }
@@ -609,6 +648,38 @@ function initCaseStudyPage() {
   initCaseBackToTop();
 }
 
+// Back to Top Button Handler  
+function initBackToTop() {
+  const button = document.querySelector('.backToTopBtn');
+  if (!button) return;
+
+  function toggleVisibility() {
+    const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollPos > 500) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  }
+
+  function scrollToTop(e) {
+    e.preventDefault();
+    if (window.gsap) {
+      gsap.to(document.documentElement, {
+        duration: 1,
+        scrollTop: 0,
+        ease: "power2.inOut"
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  button.addEventListener('click', scrollToTop);
+  toggleVisibility(); // Check initial state
+}
+
 // Email Modal Handler
 function initEmailModal() {
   const emailBtn = document.getElementById('email-btn');
@@ -650,7 +721,7 @@ function initEmailModal() {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const fullname = document.getElementById('fullname').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
@@ -661,14 +732,18 @@ function initEmailModal() {
       const mailtoLink = `mailto:neamul.morshed.nahid@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       window.location.href = mailtoLink;
-      
+
       // Close modal after sending
       setTimeout(closeModal, 500);
     });
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+  // Load navbar and footer components first
+  await loadComponents();
+
+  // Then initialize all other features
   initCursor();
   if (cursorCircles && cursorCircles.length > 0) {
     updateCursor();
@@ -682,6 +757,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initFooterMarquee();
   initCaseStudyPage();
   initEmailModal();
+  initBackToTop();
 });
 
 document.addEventListener('mousemove', onMouseMove, false);
