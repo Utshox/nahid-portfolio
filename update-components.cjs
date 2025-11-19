@@ -5,12 +5,23 @@ const path = require('path');
 const htmlFiles = [
     'index.html',
     'ui-exploration.html',
+    'articles.html',
     'photographs.html',
     'selp-case-study.html',
     'leady-case-study.html',
     'mf-web-portal-case-study.html',
     'course-management-lms.html'
 ];
+
+// Navbar pattern to find and replace
+const navbarStart = '  <!-- Fixed Navigation -->';
+const navbarEnd = '  </header>';
+const navbarReplacement = '  <!-- Navigation Component -->\n  <div id="navbar-placeholder"></div>';
+
+// Footer pattern to find and replace (includes footer, back-to-top, and email modal)
+const footerStart = '    <!-- Footer -->';
+const footerEnd = '  </div>\n  <script>';
+const footerReplacement = '  <!-- Footer Component -->\n  <div id="footer-placeholder"></div>\n  <script>';
 
 console.log('🔧 Starting HTML component replacement...\n');
 
@@ -32,33 +43,29 @@ htmlFiles.forEach(filename => {
         let content = fs.readFileSync(filePath, 'utf8');
         let modified = false;
 
-        // Replace navbar - look for header tag pattern
-        const navStartIndex = content.indexOf('<header id="nav">');
-        if (navStartIndex !== -1) {
-            const navEndIndex = content.indexOf('</header>', navStartIndex);
-            if (navEndIndex !== -1) {
-                const before = content.substring(0, navStartIndex);
-                const after = content.substring(navEndIndex + '</header>'.length);
-                content = before + '<!-- Navigation Component -->\n  <div id="navbar-placeholder"></div>' + after;
+        // Replace navbar
+        const navbarStartIndex = content.indexOf(navbarStart);
+        if (navbarStartIndex !== -1) {
+            const navbarEndIndex = content.indexOf(navbarEnd, navbarStartIndex);
+            if (navbarEndIndex !== -1) {
+                const before = content.substring(0, navbarStartIndex);
+                const after = content.substring(navbarEndIndex + navbarEnd.length);
+                content = before + navbarReplacement + after;
                 modified = true;
                 console.log(`✓ ${filename}: Replaced navbar`);
             }
         }
 
-        // Replace footer - multiple patterns
-        let footerStartIndex = content.indexOf('<footer id="footer">');
+        // Replace footer (including back-to-top and email modal)
+        const footerStartIndex = content.indexOf(footerStart);
         if (footerStartIndex !== -1) {
-            // Look for the end of artboard div or email modal
-            const emailModalStart = content.indexOf('<div id="email-modal"', footerStartIndex);
-            if (emailModalStart !== -1) {
-                const scriptIndex = content.indexOf('<script>', emailModalStart);
-                if (scriptIndex !== -1) {
-                    const before = content.substring(0, footerStartIndex);
-                    const after = content.substring(scriptIndex);
-                    content = before + '<!-- Footer Component -->\n  <div id="footer-placeholder"></div>\n  ' + after;
-                    modified = true;
-                    console.log(`✓ ${filename}: Replaced footer`);
-                }
+            const footerEndIndex = content.indexOf(footerEnd, footerStartIndex);
+            if (footerEndIndex !== -1) {
+                const before = content.substring(0, footerStartIndex);
+                const after = content.substring(footerEndIndex);
+                content = before + footerReplacement + after.substring(footerEnd.length);
+                modified = true;
+                console.log(`✓ ${filename}: Replaced footer`);
             }
         }
 
@@ -82,4 +89,4 @@ console.log(`\n📊 Summary:`);
 console.log(`   ✅ Successfully updated: ${successCount} files`);
 console.log(`   ⏭️  Skipped: ${skipCount} files`);
 console.log(`\n🎉 Component replacement complete!`);
-console.log(`\n💡 Next step: Test pages in browser`);
+console.log(`\n💡 Next step: Run 'npm run dev' and test the pages`);

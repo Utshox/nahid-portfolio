@@ -58,15 +58,22 @@ function onMouseMove(event) {
 }
 
 function initCursor() {
+  console.log('[CURSOR DEBUG] initCursor called');
   const cursor = document.getElementById('cursor');
-  if (!cursor) return;
+  console.log('[CURSOR DEBUG] cursor element:', cursor);
+  if (!cursor) {
+    console.log('[CURSOR DEBUG] No cursor element found, returning');
+    return;
+  }
 
+  console.log('[CURSOR DEBUG] TAIL_LENGTH:', TAIL_LENGTH);
   for (let i = 0; i < TAIL_LENGTH; i++) {
     let div = document.createElement('div');
     div.classList.add('cursor-circle');
     cursor.append(div);
   }
   cursorCircles = Array.from(document.querySelectorAll('.cursor-circle'));
+  console.log('[CURSOR DEBUG] Circles created:', cursorCircles.length);
 }
 
 function updateCursor() {
