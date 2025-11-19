@@ -5,8 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Management LMS - Case Study | Nahid's Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Image Reveal Effect */
+        .reveal {
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .reveal img {
+            transform-origin: left;
+            display: block;
+        }
+
+        .journey-image .reveal,
+        .process-image .reveal,
+        .keypoint-images .reveal,
+        .journey-step-image .reveal {
+            width: 100%;
+        }
+
+        .journey-image .reveal img,
+        .process-image .reveal img,
+        .keypoint-images .reveal img,
+        .journey-step-image .reveal img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/split-type" defer></script>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div id="cursor"></div>
+
     <!-- Fixed Navigation -->
     <header id="nav">
         <div class="nav-inner">
@@ -160,7 +202,9 @@
                 <p class="section-subtitle">To solve this challenge, we adopted a deeply collaborative and iterative design process. Our goal was to ensure that every decision was grounded in user needs, stakeholder goals, and business objectives. The journey wasn't a straight line, but a cycle of ideation, feedback, and refinement.</p>
             </div>
             <div class="journey-image">
-                <img src="assets/Portfolio Design Assests/One LMS/A Journey from Complexity to Clarity.png" alt="Journey from Complexity to Clarity">
+                <div class="reveal">
+                    <img src="assets/Portfolio Design Assests/One LMS/A Journey from Complexity to Clarity.png" alt="Journey from Complexity to Clarity">
+                </div>
             </div>
         </div>
     </section>
@@ -202,7 +246,9 @@
                     </div>
                 </div>
                 <div class="process-image">
-                    <img src="assets/Portfolio Design Assests/One LMS/Wireframing.png" alt="Wireframing Process">
+                    <div class="reveal">
+                        <img src="assets/Portfolio Design Assests/One LMS/Wireframing.png" alt="Wireframing Process">
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,7 +265,9 @@
                     <p class="section-subtitle">The feedback and exploration phase made it clear that a single, monolithic flow would not work. We needed to segregate the user's tasks into logical groups. We undertook a rigorous information architecture (IA) exercise to group and prioritize features, reducing unnecessary information to avoid overwhelming the user.</p>
                 </div>
                 <div class="process-image">
-                    <img src="assets/Portfolio Design Assests/One LMS/Defining the Information Architecture.png" alt="Information Architecture">
+                    <div class="reveal">
+                        <img src="assets/Portfolio Design Assests/One LMS/Defining the Information Architecture.png" alt="Information Architecture">
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,7 +277,7 @@
     <section class="section-block lms-highfidelity-section">
         <div class="section-container">
             <div class="title-wrapper">
-                <h2 class="section-title">high-fadelity wireframing<span class="italic-accent"> the fluent <br> journey</span></h2>
+                <h2 class="section-title">high-fadelity wireframing<span class="italic-accent"> the fluent</span><br><span class="italic-accent">journey</span></h2>
             </div>
             <div class="subtitle-wrapper-full">
                 <p class="section-subtitle">With our IA defined, we translated our concepts into high-fidelity wireframes. This is where the solution took its final shape, directly addressing the pain points we discovered at the start.</p>
@@ -247,7 +295,9 @@
                         <p class="keypoint-description">We designed a clean, table-based dashboard. This was a direct result of the need for an efficient management experience. The design provides at-a-glance insights and powerful tools like search and filtering, catering to the needs of administrators managing courses at scale.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/The Course List (The Command Center).png" alt="Course List">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/The Course List (The Command Center).png" alt="Course List">
+                        </div>
                     </div>
                 </div>
                 <div class="flow-keypoint">
@@ -256,7 +306,9 @@
                         <p class="keypoint-description">Introduce a modular structure, where instructors and admins can define the course's hierarchy (modules and classes). This allowed for both Instructor-Led and Self-Paced courses to be structured differently, addressing different learning formats.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/The Course Canvas (The Creative Studio).png" alt="Course Canvas">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/The Course Canvas (The Creative Studio).png" alt="Course Canvas">
+                        </div>
                     </div>
                 </div>
                 <div class="flow-keypoint">
@@ -265,7 +317,9 @@
                         <p class="keypoint-description">Provide tools to add content types (videos, audio, assessments, readings) easily. Allow users to reuse assets via a content repository, making the process more efficient.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/Building the Course Content.png" alt="Building Course Content">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/Building the Course Content.png" alt="Building Course Content">
+                        </div>
                     </div>
                 </div>
                 <div class="flow-keypoint">
@@ -274,7 +328,9 @@
                         <p class="keypoint-description">Introduced session creation features that could be scheduled and linked to classes. This feature allowed instructors to define class types, timings, and assign trainees to sessions.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/Session Setup (for Instructor-Led Classes).png" alt="Session Setup">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/Session Setup (for Instructor-Led Classes).png" alt="Session Setup">
+                        </div>
                     </div>
                 </div>
                 <div class="flow-keypoint">
@@ -283,7 +339,9 @@
                         <p class="keypoint-description">A centralized Batch Hub to manage enrollment — admins can create and assign batches or assign individual trainees directly. Clear guidance was introduced for missing enrollments or session assignments.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/Managing Enrollment Made Easy.png" alt="Managing Enrollment">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/Managing Enrollment Made Easy.png" alt="Managing Enrollment">
+                        </div>
                     </div>
                 </div>
                 <div class="flow-keypoint">
@@ -292,7 +350,9 @@
                         <p class="keypoint-description">Users could now review their course before publishing, with tabs for overview, structure, enrollment, and calendar. This step would display any validation messages for missing components, ensuring users don't miss important setup items before publishing.</p>
                     </div>
                     <div class="keypoint-image">
-                        <img src="assets/Portfolio Design Assests/One LMS/Review & Publish.png" alt="Review and Publish">
+                        <div class="reveal">
+                            <img src="assets/Portfolio Design Assests/One LMS/Review & Publish.png" alt="Review and Publish">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,7 +428,10 @@
     <section class="final-overview-section">
         <div class="final-overview-container">
             <p class="final-overview-text">This redesign of the Course Creation Module for ONE LMS enhances user experience and efficiency by introducing a structured, modular approach with clear feedback and validation. It reduces errors and lets users focus on content and engagement instead of setup. The system now includes additional modules for System Admin and Organizational Admin users, offering advanced customization, user permissions, and reporting, which improve platform scalability and management.</p>
-            <a href="selp-case-study.html" class="next-design-btn">NEXT DESIGN</a>
+            <a href="selp-case-study.html" class="next-design-btn" data-block="button">
+              <span class="button__flair"></span>
+              <span class="button__label">NEXT DESIGN</span>
+            </a>
         </div>
     </section>
 
@@ -383,7 +446,10 @@
                 <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
                 <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
             </div>
-            <button class="btn" id="email-btn">EMAIL ME</button>
+            <button class="btn" id="email-btn" data-block="button">
+              <span class="button__flair"></span>
+              <span class="button__label">EMAIL ME</span>
+            </button>
         </div>
         <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
             <div class="footer-marquee">
@@ -396,5 +462,76 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Animate headings
+            const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+            headers.forEach((header) => {
+                new SplitType(header, { types: "words", tagName: "span" });
+                const words = header.querySelectorAll('.word');
+                gsap.set(words, { transformPerspective: 1000 });
+                gsap.from(words, {
+                    scrollTrigger: {
+                        trigger: header,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    rotationX: -90,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    stagger: { amount: 0.6 }
+                });
+            });
+
+            // Animate paragraphs
+            const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+            paragraphs.forEach((paragraph) => {
+                new SplitType(paragraph, { types: "words", tagName: "span" });
+                const words = paragraph.querySelectorAll('.word');
+                gsap.from(words, {
+                    scrollTrigger: {
+                        trigger: paragraph,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "sine.out",
+                    stagger: 0.02
+                });
+            });
+
+            // Image Reveal Animation
+            gsap.registerPlugin(ScrollTrigger);
+
+            let revealContainers = document.querySelectorAll(".reveal");
+
+            revealContainers.forEach((container) => {
+                let image = container.querySelector("img");
+                if (!image) return;
+                
+                let tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 80%",
+                        toggleActions: "play none none reset"
+                    }
+                });
+
+                tl.from(container, {
+                    xPercent: -100,
+                    duration: 1.5,
+                    ease: "power2.out"
+                });
+                tl.from(image, {
+                    xPercent: 100,
+                    scale: 1.3,
+                    duration: 1.5,
+                    ease: "power2.out"
+                }, "-=1.5");
+            });
+        });
+    </script>
 </body>
 </html>

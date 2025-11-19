@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SELP MIS Case Study</title>
 <link rel="stylesheet" href="styles/main.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/split-type" defer></script>
 <script src="scripts/main.js" defer></script>
 <style>
 :root {
@@ -904,9 +905,59 @@ main { background: var(--light-background); width: 100%; }
   background: var(--primary-black);
   color: white;
 }
+
+/* Image Reveal Effect */
+.reveal {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.reveal img {
+  transform-origin: left;
+  display: block;
+}
+
+.research-images .reveal {
+  width: 100%;
+}
+
+.research-images .reveal img {
+  width: 100%;
+  height: auto;
+}
+
+.design-process-wireframes .reveal {
+  width: 100%;
+}
+
+.design-process-wireframes .reveal img {
+  width: 100%;
+  height: auto;
+}
+
+.progressive-disclosure-visual .reveal {
+  width: 100%;
+}
+
+.progressive-disclosure-visual .reveal img {
+  width: 100%;
+  height: auto;
+}
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div id="cursor"></div>
+
 <header id="nav">
 <div class="nav-inner">
 <div class="nav-left">
@@ -973,7 +1024,7 @@ Back
 </section>
 
 <section class="section-block">
-<h2 class="section-title">The Vision <span class="accent">Behind the selp mis<br>platform</span></h2>
+<h2 class="section-title">The Vision <span class="accent">Behind the selp mis platform</span></h2>
 <div class="grid-4">
 <div class="card">
 <div class="card-icon">
@@ -1039,7 +1090,7 @@ Back
 
 <section class="section-block research-insights-section">
 <div class="research-header">
-<h2 class="section-title">Empathy-Driven, <span class="accent">Design for SELP<br>Officers</span></h2>
+<h2 class="section-title">Empathy-Driven, <span class="accent">Design for SELP</span><br><span class="accent">Officers</span></h2>
 </div>
 <div class="research-content">
 <div class="research-list">
@@ -1065,7 +1116,9 @@ Back
 </div>
 </div>
 <div class="research-images">
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/interview%201.png" alt="Research documentation" class="research-image">
+</div>
 </div>
 </div>
 </section>
@@ -1080,14 +1133,16 @@ Back
 </div>
 </div>
 <div class="design-process-wireframes">
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/Wireframe%201.png" alt="Design process wireframes" class="design-process-image">
+</div>
 </div>
 </section>
 
 <section class="section-block solutions-section">
 <div class="solutions-header">
 <div class="solutions-title-wrapper">
-<h2 class="section-title">How We Solved the Challenges, <span class="accent">A <br> User-Centered Approach</span></h2>
+<h2 class="section-title">How We Solved the Challenges, <br> <span class="accent">A User-Centered Approach</span></h2>
 </div>
 </div>
 <div class="solutions-list">
@@ -1096,28 +1151,36 @@ Back
 <h3 class="solution-title">Simplified Incident Collection</h3>
 <p class="solution-description">To ease data entry for officers with low digital literacy, we simplified the process into three steps: Incident Info, Informer Info, and Location Info.</p>
 </div>
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/Incident%20Report.png" alt="Data entry interface" class="solution-item-image">
+</div>
 </div>
 <div class="solution-item">
 <div class="solution-content">
 <h3 class="solution-title">Automated Incident Assignment</h3>
 <p class="solution-description">Manual case assignment caused delays. Location-based algorithms now auto-assign cases, streamlining workflow and speeding up handling.</p>
 </div>
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/Automated%20Incident%20Assignment.png" alt="Case assignment system" class="solution-item-image">
+</div>
 </div>
 <div class="solution-item">
 <div class="solution-content">
 <h3 class="solution-title">Stepwise Case Progression</h3>
 <p class="solution-description">Cases followed four stages: Court Case, Another Sitting, Out-of-Office ADR, and Time Extension. We provided clear prompts for consistent updates and daily progress tracking.</p>
 </div>
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/Stepwise%20Case%20Progression.png" alt="Progressive UI design" class="solution-item-image">
+</div>
 </div>
 <div class="solution-item">
 <div class="solution-content">
 <h3 class="solution-title">Guided Workspace for Day-to-Day Updates</h3>
 <p class="solution-description">We designed a dual-panel layout to separate case review and action. The left panel serves as a scannable case file, while the right panel offers a guided, conversational workflow, making tasks feel logical and step-by-step.</p>
 </div>
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/Guided%20Workspace%20for%20Day-to-Day%20Updates.png" alt="Offline capabilities" class="solution-item-image">
+</div>
 </div>
 <div class="solution-item-last">
 <div class="solution-content">
@@ -1138,7 +1201,9 @@ Back
 </div>
 </div>
 <div class="progressive-disclosure-visual">
+<div class="reveal">
 <img src="assets/Portfolio%20Design%20Assests/Selp/progressive%20disclosure.png" alt="Progressive disclosure workflow" class="progressive-disclosure-image">
+</div>
 </div>
 </section>
 
@@ -1156,7 +1221,10 @@ Back
 <section class="final-overview-section">
 <div class="final-overview-container">
 <p class="final-overview-text">Beyond the Legal Support Module, the SELP MIS platform includes additional modules for social empowerment and program management, all designed with user-centered principles for ease of use, seamless navigation, and consistency.</p>
-<a href="leady-case-study.html" class="next-design-btn">NEXT DESIGN</a>
+<a href="leady-case-study.html" class="next-design-btn" data-block="button">
+  <span class="button__flair"></span>
+  <span class="button__label">NEXT DESIGN</span>
+</a>
 </div>
 </section>
 
@@ -1169,10 +1237,13 @@ Back
 </div>
 <div class="footer-cta">
 <div class="cta-copy">
-<p class="hneue title"><span class="italic secondary">Let'"'"'s</span> Collaborate..</p>
+<p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
 <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
 </div>
-<a href="mailto:neamul.morshed.nahid@gmail.com" class="btn">EMAIL ME</a>
+<a href="mailto:neamul.morshed.nahid@gmail.com" class="btn" data-block="button">
+  <span class="button__flair"></span>
+  <span class="button__label">EMAIL ME</span>
+</a>
 </div>
 <div class="footer-bottom">
 <div class="footer-marquee">
@@ -1183,5 +1254,78 @@ Back
 </div>
 </footer>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Animate headings
+        const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+        headers.forEach((header) => {
+            new SplitType(header, { types: "words", tagName: "span" });
+            const words = header.querySelectorAll('.word');
+            gsap.set(words, { transformPerspective: 1000 });
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                rotationX: -90,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: { amount: 0.6 }
+            });
+        });
+
+        // Animate paragraphs
+        const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+        paragraphs.forEach((paragraph) => {
+            new SplitType(paragraph, { types: "words", tagName: "span" });
+            const words = paragraph.querySelectorAll('.word');
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: paragraph,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                duration: 0.8,
+                ease: "sine.out",
+                stagger: 0.02
+            });
+        });
+    });
+
+    // Image Reveal Animation
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        let revealContainers = document.querySelectorAll(".reveal");
+
+        revealContainers.forEach((container) => {
+            let image = container.querySelector("img");
+            if (!image) return;
+            
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top 80%",
+                    toggleActions: "play none none reset"
+                }
+            });
+
+            tl.from(container, {
+                xPercent: -100,
+                duration: 1.5,
+                ease: "power2.out"
+            });
+            tl.from(image, {
+                xPercent: 100,
+                scale: 1.3,
+                duration: 1.5,
+                ease: "power2.out"
+            }, "-=1.5");
+        });
+    });
+</script>
 </body>
 </html>

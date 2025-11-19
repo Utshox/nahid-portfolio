@@ -17,6 +17,9 @@
   --light-background: #F4F6FA;
   --card-grey: #E5E8EF;
   --border-color: #CECEDE;
+  
+  /* Cursor Variables */
+  --cursor-size: 28px;
 }
 
 /* === RESET === */
@@ -28,6 +31,42 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+
+/* GSAP Text Animation */
+.word {
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  transform-origin: bottom;
+  display: inline-block;
+}
+
+/* Fluid Cursor Animation */
+.goo {
+  display: none;
+}
+
+#cursor {
+  position: fixed;
+  top: calc(var(--cursor-size) * -0.5);
+  left:  calc(var(--cursor-size) * -0.5);
+  pointer-events: none;
+  mix-blend-mode: difference;  
+  filter: url(#goo);
+  z-index: 9999;
+}
+
+.cursor-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: var(--cursor-size);
+  background: var(--light);
+  transform-origin: center center;
 }
 
 body {
@@ -37,6 +76,74 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+a, button, input, textarea, select {
+  cursor: none;
+}
+
+/* Button Hover Animation */
+.btn, .next-design-btn, .email-modal-submit {
+  align-items: center;
+  border-radius: 0;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 0.363636em;
+  justify-content: center;
+  letter-spacing: -0.01em;
+  line-height: 1.04545;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 50ms ease-in-out;
+}
+
+.btn:hover, .next-design-btn:hover, .email-modal-submit:hover {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.btn .button__label, .next-design-btn .button__label, .email-modal-submit .button__label {
+  position: relative;
+  text-align: center;
+  transition: color 50ms ease-in-out;
+  z-index: 1;
+}
+
+.btn:hover .button__label, .next-design-btn:hover .button__label, .email-modal-submit:hover .button__label {
+  transition: color 0.15s ease-in-out;
+}
+
+.btn .button__flair, .next-design-btn .button__flair, .email-modal-submit .button__flair {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(0);
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.btn .button__flair:before, .next-design-btn .button__flair:before, .email-modal-submit .button__flair:before {
+  aspect-ratio: 1/1;
+  background-color: var(--light);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 170%;
+}
+
+.next-design-btn .button__flair:before {
+  background-color: var(--black);
 }
 
 /* === FONTS === */
@@ -2146,4 +2253,45 @@ body {
 .next-design-btn:hover {
     background: var(--primary-black);
     color: white;
+}
+
+/* === BACK TO TOP BUTTON === */
+.backToTopBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 999;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  border: none;
+  background: var(--black);
+  color: var(--light);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.backToTopBtn:hover {
+  background: var(--grey);
+  transform: translateY(0) scale(1.1);
+}
+
+.backToTopBtn.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.backToTopBtn svg {
+  width: 24px;
+  height: 24px;
 }

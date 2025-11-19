@@ -575,10 +575,54 @@
         height: auto;
       }
     }
+
+    /* Image Reveal Effect */
+    .reveal {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+
+    .reveal img {
+      transform-origin: left;
+      display: block;
+    }
+
+    .process-steps .reveal {
+      width: 100%;
+    }
+
+    .process-steps .reveal img {
+      width: 100%;
+      height: auto;
+    }
+
+    .flow-board .reveal {
+      width: 100%;
+    }
+
+    .flow-board .reveal img {
+      width: 100%;
+      height: auto;
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/split-type" defer></script>
 </head>
 <body>
-  <header id="nav">
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div id="cursor"></div>
+
+<header id="nav">
     <div class="nav-inner">
       <div class="nav-left">
         <a href="index.html" class="nav-logo" aria-label="Nahid home">
@@ -684,7 +728,9 @@
             <h2 class="section-title">approach <span class="accent">to design</span></h2>
           </div>
           <div class="process-steps">
-            <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Approach%20to%20design.png" alt="Approach to design diagram">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Approach%20to%20design.png" alt="Approach to design diagram">
+            </div>
           </div>
           <div class="section-supporting bottom-copy">
             <p>We gathered client requirements to create a user flow, then refined the design through iterative client feedback to ensure it was functional, user-friendly, and aligned with their vision.</p>
@@ -703,7 +749,9 @@
             </div>
           </div>
           <div class="flow-board">
-            <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/The%20journey%20to%20a%20seamless%20experience.png" alt="User journey map" class="flow-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/The%20journey%20to%20a%20seamless%20experience.png" alt="User journey map" class="flow-image">
+            </div>
           </div>
         </div>
       </section>
@@ -734,21 +782,27 @@
                   <h3 class="high-fidelity-title">Home Page</h3>
                   <p class="high-fidelity-description">This is a Leady App dashboard designed to centralize their core activities. It provides an at-a-glance view of their commission earnings, a tool for submitting and tracking customer leads, and direct access to view available loan products and promotions.</p>
                 </div>
-                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Home%20Page.png" alt="Home page" class="high-fidelity-image">
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Home%20Page.png" alt="Home page" class="high-fidelity-image">
+                </div>
               </div>
               <div class="high-fidelity-row">
                 <div class="high-fidelity-text wide-gap">
                   <h3 class="high-fidelity-title">Commission Details Page</h3>
                   <p class="high-fidelity-description fixed-width">User can see commission summery by default. If they want to see specific date wise transaction then they need to tap on statement tab and they see their commissions.</p>
                 </div>
-                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Commission.png" alt="Commission details" class="high-fidelity-image">
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Commission.png" alt="Commission details" class="high-fidelity-image">
+                </div>
               </div>
               <div class="high-fidelity-row">
                 <div class="high-fidelity-text wide-gap">
                   <h3 class="high-fidelity-title">Lead Status Page</h3>
                   <p class="high-fidelity-description fixed-width">Here user can see their leads status. If any lead accepted then the refferer got commission based on the accepted leads.</p>
                 </div>
-                <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Lead%20Status.png" alt="Lead status" class="high-fidelity-image">
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Lead%20Status.png" alt="Lead status" class="high-fidelity-image">
+                </div>
               </div>
             </div>
           </div>
@@ -756,7 +810,7 @@
       </section>
 
       <section class="showreel-section">
-        <video width="100%" height="auto" controls class="showreel-video">
+        <video width="100%" height="auto" muted loop playsinline class="showreel-video">
           <source src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Showreel-Grid-Mobile-1200px%20(1).mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -765,7 +819,10 @@
       <section class="final-overview-section">
         <div class="final-overview-container">
           <p class="final-overview-text">The Leady Mobile App transforms lead generation into an interactive and rewarding process for MFS agents. Its deliberate, user-focused design successfully optimizes lead management and accelerates customer acquisition. The result is an intuitive, scalable platform that effectively aligns business goals with user motivation to drive growth.</p>
-          <a href="mf-web-portal-case-study.html" class="next-design-btn">NEXT DESIGN</a>
+          <a href="mf-web-portal-case-study.html" class="next-design-btn" data-block="button">
+            <span class="button__flair"></span>
+            <span class="button__label">NEXT DESIGN</span>
+          </a>
         </div>
       </section>
     </main>
@@ -780,7 +837,10 @@
           <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
           <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
         </div>
-        <button class="btn" id="email-btn">EMAIL ME</button>
+        <button class="btn" id="email-btn" data-block="button">
+          <span class="button__flair"></span>
+          <span class="button__label">EMAIL ME</span>
+        </button>
       </div>
       <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
         <div class="footer-marquee">
@@ -792,5 +852,93 @@
       </div>
     </footer>
   </div>
+  <script>
+    // GSAP Text Animation
+    document.addEventListener("DOMContentLoaded", () => {
+      // Animate headings
+      const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+      headers.forEach((header) => {
+        new SplitType(header, { types: "words", tagName: "span" });
+        const words = header.querySelectorAll('.word');
+        gsap.set(words, { transformPerspective: 1000 });
+        gsap.from(words, {
+          scrollTrigger: {
+            trigger: header,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          },
+          rotationX: -90,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          stagger: { amount: 0.6 }
+        });
+      });
+
+      // Animate paragraphs
+      const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+      paragraphs.forEach((paragraph) => {
+        new SplitType(paragraph, { types: "words", tagName: "span" });
+        const words = paragraph.querySelectorAll('.word');
+        gsap.from(words, {
+          scrollTrigger: {
+            trigger: paragraph,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          },
+          opacity: 0,
+          duration: 0.8,
+          ease: "sine.out",
+          stagger: 0.02
+        });
+      });
+      
+      // Autoplay video when scrolling into view
+      const video = document.querySelector('.showreel-video');
+      if (video) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        observer.observe(video);
+      }
+
+      // Image Reveal Animation
+      gsap.registerPlugin(ScrollTrigger);
+
+      let revealContainers = document.querySelectorAll(".reveal");
+
+      revealContainers.forEach((container) => {
+        let image = container.querySelector("img");
+        if (!image) return;
+        
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top 80%",
+            toggleActions: "play none none reset"
+          }
+        });
+
+        tl.from(container, {
+          xPercent: -100,
+          duration: 1.5,
+          ease: "power2.out"
+        });
+        tl.from(image, {
+          xPercent: 100,
+          scale: 1.3,
+          duration: 1.5,
+          ease: "power2.out"
+        }, "-=1.5");
+      });
+    });
+  </script>
 </body>
 </html>

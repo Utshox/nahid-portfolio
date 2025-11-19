@@ -6,36 +6,138 @@ const COLORS = {
   bgBlack: '#212225'
 };
 
-// GSAP text split and animation for the hero title
-function animateHeroTitle() {
-  const title = document.getElementById('hero-title');
-  if (!title) return;
+// Fluid Cursor Animation
+const TAIL_LENGTH = 20;
+let mouseX = 0;
+let mouseY = 0;
+let cursorCircles;
+let cursorHistory = Array(TAIL_LENGTH).fill({x: 0, y: 0});
 
-  const text = title.textContent || '';
-  title.textContent = '';
-  const frag = document.createDocumentFragment();
+function onMouseMove(event) {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+}
 
-  [...text].forEach((ch) => {
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = ch;
-    frag.appendChild(span);
-  });
+function initCursor() {
+  const cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  
+  for (let i = 0; i < TAIL_LENGTH; i++) {
+    let div = document.createElement('div');
+    div.classList.add('cursor-circle');
+    cursor.append(div);
+  }
+  cursorCircles = Array.from(document.querySelectorAll('.cursor-circle'));
+}
 
-  title.appendChild(frag);
+function updateCursor() {  
+  cursorHistory.shift();
+  cursorHistory.push({ x: mouseX, y: mouseY });
+    
+  for (let i = 0; i < TAIL_LENGTH; i++) {
+    let current = cursorHistory[i];
+    let next = cursorHistory[i + 1] || cursorHistory[TAIL_LENGTH - 1];
+    
+    let xDiff = next.x - current.x;
+    let yDiff = next.y - current.y;
+    
+    current.x += xDiff * 0.35;
+    current.y += yDiff * 0.35;
+    cursorCircles[i].style.transform = `translate(${current.x}px, ${current.y}px) scale(${i/TAIL_LENGTH})`;  
+  }
+  requestAnimationFrame(updateCursor);
+}
 
-  if (window.gsap) {
-    gsap.set('#hero-title .char', { y: 60, opacity: 0, rotateZ: 6 });
-    gsap.to('#hero-title .char', {
-      y: 0,
-      opacity: 1,
-      rotateZ: 0,
-      ease: 'power3.out',
-      duration: 0.9,
-      stagger: { each: 0.02, from: 'start' },
-      delay: 0.2
+// Button Hover Animation Class
+class Button {
+  constructor(buttonElement) {
+    this.block = buttonElement;
+    this.init();
+    this.initEvents();
+  }
+
+  init() {
+    const el = gsap.utils.selector(this.block);
+
+    this.DOM = {
+      button: this.block,
+      flair: el(".button__flair")
+    };
+
+    this.xSet = gsap.quickSetter(this.DOM.flair, "xPercent");
+    this.ySet = gsap.quickSetter(this.DOM.flair, "yPercent");
+  }
+
+  getXY(e) {
+    const {
+      left,
+      top,
+      width,
+      height
+    } = this.DOM.button.getBoundingClientRect();
+
+    const xTransformer = gsap.utils.pipe(
+      gsap.utils.mapRange(0, width, 0, 100),
+      gsap.utils.clamp(0, 100)
+    );
+
+    const yTransformer = gsap.utils.pipe(
+      gsap.utils.mapRange(0, height, 0, 100),
+      gsap.utils.clamp(0, 100)
+    );
+
+    return {
+      x: xTransformer(e.clientX - left),
+      y: yTransformer(e.clientY - top)
+    };
+  }
+
+  initEvents() {
+    this.DOM.button.addEventListener("mouseenter", (e) => {
+      const { x, y } = this.getXY(e);
+
+      this.xSet(x);
+      this.ySet(y);
+
+      gsap.to(this.DOM.flair, {
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    });
+
+    this.DOM.button.addEventListener("mouseleave", (e) => {
+      const { x, y } = this.getXY(e);
+
+      gsap.killTweensOf(this.DOM.flair);
+
+      gsap.to(this.DOM.flair, {
+        xPercent: x > 90 ? x + 20 : x < 10 ? x - 20 : x,
+        yPercent: y > 90 ? y + 20 : y < 10 ? y - 20 : y,
+        scale: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    this.DOM.button.addEventListener("mousemove", (e) => {
+      const { x, y } = this.getXY(e);
+
+      gsap.to(this.DOM.flair, {
+        xPercent: x,
+        yPercent: y,
+        duration: 0.4,
+        ease: "power2"
+      });
     });
   }
+}
+
+function initButtonAnimations() {
+  const buttonElements = document.querySelectorAll('[data-block="button"]');
+  buttonElements.forEach((buttonElement) => {
+    new Button(buttonElement);
+  });
 }
 
 // Initialize scroll-triggered animations for case cards
@@ -567,7 +669,11 @@ function initEmailModal() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  animateHeroTitle();
+  initCursor();
+  if (cursorCircles && cursorCircles.length > 0) {
+    updateCursor();
+  }
+  initButtonAnimations();
   initCaseStudyHeadingAnimation();
   initCaseCardScrollAnimations();
   initOverlay();
@@ -577,3 +683,5 @@ window.addEventListener('DOMContentLoaded', () => {
   initCaseStudyPage();
   initEmailModal();
 });
+
+document.addEventListener('mousemove', onMouseMove, false);

@@ -564,10 +564,36 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Image Reveal Effect */
+    .reveal {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+
+    .reveal img {
+      transform-origin: left;
+      display: block;
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/split-type" defer></script>
 </head>
 <body>
-  <header id="nav">
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div id="cursor"></div>
+
+<header id="nav">
     <div class="nav-inner">
       <div class="nav-left">
         <a href="index.html" class="nav-logo" aria-label="Nahid home">
@@ -731,7 +757,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -758,7 +786,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png" alt="Member Management" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png" alt="Member Management" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -785,7 +815,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -801,7 +833,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png" alt="Buffer Loan Management" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png" alt="Buffer Loan Management" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -817,7 +851,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png" alt="Performance Tracking" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png" alt="Performance Tracking" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -833,7 +869,9 @@
             </div>
           </div>
           <div class="section-image-wrapper">
-            <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics" class="section-image">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics" class="section-image">
+            </div>
           </div>
         </div>
       </section>
@@ -873,7 +911,10 @@
       <section class="final-overview-section">
         <div class="final-overview-container">
           <p class="final-overview-text">The administrative web application successfully replaced a fragmented and inefficient manual system with a streamlined, transparent, and powerful digital solution. By empowering managers with the right information and tools, the portal has become an indispensable asset for the institution, accelerating its core business processes and enabling better service for its members.</p>
-          <a href="course-management-lms.html" class="next-design-btn">NEXT DESIGN</a>
+          <a href="course-management-lms.html" class="next-design-btn" data-block="button">
+            <span class="button__flair"></span>
+            <span class="button__label">NEXT DESIGN</span>
+          </a>
         </div>
       </section>
     </main>
@@ -888,7 +929,10 @@
           <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
           <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
         </div>
-        <button class="btn" id="email-btn">EMAIL ME</button>
+        <button class="btn" id="email-btn" data-block="button">
+          <span class="button__flair"></span>
+          <span class="button__label">EMAIL ME</span>
+        </button>
       </div>
       <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
         <div class="footer-marquee">
@@ -900,5 +944,76 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Animate headings
+      const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+      headers.forEach((header) => {
+        new SplitType(header, { types: "words", tagName: "span" });
+        const words = header.querySelectorAll('.word');
+        gsap.set(words, { transformPerspective: 1000 });
+        gsap.from(words, {
+          scrollTrigger: {
+            trigger: header,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          },
+          rotationX: -90,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          stagger: { amount: 0.6 }
+        });
+      });
+
+      // Animate paragraphs
+      const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+      paragraphs.forEach((paragraph) => {
+        new SplitType(paragraph, { types: "words", tagName: "span" });
+        const words = paragraph.querySelectorAll('.word');
+        gsap.from(words, {
+          scrollTrigger: {
+            trigger: paragraph,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          },
+          opacity: 0,
+          duration: 0.8,
+          ease: "sine.out",
+          stagger: 0.02
+        });
+      });
+
+      // Image Reveal Animation
+      gsap.registerPlugin(ScrollTrigger);
+
+      let revealContainers = document.querySelectorAll(".reveal");
+
+      revealContainers.forEach((container) => {
+        let image = container.querySelector("img");
+        if (!image) return;
+        
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top 80%",
+            toggleActions: "play none none reset"
+          }
+        });
+
+        tl.from(container, {
+          xPercent: -100,
+          duration: 1.5,
+          ease: "power2.out"
+        });
+        tl.from(image, {
+          xPercent: 100,
+          scale: 1.3,
+          duration: 1.5,
+          ease: "power2.out"
+        }, "-=1.5");
+      });
+    });
+  </script>
 </body>
 </html>

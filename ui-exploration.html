@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=1440, initial-scale=1">
   <title>UI Exploration</title>
   <link rel="stylesheet" href="styles/main.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js" defer></script>
+  <script src="https://unpkg.com/split-type" defer></script>
   <script src="scripts/main.js" defer></script>
   <style>
     .ui-exploration-hero {
@@ -62,7 +64,7 @@
     }
 
     .ui-grid-container {
-      width: 1324px;
+        width: 1324px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -148,12 +150,95 @@
     .ui-large-card-488 {
       height: auto;
     }
+
+    /* Grid Animation CSS */
+    .g_visual_wrap {
+      width: 100%;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .g_visual_wrap .ui-project-image {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1px;
+    }
+
+    .g_visual_wrap .mask {
+      background-size: cover;
+      border-radius: 1px;
+      background-position: center;
+      transform: scale(1.005);
+    }
+
+    .g_visual_wrap > * {
+      grid-area: 1 / 1 / 2 / 2;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    /* Back to Top Button */
+    .backToTopBtn {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      z-index: 999;
+      height: 50px;
+      width: 50px;
+      font-size: 20px;
+      border: none;
+      background: var(--black);
+      color: var(--light);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+
+    .backToTopBtn:hover {
+      background: var(--grey);
+      transform: translateY(0) scale(1.1);
+    }
+
+    .backToTopBtn.active {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .backToTopBtn svg {
+      width: 24px;
+      height: 24px;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="scripts/main.js" defer></script>
 </head>
 <body>
-  <header id="nav">
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+<div id="cursor"></div>
+
+<header id="nav">
     <div class="nav-inner">
       <div class="nav-left">
         <a href="index.html" class="nav-logo">
@@ -188,15 +273,21 @@
         <!-- Row 1: 3 columns -->
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20dark.png" alt="Analytical dashboard visualization dark" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20dark.png" alt="Analytical dashboard visualization dark" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Analytical Dashboard Dark</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20light.png" alt="Analytical dashboard visualization light" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Analytical%20dashboard%20visualization%20light.png" alt="Analytical dashboard visualization light" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Analytical Dashboard Light</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/App%20analytical%20data%20visualization.png" alt="App analytical data visualization" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/App%20analytical%20data%20visualization.png" alt="App analytical data visualization" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">App Analytical Data</p>
           </div>
         </div>
@@ -204,15 +295,21 @@
         <!-- Row 2: 3 columns -->
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Apple%20Vision%20OS%20visual%20exploration.png" alt="Apple Vision OS visual exploration" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Apple%20Vision%20OS%20visual%20exploration.png" alt="Apple Vision OS visual exploration" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Apple Vision OS</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20Card%20Exploration.png" alt="Banking App Card Exploration" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20Card%20Exploration.png" alt="Banking App Card Exploration" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Banking App Card</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20UI%20Exploration.png" alt="Banking App UI Exploration" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Banking%20App%20UI%20Exploration.png" alt="Banking App UI Exploration" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Banking App UI</p>
           </div>
         </div>
@@ -220,15 +317,21 @@
         <!-- Row 3: 3 columns -->
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Bove%20Marketing%20logo.png" alt="Bove Marketing logo" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Bove%20Marketing%20logo.png" alt="Bove Marketing logo" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Bove Marketing Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Jassmart%20ecommerce%20logo%20ideation.png" alt="Jassmart ecommerce logo" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Jassmart%20ecommerce%20logo%20ideation.png" alt="Jassmart ecommerce logo" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Jassmart Ecommerce</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Lakers%20Clippers%20logo%20inspirations.png" alt="Lakers Clippers logo" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Lakers%20Clippers%20logo%20inspirations.png" alt="Lakers Clippers logo" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Lakers Clippers Logo</p>
           </div>
         </div>
@@ -236,15 +339,21 @@
         <!-- Row 4: 3 columns -->
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Madbee%20logo%20ideation.png" alt="Madbee logo ideation" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Madbee%20logo%20ideation.png" alt="Madbee logo ideation" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Madbee Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Music%20app%20ui%20exploration.png" alt="Music app ui exploration" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Music%20app%20ui%20exploration.png" alt="Music app ui exploration" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Music App UI</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Reddoor%20logo%20ideation.png" alt="Reddoor logo ideation" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Reddoor%20logo%20ideation.png" alt="Reddoor logo ideation" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Reddoor Logo</p>
           </div>
         </div>
@@ -252,15 +361,21 @@
         <!-- Row 5: 3 columns -->
         <div class="ui-grid-row">
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Robi%20app%20home%20page%20ui%20redesign.png" alt="Robi app home page ui redesign" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Robi%20app%20home%20page%20ui%20redesign.png" alt="Robi app home page ui redesign" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Robi App Redesign</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Shop%20ONYX%20minimal%20logo.png" alt="Shop ONYX minimal logo" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Shop%20ONYX%20minimal%20logo.png" alt="Shop ONYX minimal logo" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Shop ONYX Logo</p>
           </div>
           <div class="ui-project-card ui-small-card">
-            <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Spawlding%20Epoxy%20Flooring%20logo%20Ideation.png" alt="Spawlding Epoxy Flooring logo" class="ui-project-image">
+            <div class="g_visual_wrap">
+              <img src="assets/Portfolio%20Design%20Assests/UI%20Explorations/Spawlding%20Epoxy%20Flooring%20logo%20Ideation.png" alt="Spawlding Epoxy Flooring logo" class="ui-project-image" data-animate="true">
+            </div>
             <p class="ui-project-title">Spawlding Epoxy Logo</p>
           </div>
         </div>
@@ -272,9 +387,7 @@
       <div class="projects-content">
         <div class="project-highlights">
           <div class="project-title">
-            <h3 class="hneue lower">
-              <span class="italic secondary">Designs in</span> Motion
-            </h3>
+            <h3 class="hneue lower"><span class="italic secondary">Designs in</span> Motion</h3>
           </div>
           <p class="hneue secondary small">
             Exploring the art of motion to create more intuitive and delightful user experiences.
@@ -319,7 +432,10 @@
           <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
           <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
         </div>
-        <button class="btn" id="email-btn">EMAIL ME</button>
+        <button class="btn" id="email-btn" data-block="button">
+          <span class="button__flair"></span>
+          <span class="button__label">EMAIL ME</span>
+        </button>
       </div>
       <div class="footer-bottom">
         <div class="footer-marquee">
@@ -330,6 +446,13 @@
         </div>
       </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="backToTopBtn" id="backToTopBtn" aria-label="Scroll to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
   <!-- Modal for project details -->
@@ -381,7 +504,10 @@
               <textarea id="message" name="message" class="form-input form-textarea" placeholder="Write your message.." required></textarea>
             </div>
             
-            <button type="submit" class="email-modal-submit">SEND EMAIL</button>
+            <button type="submit" class="email-modal-submit" data-block="button">
+              <span class="button__flair"></span>
+              <span class="button__label">SEND EMAIL</span>
+            </button>
           </form>
         </div>
       </div>
@@ -393,6 +519,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       initCarousel();
       initEmailModal();
+      initBackToTop();
       
       // Add click handlers for all project cards
       document.querySelectorAll('.ui-project-card').forEach(card => {
@@ -407,6 +534,37 @@
       });
     });
     
+    // Back to Top functionality
+    function initBackToTop() {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      if (!backToTopBtn) return;
+
+      // Show/hide button based on scroll position
+      function toggleBackToTop() {
+        // 500px is the threshold - show button after scrolling 500px down
+        if (window.scrollY > 500) {
+          backToTopBtn.classList.add('active');
+        } else {
+          backToTopBtn.classList.remove('active');
+        }
+      }
+
+      // Check on page load (in case page is refreshed while scrolled down)
+      toggleBackToTop();
+
+      // Check on scroll
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+      // Smooth scroll to top on click using GSAP
+      backToTopBtn.addEventListener('click', () => {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: 0, autoKill: true },
+          ease: "power2.inOut"
+        });
+      });
+    }
+    
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
       document.body.style.overflow = 'auto';
@@ -418,6 +576,170 @@
     
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Animate headings
+        const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+        headers.forEach((header) => {
+            // Collect information about spans and their content before splitting
+            const spanMap = new Map();
+            const spans = header.querySelectorAll('span');
+            spans.forEach(span => {
+                const words = span.textContent.trim().split(/\s+/);
+                words.forEach(word => {
+                    spanMap.set(word.toLowerCase(), Array.from(span.classList));
+                });
+            });
+            
+            new SplitType(header, { types: "words", tagName: "span" });
+            const words = header.querySelectorAll('.word');
+            
+            // Reapply classes to words based on their text content
+            words.forEach((word) => {
+                const wordText = word.textContent.trim().toLowerCase();
+                if (spanMap.has(wordText)) {
+                    const classes = spanMap.get(wordText);
+                    word.classList.add(...classes);
+                }
+            });
+            
+            gsap.set(words, { transformPerspective: 1000 });
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                rotationX: -90,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: { amount: 0.6 }
+            });
+        });
+
+        // Animate paragraphs
+        const paragraphs = document.querySelectorAll('p:not(.hneue.title):not(.ui-project-title)');
+        paragraphs.forEach((paragraph) => {
+            new SplitType(paragraph, { types: "words", tagName: "span" });
+            const words = paragraph.querySelectorAll('.word');
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: paragraph,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                duration: 0.8,
+                ease: "sine.out",
+                stagger: 0.02
+            });
+        });
+
+        // Grid Animation for UI Exploration
+        const initialClipPaths = [
+            "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
+            "polygon(33.33% 0%, 33.33% 0%, 33.33% 0%, 33.33% 0%)",
+            "polygon(66.66% 0%, 66.66% 0%, 66.66% 0%, 66.66% 0%)",
+            "polygon(0% 33.33%, 0% 33.33%, 0% 33.33%, 0% 33.33%)",
+            "polygon(33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%, 33.33% 33.33%)",
+            "polygon(66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%, 66.66% 33.33%)",
+            "polygon(0% 66.66%, 0% 66.66%, 0% 66.66%, 0% 66.66%)",
+            "polygon(33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%, 33.33% 66.66%)",
+            "polygon(66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%, 66.66% 66.66%)"
+        ];
+
+        const finalClipPaths = [
+            "polygon(0% 0%, 33.33% 0%, 33.33% 33.33%, 0% 33.33%)",
+            "polygon(33.33% 0%, 66.66% 0%, 66.66% 33.33%, 33.33% 33.33%)",
+            "polygon(66.66% 0%, 100% 0%, 100% 33.33%, 66.66% 33.33%)",
+            "polygon(0% 33.33%, 33.33% 33.33%, 33.33% 66.66%, 0% 66.66%)",
+            "polygon(33.33% 33.33%, 66.66% 33.33%, 66.66% 66.66%, 33.33% 66.66%)",
+            "polygon(66.66% 33.33%, 100% 33.33%, 100% 66.66%, 66.66% 66.66%)",
+            "polygon(0% 66.66%, 33.33% 66.66%, 33.33% 100%, 0% 100%)",
+            "polygon(33.33% 66.66%, 66.66% 66.66%, 66.66% 100%, 33.33% 100%)",
+            "polygon(66.66% 66.66%, 100% 66.66%, 100% 100%, 66.66% 100%)"
+        ];
+
+        function createMasks() {
+            const wrappers = document.querySelectorAll(".g_visual_wrap");
+            wrappers.forEach((wrapper) => {
+                const img = wrapper.querySelector(".ui-project-image[data-animate='true']");
+                if (img) {
+                    const imgUrl = img.src;
+                    for (let i = 0; i < 9; i++) {
+                        const mask = document.createElement("div");
+                        mask.classList.add("mask", `m-${i + 1}`);
+                        mask.style.backgroundImage = `url(${imgUrl})`;
+                        mask.style.backgroundSize = 'cover';
+                        mask.style.backgroundPosition = 'center';
+                        mask.style.zIndex = 10;
+                        wrapper.appendChild(mask);
+                    }
+                }
+            });
+        }
+
+        createMasks();
+
+        // Animate each row as a group
+        const rows = gsap.utils.toArray(".ui-grid-row");
+        console.log("Total rows found:", rows.length);
+
+        rows.forEach((row, rowIndex) => {
+            const wrappers = row.querySelectorAll(".g_visual_wrap");
+            console.log(`Row ${rowIndex + 1} has ${wrappers.length} wrappers`);
+
+            // Set initial clip paths for all masks in this row
+            wrappers.forEach((wrapper) => {
+                const masks = wrapper.querySelectorAll(".mask");
+                masks.forEach((mask, index) => {
+                    gsap.set(mask, {
+                        clipPath: initialClipPaths[index],
+                    });
+                });
+            });
+
+            // Create one timeline for the entire row
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: row,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+            });
+
+            const animationOrder = [
+                [".m-1"],
+                [".m-2", ".m-4"],
+                [".m-3", ".m-5", ".m-7"],
+                [".m-6", ".m-8"],
+                [".m-9"]
+            ];
+
+            // Animate all wrappers in this row together
+            animationOrder.forEach((targets, index) => {
+                const allMasks = [];
+                wrappers.forEach((wrapper) => {
+                    targets.forEach((cls) => {
+                        allMasks.push(...wrapper.querySelectorAll(cls));
+                    });
+                });
+
+                tl.to(allMasks, {
+                    clipPath: (i, el) => {
+                        const wrapper = el.closest('.g_visual_wrap');
+                        const masks = wrapper.querySelectorAll(".mask");
+                        return finalClipPaths[Array.from(masks).indexOf(el)];
+                    },
+                    duration: 1.2,
+                    ease: "power2.out",
+                    stagger: 0.08,
+                }, index * 0.35);
+            });
+        });
     });
   </script>
 </body>
