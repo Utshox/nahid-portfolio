@@ -248,23 +248,6 @@ select {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-.nav-inner {
-  width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 268px;
-}
-
-.nav-left {
-  display: flex;
-  align-items: flex-end;
   gap: 6px;
 }
 
@@ -2316,23 +2299,7 @@ select {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
-}
 
-.backToTopBtn svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
-
-/* Desktop - Large screens (1440px and below) */
-@media (max-width: 1440px) {
-
-  .nav-inner,
-  .container,
-  .hero-sub,
   .about-inner,
   .projects-content {
     max-width: 100%;
