@@ -1,10 +1,9 @@
 ﻿<!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1440, initial-scale=1">
-  <title>Photographs Nahid</title>
+  <title>Photographs  Nahid</title>
   <link rel="stylesheet" href="styles/main.css">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
@@ -84,17 +83,9 @@
       display: block;
     }
 
-    .photo-item:nth-child(3) {
-      grid-row: span 2;
-    }
-
-    .photo-item:nth-child(7) {
-      grid-row: span 2;
-    }
-
-    .photo-item:nth-child(9) {
-      grid-row: span 2;
-    }
+    .photo-item:nth-child(3) { grid-row: span 2; }
+    .photo-item:nth-child(7) { grid-row: span 2; }
+    .photo-item:nth-child(9) { grid-row: span 2; }
 
     .modal-overlay {
       display: none;
@@ -158,25 +149,13 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes slideUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .modal-nav {
@@ -238,7 +217,6 @@
       from {
         opacity: 0;
       }
-
       to {
         opacity: 1;
       }
@@ -265,21 +243,19 @@
     }
   </style>
 </head>
-
 <body>
-  <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
     <defs>
-      <filter id="goo">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo">
-        </feColorMatrix>
-        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-      </filter>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
     </defs>
-  </svg>
-  <div id="cursor"></div>
+</svg>
+<div id="cursor"></div>
 
-  <!-- Navigation Component -->
+<!-- Navigation Component -->
   <div id="navbar-placeholder"></div>
 
   <div id="artboard">
@@ -486,48 +462,47 @@
     </section>
 
     <!-- Footer Component -->
-    <div id="footer-placeholder"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
+  <div id="footer-placeholder"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
         // Animate headings
         const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
         headers.forEach((header) => {
-          new SplitType(header, { types: "words", tagName: "span" });
-          const words = header.querySelectorAll('.word');
-          gsap.set(words, { transformPerspective: 1000 });
-          gsap.from(words, {
-            scrollTrigger: {
-              trigger: header,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            },
-            rotationX: -90,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            stagger: { amount: 0.6 }
-          });
+            new SplitType(header, { types: "words", tagName: "span" });
+            const words = header.querySelectorAll('.word');
+            gsap.set(words, { transformPerspective: 1000 });
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                rotationX: -90,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: { amount: 0.6 }
+            });
         });
 
         // Animate paragraphs
         const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
         paragraphs.forEach((paragraph) => {
-          new SplitType(paragraph, { types: "words", tagName: "span" });
-          const words = paragraph.querySelectorAll('.word');
-          gsap.from(words, {
-            scrollTrigger: {
-              trigger: paragraph,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            },
-            opacity: 0,
-            duration: 0.8,
-            ease: "sine.out",
-            stagger: 0.02
-          });
+            new SplitType(paragraph, { types: "words", tagName: "span" });
+            const words = paragraph.querySelectorAll('.word');
+            gsap.from(words, {
+                scrollTrigger: {
+                    trigger: paragraph,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                duration: 0.8,
+                ease: "sine.out",
+                stagger: 0.02
+            });
         });
-      });
-    </script>
+    });
+  </script>
 </body>
-
 </html>
