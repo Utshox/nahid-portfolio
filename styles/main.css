@@ -72,7 +72,7 @@ body {
 body {
   background: var(--light);
   color: var(--black);
-  font-family: 'Helvetica Neue', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: 'Naga Space', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -164,40 +164,48 @@ select {
 
 /* === FONTS === */
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../font/Helvetica Neue/HelveticaNeueLight.ttf') format('truetype');
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../font/Helvetica Neue/HelveticaNeueLightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../font/Helvetica Neue/HelveticaNeueMedium.ttf') format('truetype');
-  font-weight: 500;
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../font/Helvetica Neue/HelveticaNeueItalic.ttf') format('truetype');
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace Italic.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../font/Helvetica Neue/HelveticaNeueBold.ttf') format('truetype');
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Naga Space';
+  src: url('../assets/fonts/NagaSpace Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -212,11 +220,11 @@ select {
 
 /* === TYPOGRAPHY === */
 .hneue {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Naga Space', Arial, sans-serif;
 }
 
 .inter {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Naga Space', Arial, sans-serif;
 }
 
 .medium {
@@ -282,7 +290,7 @@ select {
 
 .logo-text {
   color: #f4f6fa;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Naga Space', Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -865,6 +873,7 @@ select {
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
+  font-family: 'Naga Space', Arial, sans-serif;
   letter-spacing: 0.01em;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
@@ -995,7 +1004,7 @@ select {
   white-space: nowrap;
   padding-right: 60px;
   flex-shrink: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Naga Space', Arial, sans-serif;
   font-size: 100px;
   color: #b7bcc8;
   margin: 0;
@@ -2281,7 +2290,7 @@ select {
   transition: all 0.3s ease;
   width: fit-content;
   text-align: center;
-  font-family: 'Naga Space', sans-serif;
+  font-family: 'Naga Space', Arial, sans-serif;
   line-height: 1;
 }
 
