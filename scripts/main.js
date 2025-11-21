@@ -179,31 +179,78 @@ function initButtonAnimations() {
   });
 }
 
-// Initialize scroll-triggered animations for case cards
+// Initialize parallax scroll effect for case studies
 function initCaseCardScrollAnimations() {
-  if (!window.gsap || !window.gsap.ScrollTrigger) return;
+  console.log('initCaseCardScrollAnimations called');
+  if (!window.gsap || !window.gsap.ScrollTrigger) {
+    console.log('GSAP or ScrollTrigger not available');
+    return;
+  }
 
   gsap.registerPlugin(window.gsap.ScrollTrigger);
 
-  // Animate case cards on scroll
-  const cards = document.querySelectorAll('.case-card.reveal');
-  cards.forEach((card, index) => {
-    gsap.set(card, { opacity: 0, y: 40 });
+  const cards = document.querySelectorAll('.case-row.case-single');
+  console.log('Found case study cards:', cards.length);
+  if (!cards.length) return;
 
-    gsap.to(card, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 85%',
-        end: 'top 45%',
-        scrub: 0,
-        markers: false
-      }
-    });
+  // Make cards stack on top of each other for the animation
+  const wrapper = document.querySelector('#case-studies-wrapper');
+  if (wrapper) {
+    wrapper.style.position = 'relative';
+    wrapper.style.height = '100vh';
+  }
+
+  // Position all cards absolutely in the same spot
+  cards.forEach((card) => {
+    card.style.position = 'absolute';
+    card.style.top = '50%';
+    card.style.left = '50%';
+    card.style.transform = 'translate(-50%, -50%)';
   });
+
+  // Set initial state with perspective
+  gsap.set(cards, { transformPerspective: 1000 });
+
+  let tl = gsap.timeline({
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#case-studies-wrapper",
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+      start: "top top",
+      end: "+=4000",
+      markers: false
+    }
+  });
+
+  console.log('ScrollTrigger timeline created');
+
+  cards.forEach((card, i) => {
+    // Animate in
+    tl.from(card, {
+      y: 200,
+      duration: 1,
+      opacity: 0,
+      rotationX: -45,
+      ease: "power2.out"
+    });
+
+    // Hold
+    tl.to(card, { duration: 0.3 });
+
+    // Animate out (except last)
+    if (i < cards.length - 1) {
+      tl.to(card, {
+        y: -200,
+        duration: 1,
+        opacity: 0,
+        rotationX: -135,
+        ease: "power2.in"
+      });
+    }
+  });
+  console.log('Parallax animation setup complete');
 }
 
 // Animate case study heading on scroll
@@ -739,7 +786,7 @@ function initEmailModal() {
   }
 }
 
-window.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
   // Load navbar and footer components first
   await loadComponents();
 
