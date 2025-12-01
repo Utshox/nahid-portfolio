@@ -1316,7 +1316,7 @@ select {
 
 /* LMS Hero Section */
 .lms-hero-section {
-  padding: 100px 170px 40px 170px;
+  padding: 100px max(58px, calc((100vw - 1324px) / 2)) 40px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1393,7 +1393,7 @@ select {
 
 /* LMS Project Overview Section */
 .lms-hero-section+.project-banner+.project-overview-section {
-  padding: 240px 170px;
+  padding: 240px max(58px, calc((100vw - 1324px) / 2));
 }
 
 .lms-hero-section+.project-banner+.project-overview-section .overview-text p {
@@ -1412,7 +1412,7 @@ select {
 /* LMS Problem Section */
 /* LMS Problem Section */
 .lms-problem-section {
-  padding: 100px 170px;
+  padding: 100px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1509,7 +1509,7 @@ select {
 
 /* LMS Understanding Users Section */
 .lms-users-section {
-  padding: 100px 170px;
+  padding: 100px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1618,7 +1618,7 @@ select {
 /* LMS Journey Section */
 /* LMS Journey Section */
 .lms-journey-section {
-  padding: 140px 170px 60px 170px;
+  padding: 140px max(58px, calc((100vw - 1324px) / 2)) 60px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1665,10 +1665,10 @@ select {
 
 .lms-journey-section .journey-image {
   width: 100vw;
-  margin-left: -170px;
+  margin-left: calc(-1 * max(58px, calc((100vw - 1324px) / 2)));
   margin-top: 40px;
   background-color: #050506;
-  padding: 40px 170px;
+  padding: 40px max(58px, calc((100vw - 1324px) / 2));
 }
 
 .lms-journey-section .journey-image img {
@@ -1679,7 +1679,7 @@ select {
 
 /* LMS Discovery Section */
 .lms-discovery-section {
-  padding: 160px 170px;
+  padding: 160px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1739,7 +1739,7 @@ select {
 /* LMS Ideation Section */
 /* LMS Ideation Section */
 .lms-ideation-section {
-  padding: 80px 170px 40px 170px;
+  padding: 80px max(58px, calc((100vw - 1324px) / 2)) 40px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1845,7 +1845,7 @@ select {
 /* LMS Information Architecture Section */
 /* LMS Information Architecture Section */
 .lms-ia-section {
-  padding: 140px 170px;
+  padding: 140px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1909,7 +1909,7 @@ select {
 
 /* LMS High-Fidelity Section */
 .lms-highfidelity-section {
-  padding: 140px 170px 40px 170px;
+  padding: 140px max(58px, calc((100vw - 1324px) / 2)) 40px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -1957,7 +1957,7 @@ select {
 /* LMS Course Flow Section */
 /* LMS Course Flow Section */
 .lms-course-flow-section {
-  padding: 0px 170px 140px 170px;
+  padding: 0px max(58px, calc((100vw - 1324px) / 2)) 140px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -2026,7 +2026,7 @@ select {
 
 /* LMS Testing Section */
 .lms-testing-section {
-  padding: 80px 170px;
+  padding: 80px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -2118,7 +2118,7 @@ select {
 
 /* LMS Results Section */
 .lms-results-section {
-  padding: 80px 170px;
+  padding: 80px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -2189,7 +2189,7 @@ select {
 
 /* LMS What I Learned Section */
 .lms-learned-section {
-  padding: 200px 170px;
+  padding: 200px max(58px, calc((100vw - 1324px) / 2));
   background-color: var(--light-background);
 }
 
@@ -2250,7 +2250,7 @@ select {
 .final-overview-section {
   max-width: 100%;
   margin: 0;
-  padding: 120px 170px 140px;
+  padding: 120px max(58px, calc((100vw - 1324px) / 2)) 140px;
   box-sizing: border-box;
   background: var(--light-background);
   display: flex;

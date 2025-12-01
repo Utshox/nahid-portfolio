@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +41,7 @@
 
     /* Hero Section */
     .page-hero {
-      padding: 140px 170px 40px 170px;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 40px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       display: flex;
       justify-content: center;
@@ -131,7 +132,7 @@
 
     /* Project Overview Section */
     .project-overview {
-      padding: 240px 170px;
+      padding: 240px max(58px, calc((100vw - 1324px) / 2));
       display: flex;
       justify-content: center;
       background: var(--light-background);
@@ -155,7 +156,7 @@
 
     /* Section Blocks */
     .section-block {
-      padding: 100px 170px;
+      padding: 100px max(58px, calc((100vw - 1324px) / 2));
       display: flex;
       justify-content: center;
       background: var(--light-background);
@@ -163,17 +164,17 @@
 
     /* Challenges Section - specific padding */
     .challenges-section {
-      padding: 100px 170px 80px 170px;
+      padding: 100px max(58px, calc((100vw - 1324px) / 2)) 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     /* Solution Section - specific padding */
     .solution-section {
-      padding: 140px 170px;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2));
     }
 
     /* Dashboard Overview Section - specific padding and gap */
     .dashboard-overview-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .dashboard-overview-section .section-container {
@@ -191,7 +192,7 @@
 
     /* Member Management Section - specific padding and gap */
     .member-management-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .member-management-section .section-container {
@@ -209,7 +210,7 @@
 
     /* Approval Workflow Section - specific padding and gap */
     .approval-workflow-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .approval-workflow-section .section-container {
@@ -235,7 +236,7 @@
 
     /* Buffer Loan Section - specific padding and gap */
     .buffer-loan-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .buffer-loan-section .section-container {
@@ -253,7 +254,7 @@
 
     /* Performance Tracking Section - specific padding and gap */
     .performance-tracking-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .performance-tracking-section .section-container {
@@ -271,7 +272,7 @@
 
     /* Reporting & Analytics Section - specific padding and gap */
     .reporting-analytics-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .reporting-analytics-section .section-container {
@@ -289,7 +290,7 @@
 
     /* Results & Impact Section - specific padding and gap */
     .results-impact-section {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .results-impact-section .section-container {
@@ -407,12 +408,12 @@
     }
 
     .keypoint-item {
-        border-top: 1px solid var(--Outline, #CECEDE);
-        display: flex;
-        padding: 22px 0;
-        align-items: flex-start;
-        gap: 80px;
-        align-self: stretch;
+      border-top: 1px solid var(--Outline, #CECEDE);
+      display: flex;
+      padding: 22px 0;
+      align-items: flex-start;
+      gap: 80px;
+      align-self: stretch;
     }
 
     .keypoint-title {
@@ -502,7 +503,7 @@
 
     /* Final Overview Section */
     .final-overview-section {
-      padding: 120px 170px 140px 170px;
+      padding: 120px max(58px, calc((100vw - 1324px) / 2)) 140px max(58px, calc((100vw - 1324px) / 2));
       display: flex;
       justify-content: center;
       background: var(--light-background);
@@ -549,6 +550,7 @@
     }
 
     @media (max-width: 960px) {
+
       .page-hero,
       .project-overview,
       .section-block,
@@ -581,19 +583,21 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/split-type" defer></script>
 </head>
-<body>
-<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
-    </defs>
-</svg>
-<div id="cursor"></div>
 
-<!-- Navigation Component -->
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo">
+        </feColorMatrix>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+      </filter>
+    </defs>
+  </svg>
+  <div id="cursor"></div>
+
+  <!-- Navigation Component -->
   <div id="navbar-placeholder"></div>
 
   <div id="artboard">
@@ -603,7 +607,8 @@
           <div class="hero-text-wrapper">
             <a href="index.html" class="back-link">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="#454953" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15 18L9 12L15 6" stroke="#454953" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
               Back
             </a>
@@ -629,12 +634,16 @@
       </section>
 
       <section>
-        <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Project%20Banner.png" alt="MF Web Portal Overview" class="hero-image">
+        <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Project%20Banner.png"
+          alt="MF Web Portal Overview" class="hero-image">
       </section>
 
       <section class="project-overview">
         <div class="project-overview-container">
-          <p class="overview-text">We work closely with partners around the world to conceptualize and implement user centric digital platform. Throughout the years, we've been privileged to collaborate with top companies and build life changing products for people around the globe. Explore some of our selected work below to see how we've helped our clients succeed.</p>
+          <p class="overview-text">We work closely with partners around the world to conceptualize and implement user
+            centric digital platform. Throughout the years, we've been privileged to collaborate with top companies and
+            build life changing products for people around the globe. Explore some of our selected work below to see how
+            we've helped our clients succeed.</p>
         </div>
       </section>
 
@@ -645,25 +654,31 @@
               <h2 class="section-title"><span class="accent">the challenge,</span> operational inefficiency</h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">A financial services provider struggled with an inefficient workflow where new applications required sequential approval from a long chain of managers (POs to RMs) before final sign-off in their core ERP.</p>
+              <p class="section-description">A financial services provider struggled with an inefficient workflow where
+                new applications required sequential approval from a long chain of managers (POs to RMs) before final
+                sign-off in their core ERP.</p>
             </div>
           </div>
           <div class="keypoint-list">
             <div class="keypoint-item">
               <h3 class="keypoint-title">Slow Approval Times</h3>
-              <p class="keypoint-description">The manual hand-off between managers created bottlenecks, significantly delaying the disbursement of loans and the onboarding of new members.</p>
+              <p class="keypoint-description">The manual hand-off between managers created bottlenecks, significantly
+                delaying the disbursement of loans and the onboarding of new members.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Lack of Visibility</h3>
-              <p class="keypoint-description">Senior managers had no centralized way to track the status of applications in real-time, making it difficult to identify delays or manage team performance.</p>
+              <p class="keypoint-description">Senior managers had no centralized way to track the status of applications
+                in real-time, making it difficult to identify delays or manage team performance.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Data Inconsistencies</h3>
-              <p class="keypoint-description">Information was scattered across multiple sources, leading to a high risk of errors and difficulty in making informed decisions.</p>
+              <p class="keypoint-description">Information was scattered across multiple sources, leading to a high risk
+                of errors and difficulty in making informed decisions.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Ineffective Performance Management</h3>
-              <p class="keypoint-description">Setting and tracking performance targets for loan disbursement, member acquisition, and savings was a cumbersome, manual process.</p>
+              <p class="keypoint-description">Setting and tracking performance targets for loan disbursement, member
+                acquisition, and savings was a cumbersome, manual process.</p>
             </div>
           </div>
         </div>
@@ -676,7 +691,9 @@
               <h2 class="section-title">Our solution: <span class="accent">a unified financial platform</span></h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">We designed and developed the MF Web Portal to centralize financial operations, streamline workflows, and provide real-time insights. The platform empowers employees with intuitive tools while ensuring compliance, security, and scalability for long-term growth.</p>
+              <p class="section-description">We designed and developed the MF Web Portal to centralize financial
+                operations, streamline workflows, and provide real-time insights. The platform empowers employees with
+                intuitive tools while ensuring compliance, security, and scalability for long-term growth.</p>
             </div>
           </div>
         </div>
@@ -689,19 +706,22 @@
               <h2 class="section-title"><span class="accent">key</span> features & functionality</h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">The application was built with several powerful features tailored to the client's specific operational needs. There are additional more features*</p>
+              <p class="section-description">The application was built with several powerful features tailored to the
+                client's specific operational needs. There are additional more features*</p>
             </div>
           </div>
           <div class="feature-grid">
             <div class="feature-card">
               <div class="feature-icon">
-                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/first%20icon%20unified%20dashboard.svg" alt="">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/first%20icon%20unified%20dashboard.svg"
+                  alt="">
               </div>
               <p class="feature-title">Unified Dashboard and Task Management</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">
-                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/2nd%20icon%20comprehensive%20member.svg" alt="">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/2nd%20icon%20comprehensive%20member.svg"
+                  alt="">
               </div>
               <p class="feature-title">Comprehensive Member 360° View</p>
             </div>
@@ -713,19 +733,24 @@
             </div>
             <div class="feature-card">
               <div class="feature-icon">
-                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/4th%20icon%20buffer%20adn%20exception.svg" alt="">
+                <img
+                  src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/4th%20icon%20buffer%20adn%20exception.svg"
+                  alt="">
               </div>
               <p class="feature-title">Buffer & Exception Handling</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">
-                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fifth%20icon%20terget%20setting%20and%20performance.svg" alt="">
+                <img
+                  src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fifth%20icon%20terget%20setting%20and%20performance.svg"
+                  alt="">
               </div>
               <p class="feature-title">Target Setting & Performance Monitoring</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">
-                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fixth%20icon%20robust%20reporting.svg" alt="">
+                <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/fixth%20icon%20robust%20reporting.svg"
+                  alt="">
               </div>
               <p class="feature-title">Robust Reporting & Analytics</p>
             </div>
@@ -740,12 +765,14 @@
               <h2 class="section-title">Unified Dashboard and Task Management</h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">Upon logging in, Managers can see key metrics at a glance and task list is prioritized so managers know what to do first.</p>
+              <p class="section-description">Upon logging in, Managers can see key metrics at a glance and task list is
+                prioritized so managers know what to do first.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview"
+                class="section-image">
             </div>
           </div>
         </div>
@@ -765,16 +792,19 @@
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Historical Behavior</h3>
-              <p class="keypoint-description">A clear record of past and active loans, payment history, and savings behavior, allowing for a quick assessment of creditworthiness.</p>
+              <p class="keypoint-description">A clear record of past and active loans, payment history, and savings
+                behavior, allowing for a quick assessment of creditworthiness.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Personal & Financial Data</h3>
-              <p class="keypoint-description">All necessary KYC (Know Your Customer) information pulled directly from the ERP.</p>
+              <p class="keypoint-description">All necessary KYC (Know Your Customer) information pulled directly from
+                the ERP.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png" alt="Member Management" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png"
+                alt="Member Management" class="section-image">
             </div>
           </div>
         </div>
@@ -794,16 +824,19 @@
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Send Back</h3>
-              <p class="keypoint-description">Return the application to a subordinate for clarification or correction, with comments.</p>
+              <p class="keypoint-description">Return the application to a subordinate for clarification or correction,
+                with comments.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Reject</h3>
-              <p class="keypoint-description">Reject the application with a justification. This creates a clear, digital audit trail for every application, accessible via the integrated comments and activity log.</p>
+              <p class="keypoint-description">Reject the application with a justification. This creates a clear, digital
+                audit trail for every application, accessible via the integrated comments and activity log.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow"
+                class="section-image">
             </div>
           </div>
         </div>
@@ -816,12 +849,15 @@
               <h2 class="section-title">Buffer & Exception <span class="accent">Handling</span></h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">The application includes dedicated sections for managing "Buffer Member Admissions" and "Buffer Loan Proposals." This allows for the careful review and processing of applications that may fall outside standard parameters before they enter the main approval pipeline.</p>
+              <p class="section-description">The application includes dedicated sections for managing "Buffer Member
+                Admissions" and "Buffer Loan Proposals." This allows for the careful review and processing of
+                applications that may fall outside standard parameters before they enter the main approval pipeline.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png" alt="Buffer Loan Management" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png"
+                alt="Buffer Loan Management" class="section-image">
             </div>
           </div>
         </div>
@@ -834,12 +870,14 @@
               <h2 class="section-title">Target Setting & Performance Monitoring</h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">Use the "Target Set" module to assign quarterly team goals for acquisition, loans, and savings. This shifts performance management from reactive to proactive.</p>
+              <p class="section-description">Use the "Target Set" module to assign quarterly team goals for acquisition,
+                loans, and savings. This shifts performance management from reactive to proactive.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png" alt="Performance Tracking" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png"
+                alt="Performance Tracking" class="section-image">
             </div>
           </div>
         </div>
@@ -852,12 +890,15 @@
               <h2 class="section-title"><span class="accent">Robust</span> Reporting & Analytics</h2>
             </div>
             <div class="section-subtitle-wrapper">
-              <p class="section-description">A powerful reporting module enables managers to generate custom reports based on various filters like region, branch, date range, and report type. These reports can be instantly downloaded in Excel format for further analysis, internal meetings, or strategic planning.</p>
+              <p class="section-description">A powerful reporting module enables managers to generate custom reports
+                based on various filters like region, branch, date range, and report type. These reports can be
+                instantly downloaded in Excel format for further analysis, internal meetings, or strategic planning.</p>
             </div>
           </div>
           <div class="section-image-wrapper">
             <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics" class="section-image">
+              <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics"
+                class="section-image">
             </div>
           </div>
         </div>
@@ -873,23 +914,28 @@
           <div class="keypoint-list">
             <div class="keypoint-item">
               <h3 class="keypoint-title">Increased Efficiency</h3>
-              <p class="keypoint-description">The pre-approval process was substantially accelerated, drastically cutting down the time required for an application to move through the management chain.</p>
+              <p class="keypoint-description">The pre-approval process was substantially accelerated, drastically
+                cutting down the time required for an application to move through the management chain.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Enhanced Transparency</h3>
-              <p class="keypoint-description">Senior management gained real-time visibility into the entire application pipeline, allowing them to proactively address bottlenecks.</p>
+              <p class="keypoint-description">Senior management gained real-time visibility into the entire application
+                pipeline, allowing them to proactively address bottlenecks.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Improved Decision-Making</h3>
-              <p class="keypoint-description">With access to comprehensive member histories, managers could make faster and more accurate approval decisions.</p>
+              <p class="keypoint-description">With access to comprehensive member histories, managers could make faster
+                and more accurate approval decisions.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Strengthened Accountability</h3>
-              <p class="keypoint-description">The target-setting and reporting features created a culture of accountability and provided clear metrics for performance evaluation.</p>
+              <p class="keypoint-description">The target-setting and reporting features created a culture of
+                accountability and provided clear metrics for performance evaluation.</p>
             </div>
             <div class="keypoint-item">
               <h3 class="keypoint-title">Reduced Errors</h3>
-              <p class="keypoint-description">By centralizing data and digitizing the workflow, the incidence of manual data entry errors was significantly minimized.</p>
+              <p class="keypoint-description">By centralizing data and digitizing the workflow, the incidence of manual
+                data entry errors was significantly minimized.</p>
             </div>
           </div>
         </div>
@@ -897,110 +943,102 @@
 
       <section class="final-overview-section">
         <div class="final-overview-container">
-          <p class="final-overview-text">The administrative web application successfully replaced a fragmented and inefficient manual system with a streamlined, transparent, and powerful digital solution. By empowering managers with the right information and tools, the portal has become an indispensable asset for the institution, accelerating its core business processes and enabling better service for its members.</p>
+          <p class="final-overview-text">The administrative web application successfully replaced a fragmented and
+            inefficient manual system with a streamlined, transparent, and powerful digital solution. By empowering
+            managers with the right information and tools, the portal has become an indispensable asset for the
+            institution, accelerating its core business processes and enabling better service for its members.</p>
           <a href="course-management-lms.html" class="next-design-btn" data-block="button">
-            <span class="button__flair"></span>
-            <span class="button__label">NEXT DESIGN</span>
-          </a>
+            <div class="footer-cta">
+              <div class="cta-copy">
+                <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+                <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+              </div>
+              <button class="btn" id="email-btn" data-block="button">
+                <span class="button__flair"></span>
+                <span class="button__label">EMAIL ME</span>
+              </button>
+            </div>
+            <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
+              <div class="footer-marquee">
+                <div class="marquee-content">
+                  <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+                  <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+                </div>
+              </div>
+            </div>
+            </footer>
         </div>
-      </section>
-    </main>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            // Animate headings
+            const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+            headers.forEach((header) => {
+              new SplitType(header, { types: "words", tagName: "span" });
+              const words = header.querySelectorAll('.word');
+              gsap.set(words, { transformPerspective: 1000 });
+              gsap.from(words, {
+                scrollTrigger: {
+                  trigger: header,
+                  start: "top 80%",
+                  toggleActions: "play none none reverse"
+                },
+                rotationX: -90,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: { amount: 0.6 }
+              });
+            });
 
-    <footer id="footer">
-      <div class="footer-top">
-        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
-        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
-      </div>
-      <div class="footer-cta">
-        <div class="cta-copy">
-          <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
-          <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
-        </div>
-        <button class="btn" id="email-btn" data-block="button">
-          <span class="button__flair"></span>
-          <span class="button__label">EMAIL ME</span>
-        </button>
-      </div>
-      <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
-        <div class="footer-marquee">
-          <div class="marquee-content">
-            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
-            <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Animate headings
-      const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
-      headers.forEach((header) => {
-        new SplitType(header, { types: "words", tagName: "span" });
-        const words = header.querySelectorAll('.word');
-        gsap.set(words, { transformPerspective: 1000 });
-        gsap.from(words, {
-          scrollTrigger: {
-            trigger: header,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          },
-          rotationX: -90,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: { amount: 0.6 }
-        });
-      });
+            // Animate paragraphs
+            const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+            paragraphs.forEach((paragraph) => {
+              new SplitType(paragraph, { types: "words", tagName: "span" });
+              const words = paragraph.querySelectorAll('.word');
+              gsap.from(words, {
+                scrollTrigger: {
+                  trigger: paragraph,
+                  start: "top 80%",
+                  toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                duration: 0.8,
+                ease: "sine.out",
+                stagger: 0.02
+              });
+            });
 
-      // Animate paragraphs
-      const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
-      paragraphs.forEach((paragraph) => {
-        new SplitType(paragraph, { types: "words", tagName: "span" });
-        const words = paragraph.querySelectorAll('.word');
-        gsap.from(words, {
-          scrollTrigger: {
-            trigger: paragraph,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          },
-          opacity: 0,
-          duration: 0.8,
-          ease: "sine.out",
-          stagger: 0.02
-        });
-      });
+            // Image Reveal Animation
+            gsap.registerPlugin(ScrollTrigger);
 
-      // Image Reveal Animation
-      gsap.registerPlugin(ScrollTrigger);
+            let revealContainers = document.querySelectorAll(".reveal");
 
-      let revealContainers = document.querySelectorAll(".reveal");
+            revealContainers.forEach((container) => {
+              let image = container.querySelector("img");
+              if (!image) return;
 
-      revealContainers.forEach((container) => {
-        let image = container.querySelector("img");
-        if (!image) return;
-        
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            start: "top 80%",
-            toggleActions: "play none none reset"
-          }
-        });
+              let tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: container,
+                  start: "top 80%",
+                  toggleActions: "play none none reset"
+                }
+              });
 
-        tl.from(container, {
-          xPercent: -100,
-          duration: 1.5,
-          ease: "power2.out"
-        });
-        tl.from(image, {
-          xPercent: 100,
-          scale: 1.3,
-          duration: 1.5,
-          ease: "power2.out"
-        }, "-=1.5");
-      });
-    });
-  </script>
+              tl.from(container, {
+                xPercent: -100,
+                duration: 1.5,
+                ease: "power2.out"
+              });
+              tl.from(image, {
+                xPercent: 100,
+                scale: 1.3,
+                duration: 1.5,
+                ease: "power2.out"
+              }, "-=1.5");
+            });
+          });
+        </script>
 </body>
+
 </html>
