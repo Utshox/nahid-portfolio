@@ -213,8 +213,8 @@ select {
 
 /* === MAIN ARTBOARD === */
 #artboard {
-  width: 1440px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   background: var(--light);
 }
 
@@ -262,8 +262,6 @@ select {
 }
 
 .nav-inner {
-  width: 1440px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -346,12 +344,12 @@ select {
 /* === HERO SECTION === */
 #hero {
   background: var(--light);
-  padding: 100px 58px 60px;
-  margin-top: 80px;
+  padding: 180px 58px 60px;
+  margin: 0;
 }
 
 #hero .container {
-  width: 1324px;
+  max-width: 1324px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -399,6 +397,7 @@ select {
 #case-studies-heading {
   background: var(--light);
   padding: 40px 58px;
+  margin: 0;
 }
 
 #case-studies-heading .case-title-heading {
@@ -416,6 +415,7 @@ select {
 #case-studies-wrapper {
   background: var(--light);
   padding: 40px 58px 120px 58px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -424,7 +424,8 @@ select {
 
 .case-row {
   background: var(--light);
-  padding: 20px 58px;
+  padding: 0;
+  margin: 0;
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -433,9 +434,10 @@ select {
 
 .case-row.case-single {
   display: block;
-  width: 1324px;
+  max-width: 1324px;
+  width: 100%;
   height: 620px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   background: var(--light);
 }
@@ -720,14 +722,13 @@ select {
   position: relative;
   overflow: hidden;
   padding: 82px 58px;
+  margin: 0;
   background: var(--bg-dark);
   color: #f4f6fa;
   display: flex;
   justify-content: center;
   perspective: 1200px;
   min-height: 442px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
 }
 
 .philo-dots {
@@ -743,14 +744,15 @@ select {
 
 .philo-content {
   position: relative;
-  width: 1324px;
+  max-width: 1324px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
   z-index: 1;
   transform-style: preserve-3d;
   justify-content: center;
-  padding: 0 58px;
+  padding: 0;
 }
 
 .philo-pill {
@@ -797,6 +799,7 @@ select {
 #about {
   background: var(--light);
   padding: 140px 58px;
+  margin: 0;
 }
 
 .about-inner {
@@ -896,12 +899,12 @@ select {
   align-items: center;
   gap: 72px;
   padding: 130px 58px 56px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  margin: 0;
 }
 
 .footer-top {
-  width: 1324px;
+
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -917,7 +920,8 @@ select {
 }
 
 .footer-cta {
-  width: 1324px;
+ 
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
