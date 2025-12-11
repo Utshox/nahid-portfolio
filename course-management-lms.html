@@ -503,73 +503,86 @@
                 management.</p>
             <a href="selp-case-study.html" class="next-design-btn" data-block="button">
                 <span class="button__flair"></span>
-                headers.forEach((header) => {
+                <span class="button__label">NEXT DESIGN</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Animate headings
+            const headers = document.querySelectorAll('h1, h2, h3, .hneue.title');
+            headers.forEach((header) => {
                 new SplitType(header, { types: "words", tagName: "span" });
                 const words = header.querySelectorAll('.word');
                 gsap.set(words, { transformPerspective: 1000 });
                 gsap.from(words, {
-                scrollTrigger: {
-                trigger: header,
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-                },
-                rotationX: -90,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                stagger: { amount: 0.6 }
+                    scrollTrigger: {
+                        trigger: header,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    rotationX: -90,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    stagger: { amount: 0.6 }
                 });
-                });
+            });
 
-                // Animate paragraphs
-                const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
-                paragraphs.forEach((paragraph) => {
+            // Animate paragraphs
+            const paragraphs = document.querySelectorAll('p:not(.hneue.title)');
+            paragraphs.forEach((paragraph) => {
                 new SplitType(paragraph, { types: "words", tagName: "span" });
                 const words = paragraph.querySelectorAll('.word');
                 gsap.from(words, {
-                scrollTrigger: {
-                trigger: paragraph,
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-                },
-                opacity: 0,
-                duration: 0.8,
-                ease: "sine.out",
-                stagger: 0.02
+                    scrollTrigger: {
+                        trigger: paragraph,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "sine.out",
+                    stagger: 0.02
                 });
-                });
+            });
 
-                // Image Reveal Animation
-                gsap.registerPlugin(ScrollTrigger);
+            // Image Reveal Animation
+            gsap.registerPlugin(ScrollTrigger);
 
-                let revealContainers = document.querySelectorAll(".reveal");
+            let revealContainers = document.querySelectorAll(".reveal");
 
-                revealContainers.forEach((container) => {
+            revealContainers.forEach((container) => {
                 let image = container.querySelector("img");
                 if (!image) return;
 
                 let tl = gsap.timeline({
-                scrollTrigger: {
-                trigger: container,
-                start: "top 80%",
-                toggleActions: "play none none reset"
-                }
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top 80%",
+                        toggleActions: "play none none reset"
+                    }
                 });
 
                 tl.from(container, {
-                xPercent: -100,
-                duration: 1.5,
-                ease: "power2.out"
+                    xPercent: -100,
+                    duration: 1.5,
+                    ease: "power2.out"
                 });
                 tl.from(image, {
-                xPercent: 100,
-                scale: 1.3,
-                duration: 1.5,
-                ease: "power2.out"
+                    xPercent: 100,
+                    scale: 1.3,
+                    duration: 1.5,
+                    ease: "power2.out"
                 }, "-=1.5");
-                });
-                });
-                </script>
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -41,10 +41,13 @@
 
     /* Hero Section */
     .page-hero {
-      padding: 100px 170px 40px 170px;
-      background: var(--light-background);
       display: flex;
-      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      padding: 56px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .hero-container {
@@ -131,26 +134,29 @@
     .project-overview,
     .section-block,
     .final-overview-section {
-      padding: 140px 170px;
       display: flex;
-      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .final-overview-section {
-      padding: 140px 170px 120px 170px;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .project-overview {
-      padding: 140px 170px;
+      padding: 220px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .approach-block {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .user-flow-block {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .project-overview-container,
@@ -384,7 +390,7 @@
 
     /* Wireframes */
     .wireframes-block {
-      padding: 100px 170px;
+      padding: 100px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .wireframes-header {
@@ -433,7 +439,7 @@
 
     /* High fidelity */
     .high-fidelity-block {
-      padding: 80px 170px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .high-fidelity-container {
@@ -779,9 +785,9 @@
             </div>
             <div class="high-fidelity-items">
               <div class="high-fidelity-row">
-                <div class="high-fidelity-text">
+                <div class="high-fidelity-text wide-gap">
                   <h3 class="high-fidelity-title">Home Page</h3>
-                  <p class="high-fidelity-description">This is a Leady App dashboard designed to centralize their core
+                  <p class="high-fidelity-description fixed-width">This is a Leady App dashboard designed to centralize their core
                     activities. It provides an at-a-glance view of their commission earnings, a tool for submitting and
                     tracking customer leads, and direct access to view available loan products and promotions.</p>
                 </div>
