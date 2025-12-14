@@ -895,7 +895,7 @@ select {
 
 /* === FOOTER === */
 #footer {
-  background: url('../assets/bg image for footer and philosophy.png') center / cover no-repeat;
+  background: url('../assets/bg%20image%20for%20footer%20and%20philosophy.png') center / cover no-repeat;
   background-attachment: fixed;
   color: #f4f6fa;
   display: flex;

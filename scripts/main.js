@@ -9,21 +9,126 @@ const COLORS = {
 // Component Loading
 async function loadComponents() {
   try {
+    console.log('Starting component loading...');
+    
     // Load navbar
+    console.log('Fetching navbar...');
     const navbarResponse = await fetch('components/navbar.html');
+    if (!navbarResponse.ok) {
+      throw new Error(`Failed to load navbar: ${navbarResponse.status} ${navbarResponse.statusText}`);
+    }
     const navbarHTML = await navbarResponse.text();
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    console.log('Navbar placeholder found:', !!navbarPlaceholder);
     if (navbarPlaceholder) {
       navbarPlaceholder.outerHTML = navbarHTML;
       setActiveNavLink();
+      console.log('Navbar inserted successfully');
+    } else {
+      console.warn('Navbar placeholder not found in DOM');
     }
 
-    // Load footer (includes back-to-top button and email modal)
-    const footerResponse = await fetch('components/footer.html');
-    const footerHTML = await footerResponse.text();
+    // Load footer (embedded as template to avoid CORS issues with file:// protocol)
+    console.log('Loading footer...');
+    const footerHTML = `<!-- Footer -->
+<footer id="footer">
+    <div class="footer-top">
+        <p class="hneue tertiary">PURPOSE FULL SOLUTION</p>
+        <p class="hneue tertiary">FOR YOUR BUSINESS</p>
+    </div>
+    <div class="footer-cta">
+        <div class="cta-copy">
+            <p class="hneue title"><span class="italic secondary">Let's</span> Collaborate..</p>
+            <p class="hneue underline">neamul.morshed.nahid@gmail.com</p>
+        </div>
+        <button class="btn" id="email-btn" data-block="button">
+            <span class="button__flair"></span>
+            <span class="button__label">EMAIL ME</span>
+        </button>
+    </div>
+    <div class="footer-bottom" aria-label="Designed by Neamul Morshed Nahid">
+        <div class="footer-marquee">
+            <div class="marquee-content">
+                <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+                <div class="marquee-text">DESIGNED BY NEAMUL MORSHED NAHID</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="backToTopBtn" id="backToTopBtn" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </svg>
+</button>
+
+<!-- Email Contact Modal -->
+<div id="email-modal" class="email-modal-overlay">
+    <div class="email-modal-content">
+        <button class="email-modal-close" id="email-modal-close" aria-label="Close contact form">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="email-modal-container">
+            <div class="email-modal-left">
+                <h2 class="email-modal-title">
+                    <span class="italic">Let's build</span> something great
+                </h2>
+                <p class="email-modal-description">
+                    Have a project, a new role, or just an idea you want to explore? Let's talk about it.
+                </p>
+                <div class="email-modal-decoration">
+                    <img src="assets/popup%20hand.svg" alt="Hand gesture" style="width: 111px; height: 160px;">
+                </div>
+            </div>
+
+            <div class="email-modal-right">
+                <form class="email-modal-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Type name here"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Type email here"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea"
+                            placeholder="Write your message.." required></textarea>
+                    </div>
+
+                    <button type="submit" class="email-modal-submit" data-block="button">
+                        <span class="button__flair"></span>
+                        <span class="button__label">SEND EMAIL</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>`;
+    
+    console.log('Footer HTML loaded, length:', footerHTML.length);
     const footerPlaceholder = document.getElementById('footer-placeholder');
+    console.log('Footer placeholder found:', !!footerPlaceholder);
     if (footerPlaceholder) {
+      console.log('Inserting footer HTML...');
       footerPlaceholder.outerHTML = footerHTML;
+      console.log('Footer inserted successfully');
+      const footerCheck = document.getElementById('footer');
+      console.log('Footer element exists after insertion:', !!footerCheck);
+    } else {
+      console.warn('Footer placeholder not found in DOM');
+      console.log('Available IDs in DOM:', Array.from(document.querySelectorAll('[id]')).map(el => el.id).slice(0, 20));
     }
   } catch (error) {
     console.error('Error loading components:', error);
@@ -786,7 +891,7 @@ function initEmailModal() {
   }
 }
 
-window.addEventListener('load', async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   // Load navbar and footer components first
   await loadComponents();
 

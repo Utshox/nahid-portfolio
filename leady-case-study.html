@@ -42,9 +42,8 @@
     /* Hero Section */
     .page-hero {
       display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 56px max(58px, calc((100vw - 1324px) / 2));
+      justify-content: center;
+      padding: 100px 24px 40px;
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
@@ -52,6 +51,7 @@
 
     .hero-container {
       width: 100%;
+      max-width: 1101px;
       display: flex;
       flex-direction: column;
       gap: 80px;
@@ -60,7 +60,7 @@
     .hero-text-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 80px;
+      gap: 56px;
     }
 
     .back-link {
@@ -135,33 +135,33 @@
     .section-block,
     .final-overview-section {
       display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 140px max(58px, calc((100vw - 1324px) / 2));
+      justify-content: center;
+      padding: 140px 24px;
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
     }
 
     .final-overview-section {
-      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
+      padding: 140px 24px 120px 24px;
     }
 
     .project-overview {
-      padding: 220px max(58px, calc((100vw - 1324px) / 2));
+      padding: 220px 24px;
     }
 
     .approach-block {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2));
+      padding: 80px 24px;
     }
 
     .user-flow-block {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2));
+      padding: 80px 24px;
     }
 
     .project-overview-container,
     .section-container {
       width: 100%;
+      max-width: 1101px;
       display: flex;
       flex-direction: column;
       gap: 60px;
@@ -185,10 +185,7 @@
 
     .user-flow-subtitle-wrapper {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-end;
-      justify-content: center;
+      justify-content: flex-end;
       width: 100%;
     }
 
@@ -203,6 +200,7 @@
 
     .final-overview-container {
       width: 100%;
+      max-width: 1101px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -253,6 +251,11 @@
       font-style: italic;
       font-family: 'Naga Space', sans-serif;
       font-weight: 400;
+    }
+
+    .section-title .indented-text {
+      display: inline-block;
+      margin-left: 4em;
     }
 
     .section-supporting {
@@ -390,7 +393,7 @@
 
     /* Wireframes */
     .wireframes-block {
-      padding: 100px max(58px, calc((100vw - 1324px) / 2));
+      padding: 100px 24px;
     }
 
     .wireframes-header {
@@ -413,10 +416,7 @@
 
     .wireframes-subtitle-wrapper {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-end;
-      justify-content: center;
+      justify-content: flex-end;
       width: 100%;
     }
 
@@ -439,7 +439,7 @@
 
     /* High fidelity */
     .high-fidelity-block {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2));
+      padding: 80px 24px;
     }
 
     .high-fidelity-container {
@@ -644,13 +644,13 @@
               </svg>
               Back
             </a>
-            <h1 class="page-title">Leady App - Lead Generation Mobile App</h1>
+            <h1 class="page-title">Leady App - lead Generation Mobile App</h1>
           </div>
           <div class="meta-info-wrapper">
             <div class="meta-info">
               <div class="meta-item">
                 <p class="meta-label">My Role</p>
-                <p class="meta-value">UX &amp; UI Design, Prototyping</p>
+                <p class="meta-value">User Flow, Wireframing, Phototyping, Test &amp; Iteration</p>
               </div>
               <div class="meta-item">
                 <p class="meta-label">Teams</p>
@@ -658,7 +658,7 @@
               </div>
               <div class="meta-item">
                 <p class="meta-label">Timeframe</p>
-                <p class="meta-value">Aug 2024 - Jan 2025</p>
+                <p class="meta-value">3 Weeks 2 Days</p>
               </div>
             </div>
           </div>
@@ -743,7 +743,7 @@
         <div class="section-container">
           <div class="user-flow-header">
             <div class="user-flow-title-wrapper">
-              <h2 class="section-title">the journey <span class="accent">to a seamless experience</span></h2>
+              <h2 class="section-title">the journey <span class="accent">to a seamless</span><br><span class="indented-title">experience</span></h2>
             </div>
             <div class="user-flow-subtitle-wrapper">
               <p class="user-flow-description">We mapped out the user flow and refined it with client feedback to create
@@ -765,7 +765,7 @@
         <div class="section-container">
           <div class="wireframes-header">
             <div class="wireframes-title-wrapper">
-              <h2 class="section-title">wireframe iterations, <span class="accent">refining the blueprint</span></h2>
+              <h2 class="section-title">wireframe iterations, refining the <br><span class="accent indented-title">blueprint</span></h2>
             </div>
             <div class="wireframes-subtitle-wrapper">
               <p class="wireframes-description">Before adding color or detail, we first drafted the app's blueprint with
@@ -838,6 +838,10 @@
             rewarding process for MFS agents. Its deliberate, user-focused design successfully optimizes lead management
             and accelerates customer acquisition. The result is an intuitive, scalable platform that effectively aligns
             business goals with user motivation to drive growth.</p>
+          <a href="selp-case-study.html" class="next-design-btn" data-block="button">
+            <span class="button__flair"></span>
+            <span class="button__label">NEXT DESIGN</span>
+          </a>
         </div>
       </section>
 
