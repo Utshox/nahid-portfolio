@@ -14,13 +14,13 @@
   <style>
     .ui-exploration-hero {
       background: var(--light);
-      padding: 240px 58px 100px;
+      padding: 240px max(58px, calc((100vw - 1324px) / 2)) 100px;
       margin-top: 80px;
     }
 
     .ui-hero-content {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: flex;
       flex-direction: column;
       gap: 60px;
@@ -61,12 +61,12 @@
 
     .ui-grid-section {
       background: var(--light);
-      padding: 80px 58px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .ui-grid-container {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: flex;
       flex-direction: column;
       gap: 38px;
@@ -395,7 +395,7 @@
       </div>
     </section>
 
-    <!-- Designs in Motion Carousel -->
+    <!-- Designs in Motion Carousel
     <section id="projects">
       <div class="projects-content">
         <div class="project-highlights">
@@ -435,7 +435,7 @@
           </svg>
         </button>
       </div>
-    </section>
+    </section> -->
 
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>

@@ -13,13 +13,13 @@
   <style>
     .photo-hero {
       background: var(--light);
-      padding: 180px 58px 40px 58px;
+      padding: 180px max(58px, calc((100vw - 1324px) / 2)) 40px;
       margin-top: 80px;
     }
 
     .photo-hero-container {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: flex;
       flex-direction: column;
       gap: 60px;
@@ -27,11 +27,12 @@
 
     .photo-hero-title {
       font-size: 112px;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--black);
       margin: 0;
-      font-family: 'Helvetica Neue', system-ui;
-      line-height: 1;
+      font-family: 'Naga Space', system-ui;
+      line-height: 1.14;
+      text-transform: lowercase;
     }
 
     .photo-hero-title .secondary {
@@ -52,12 +53,12 @@
 
     .photos-section {
       background: var(--light);
-      padding: 80px 58px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .photo-grid {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -297,190 +298,190 @@
     <section class="photos-section">
       <div class="photo-grid">
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240308_144809.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240308_144809.jpg" alt="Photograph 1">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240308_144809.jpg" alt="Photograph 1" loading="eager" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155037-2.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155037-2.jpg" alt="Photograph 2">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155037-2.jpg" alt="Photograph 2" loading="eager" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155106.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155106.jpg" alt="Photograph 3">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155106.jpg" alt="Photograph 3" loading="eager" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155250-2.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155250-2.jpg" alt="Photograph 4">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_155250-2.jpg" alt="Photograph 4" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_160827.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_160827.jpg" alt="Photograph 5">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_160827.jpg" alt="Photograph 5" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_163414.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_163414.jpg" alt="Photograph 6">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_163414.jpg" alt="Photograph 6" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_171211.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_171211.jpg" alt="Photograph 7">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_171211.jpg" alt="Photograph 7" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240309_174739.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_174739.jpg" alt="Photograph 8">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240309_174739.jpg" alt="Photograph 8" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20240310_100742.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240310_100742.jpg" alt="Photograph 9">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20240310_100742.jpg" alt="Photograph 9" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250110_153342.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250110_153342.JPG" alt="Photograph 10">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250110_153342.JPG" alt="Photograph 10" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_172619.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_172619.JPG" alt="Photograph 11">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_172619.JPG" alt="Photograph 11" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174005.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174005.JPG" alt="Photograph 12">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174005.JPG" alt="Photograph 12" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174355.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174355.JPG" alt="Photograph 13">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174355.JPG" alt="Photograph 13" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174417.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174417.JPG" alt="Photograph 14">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174417.JPG" alt="Photograph 14" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174430.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174430.JPG" alt="Photograph 15">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174430.JPG" alt="Photograph 15" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174544.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174544.JPG" alt="Photograph 16">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174544.JPG" alt="Photograph 16" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174707-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174707-2.JPG" alt="Photograph 17">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174707-2.JPG" alt="Photograph 17" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174728.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174728.JPG" alt="Photograph 18">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174728.JPG" alt="Photograph 18" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174941.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174941.JPG" alt="Photograph 19">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174941.JPG" alt="Photograph 19" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955-2.JPG" alt="Photograph 20">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955-2.JPG" alt="Photograph 20" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955.JPG" alt="Photograph 21">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_174955.JPG" alt="Photograph 21" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_175006.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_175006.JPG" alt="Photograph 22">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_175006.JPG" alt="Photograph 22" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250111_210604-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_210604-2.JPG" alt="Photograph 23">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250111_210604-2.JPG" alt="Photograph 23" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115612-3.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115612-3.JPG" alt="Photograph 24">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115612-3.JPG" alt="Photograph 24" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115639-3.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115639-3.JPG" alt="Photograph 25">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115639-3.JPG" alt="Photograph 25" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115649.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115649.JPG" alt="Photograph 26">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_115649.JPG" alt="Photograph 26" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319-2.JPG" alt="Photograph 27">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319-2.JPG" alt="Photograph 27" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319.JPG" alt="Photograph 28">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120319.JPG" alt="Photograph 28" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120516.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120516.JPG" alt="Photograph 29">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120516.JPG" alt="Photograph 29" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620-2.JPG" alt="Photograph 30">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620-2.JPG" alt="Photograph 30" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620.JPG" alt="Photograph 31">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120620.JPG" alt="Photograph 31" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850-2.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850-2.JPG" alt="Photograph 32">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850-2.JPG" alt="Photograph 32" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850.JPG" alt="Photograph 33">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_120850.JPG" alt="Photograph 33" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140000.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140000.JPG" alt="Photograph 34">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140000.JPG" alt="Photograph 34" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140431.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140431.JPG" alt="Photograph 35">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140431.JPG" alt="Photograph 35" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140433.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140433.JPG" alt="Photograph 36">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_140433.JPG" alt="Photograph 36" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142140.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142140.JPG" alt="Photograph 37">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142140.JPG" alt="Photograph 37" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142159.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142159.JPG" alt="Photograph 38">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_142159.JPG" alt="Photograph 38" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_154408.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_154408.JPG" alt="Photograph 39">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_154408.JPG" alt="Photograph 39" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155047.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155047.JPG" alt="Photograph 40">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155047.JPG" alt="Photograph 40" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155449.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155449.JPG" alt="Photograph 41">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_155449.JPG" alt="Photograph 41" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161816.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161816.JPG" alt="Photograph 42">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161816.JPG" alt="Photograph 42" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161830.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161830.JPG" alt="Photograph 43">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_161830.JPG" alt="Photograph 43" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162041.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162041.JPG" alt="Photograph 44">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162041.JPG" alt="Photograph 44" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162051.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162051.JPG" alt="Photograph 45">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162051.JPG" alt="Photograph 45" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162337.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162337.JPG" alt="Photograph 46">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_162337.JPG" alt="Photograph 46" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/20250112_171135.JPG">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_171135.JPG" alt="Photograph 47">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/20250112_171135.JPG" alt="Photograph 47" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211106_155535-2.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211106_155535-2.jpg" alt="Photograph 48">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211106_155535-2.jpg" alt="Photograph 48" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132004.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132004.jpg" alt="Photograph 49">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132004.jpg" alt="Photograph 49" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132128.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132128.jpg" alt="Photograph 50">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_132128.jpg" alt="Photograph 50" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_161440.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_161440.jpg" alt="Photograph 51">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_161440.jpg" alt="Photograph 51" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_162224.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_162224.jpg" alt="Photograph 52">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211217_162224.jpg" alt="Photograph 52" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_141534.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_141534.jpg" alt="Photograph 53">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_141534.jpg" alt="Photograph 53" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_150221.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_150221.jpg" alt="Photograph 54">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_150221.jpg" alt="Photograph 54" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_153438-2.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_153438-2.jpg" alt="Photograph 55">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_153438-2.jpg" alt="Photograph 55" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_160558.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_160558.jpg" alt="Photograph 56">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20211218_160558.jpg" alt="Photograph 56" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220730_182045.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220730_182045.jpg" alt="Photograph 57">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220730_182045.jpg" alt="Photograph 57" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_144233.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_144233.jpg" alt="Photograph 58">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_144233.jpg" alt="Photograph 58" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_145035.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_145035.jpg" alt="Photograph 59">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20220731_145035.jpg" alt="Photograph 59" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_084217.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_084217.jpg" alt="Photograph 60">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_084217.jpg" alt="Photograph 60" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_095600.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_095600.jpg" alt="Photograph 61">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/IMG_20231201_095600.jpg" alt="Photograph 61" loading="lazy" decoding="async">
         </div>
         <div class="photo-item" data-src="assets/Portfolio%20Design%20Assests/Photographs/PXL_20211218_173728264.jpg">
-          <img src="assets/Portfolio%20Design%20Assests/Photographs/PXL_20211218_173728264.jpg" alt="Photograph 62">
+          <img src="assets/Portfolio%20Design%20Assests/Photographs/PXL_20211218_173728264.jpg" alt="Photograph 62" loading="lazy" decoding="async">
         </div>
       </div>
     </section>

@@ -6,6 +6,76 @@ const COLORS = {
   bgBlack: '#212225'
 };
 
+// === IMAGE OPTIMIZATION ===
+function initImageOptimizations() {
+  const images = document.querySelectorAll('img');
+  
+  images.forEach((img, index) => {
+    // Skip already processed images
+    if (img.dataset.optimized) return;
+    
+    // Add native lazy loading for images below the fold
+    // First 3 images load eagerly (above the fold), rest are lazy
+    if (index > 2 && !img.loading) {
+      img.loading = 'lazy';
+    }
+    
+    // Add async decoding for all images
+    if (!img.decoding) {
+      img.decoding = 'async';
+    }
+    
+    // Add fetchpriority for above-the-fold images
+    if (index <= 2) {
+      img.fetchPriority = 'high';
+    } else {
+      img.fetchPriority = 'low';
+    }
+    
+    // Handle lazy loaded images fade-in
+    if (img.loading === 'lazy') {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() {
+          this.classList.add('loaded');
+        }, { once: true });
+      }
+    }
+    
+    // Mark as processed
+    img.dataset.optimized = 'true';
+  });
+  
+  // Use Intersection Observer for enhanced lazy loading
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          
+          // If image has data-src, swap it
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px', // Start loading 100px before visible
+      threshold: 0.01
+    });
+    
+    // Observe all lazy images
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
 // Component Loading
 async function loadComponents() {
   try {
@@ -892,6 +962,9 @@ function initEmailModal() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // Initialize image optimizations first for faster perceived loading
+  initImageOptimizations();
+  
   // Load navbar and footer components first
   await loadComponents();
 

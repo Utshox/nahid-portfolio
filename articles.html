@@ -91,13 +91,13 @@
 
     .article-hero {
       background: var(--light);
-      padding: 180px 58px 40px 58px;
+      padding: 180px max(58px, calc((100vw - 1324px) / 2)) 40px;
       margin-top: 80px;
     }
 
     .article-hero-container {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: flex;
       flex-direction: column;
       gap: 60px;
@@ -105,11 +105,12 @@
 
     .article-hero-title {
       font-size: 112px;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--black);
       margin: 0;
-      font-family: 'Helvetica Neue', system-ui;
-      line-height: 1;
+      font-family: 'Naga Space', system-ui;
+      line-height: 1.14;
+      text-transform: lowercase;
     }
 
     .article-hero-title .secondary {
@@ -130,12 +131,12 @@
 
     .articles-section {
       background: var(--light);
-      padding: 80px 58px 40px 58px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2)) 40px;
     }
 
     .articles-list {
-      width: 1324px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1324px;
       display: flex;
       flex-direction: column;
       gap: 26px;

@@ -42,8 +42,9 @@
     /* Hero Section */
     .page-hero {
       display: flex;
-      justify-content: center;
-      padding: 100px 24px 40px;
+      gap: 10px;
+      align-items: center;
+      padding: 136px max(58px, calc((100vw - 1324px) / 2)) 56px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
@@ -51,7 +52,6 @@
 
     .hero-container {
       width: 100%;
-      max-width: 1101px;
       display: flex;
       flex-direction: column;
       gap: 80px;
@@ -135,33 +135,33 @@
     .section-block,
     .final-overview-section {
       display: flex;
-      justify-content: center;
-      padding: 140px 24px;
+      gap: 10px;
+      align-items: center;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
     }
 
     .final-overview-section {
-      padding: 140px 24px 120px 24px;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .project-overview {
-      padding: 220px 24px;
+      padding: 220px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .approach-block {
-      padding: 80px 24px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .user-flow-block {
-      padding: 80px 24px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .project-overview-container,
     .section-container {
       width: 100%;
-      max-width: 1101px;
       display: flex;
       flex-direction: column;
       gap: 60px;
@@ -200,7 +200,6 @@
 
     .final-overview-container {
       width: 100%;
-      max-width: 1101px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -265,7 +264,7 @@
     }
 
     .section-supporting p {
-      max-width: 540px;
+      max-width: 700px;
       margin: 0;
       font-size: 20px;
       color: var(--secondary-color);
@@ -279,7 +278,7 @@
       font-family: 'Naga Space', sans-serif;
       line-height: 1.4;
       margin: 0;
-      max-width: 540px;
+      max-width: 700px;
       font-weight: 400;
 
     }
@@ -393,7 +392,7 @@
 
     /* Wireframes */
     .wireframes-block {
-      padding: 100px 24px;
+      padding: 100px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .wireframes-header {
@@ -426,7 +425,7 @@
       font-family: 'Naga Space', sans-serif;
       line-height: 1.4;
       margin: 0;
-      max-width: 540px;
+      max-width: 700px;
       font-weight: 400;
     }
 
@@ -439,7 +438,7 @@
 
     /* High fidelity */
     .high-fidelity-block {
-      padding: 80px 24px;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2));
     }
 
     .high-fidelity-container {
@@ -508,11 +507,11 @@
 
     .high-fidelity-description.fixed-width {
       flex: none;
-      width: 540px;
+      width: 700px;
     }
 
     .high-fidelity-image {
-      width: 540px;
+      width: 700px;
       height: 343px;
       object-fit: cover;
       flex-shrink: 0;
@@ -667,7 +666,7 @@
 
       <section>
         <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Project%20Banner.png"
-          alt="Leady Mobile App Overview" class="hero-image">
+          alt="Leady Mobile App Overview" class="hero-image" loading="eager" decoding="async" fetchpriority="high">
       </section>
 
       <section class="project-overview">
@@ -729,7 +728,7 @@
           <div class="process-steps">
             <div class="reveal">
               <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Approach%20to%20design.png"
-                alt="Approach to design diagram">
+                alt="Approach to design diagram" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="section-supporting bottom-copy">
@@ -755,7 +754,7 @@
             <div class="reveal">
               <img
                 src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/The%20journey%20to%20a%20seamless%20experience.png"
-                alt="User journey map" class="flow-image">
+                alt="User journey map" class="flow-image" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -793,7 +792,7 @@
                 </div>
                 <div class="reveal">
                   <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Home%20Page.png" alt="Home page"
-                    class="high-fidelity-image">
+                    class="high-fidelity-image" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="high-fidelity-row">
@@ -805,7 +804,7 @@
                 </div>
                 <div class="reveal">
                   <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Commission.png"
-                    alt="Commission details" class="high-fidelity-image">
+                    alt="Commission details" class="high-fidelity-image" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="high-fidelity-row">
@@ -816,7 +815,7 @@
                 </div>
                 <div class="reveal">
                   <img src="assets/Portfolio%20Design%20Assests/Leady%20Mobile%20App/Lead%20Status.png"
-                    alt="Lead status" class="high-fidelity-image">
+                    alt="Lead status" class="high-fidelity-image" loading="lazy" decoding="async">
                 </div>
               </div>
             </div>

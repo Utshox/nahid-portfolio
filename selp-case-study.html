@@ -41,7 +41,7 @@
       display: flex;
       gap: 10px;
       align-items: center;
-      padding: 56px max(58px, calc((100vw - 1324px) / 2));
+      padding: 136px max(58px, calc((100vw - 1324px) / 2)) 56px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
@@ -49,7 +49,6 @@
 
     .hero-container {
       width: 100%;
-      max-width: 1101px;
       display: flex;
       flex-direction: column;
       gap: 80px;
@@ -145,15 +144,19 @@
       width: 100%;
     }
 
+    .project-overview-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
     .overview-text {
-      flex: 1 0 0;
       font-family: 'Naga Space', sans-serif;
       font-size: 34px;
       line-height: 1.5;
       color: var(--primary-black);
-      font-style: normal;
       margin: 0;
-      white-space: pre-wrap;
     }
 
     /* Intro Section */
@@ -182,10 +185,8 @@
     /* Problems Section */
     .problems-section {
       display: flex;
-      flex-direction: column;
       gap: 10px;
-      align-items: flex-end;
-      justify-content: flex-end;
+      align-items: center;
       padding: 100px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       box-sizing: border-box;
@@ -193,19 +194,16 @@
     }
 
     .problems-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       gap: 40px;
-      align-self: stretch;
     }
 
     .problems-title {
-      display: block;
-      align-self: stretch;
       font-size: 44px;
       font-weight: 400;
-      line-height: 126%;
+      line-height: 1.2;
       margin: 0;
       color: var(--primary-black);
       font-family: 'Naga Space', sans-serif;
@@ -216,53 +214,47 @@
       color: var(--secondary-color);
       font-style: italic;
       font-family: 'Naga Space', sans-serif;
-      font-size: 44px;
       font-weight: 400;
-      line-height: 126%;
       text-transform: lowercase;
     }
 
     .problems-wrapper {
       display: flex;
-      padding-left: 560px;
       justify-content: flex-end;
-      align-items: center;
-      gap: 10px;
-      align-self: stretch;
+      width: 100%;
     }
 
     .problems-text {
-      flex: 1 0 0;
       font-family: 'Naga Space', sans-serif;
       font-size: 20px;
-      font-style: normal;
       font-weight: 400;
-      line-height: 140%;
+      line-height: 1.4;
       color: var(--secondary-color);
       margin: 0;
+      max-width: 700px;
     }
 
-    /* Vision Section */
-    .vision-section {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2));
-      background: var(--light-background);
-    }
-
+    /* Section Block */
     .section-block {
-      max-width: 100%;
-      margin: 0;
-      padding: 100px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 80px max(58px, calc((100vw - 1324px) / 2)) 100px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .section-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: stretch;
-      gap: 40px;
-      background: var(--light-background);
+      gap: 36px;
     }
 
     .section-title {
       font-size: 44px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.2;
       margin: 0;
       color: var(--primary-black);
@@ -275,6 +267,32 @@
       font-style: italic;
       font-family: 'Naga Space', sans-serif;
       font-weight: 400;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 60px;
+    }
+
+    .section-header.simple {
+      justify-content: flex-start;
+    }
+
+    .section-supporting {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .section-supporting p {
+      max-width: 700px;
+      margin: 0;
+      font-size: 20px;
+      color: var(--secondary-color);
+      font-family: 'Naga Space', sans-serif;
+      line-height: 1.4;
     }
 
     .section-subtitle {
@@ -409,10 +427,7 @@
 
     /* Challenges Section New */
     .challenges-section-new {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2)) !important;
-      gap: 0 !important;
-      display: flex;
-      flex-direction: column;
+      gap: 60px;
     }
 
     .challenges-header {
@@ -425,22 +440,20 @@
 
     .challenges-header-subtitle {
       display: flex;
-      padding-left: 666px;
+      padding-left: 540px;
       justify-content: flex-end;
       align-items: center;
       gap: 10px;
       align-self: stretch;
-      margin-bottom: 80px;
-      margin-top: 36px;
+      width: 100%;
     }
 
     .challenges-subtitle {
       flex: 1 0 0;
       font-family: 'Naga Space', sans-serif;
       font-size: 20px;
-      font-style: normal;
       font-weight: 400;
-      line-height: 140%;
+      line-height: 1.4;
       color: var(--secondary-color);
       margin: 0;
     }
@@ -454,7 +467,7 @@
 
     .challenge-item {
       display: flex;
-      gap: 20px;
+      gap: 80px;
       padding: 22px 0;
       border-bottom: 1px solid var(--border-color);
       align-items: flex-start;
@@ -470,7 +483,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -486,8 +499,7 @@
 
     /* Research & Insights Section */
     .research-insights-section {
-      padding: 100px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2)) !important;
-      gap: 60px !important;
+      gap: 60px;
     }
 
     .research-header {
@@ -535,7 +547,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -565,8 +577,7 @@
 
     /* Design Process Section */
     .design-process-section {
-      padding: 80px max(58px, calc((100vw - 1324px) / 2)) !important;
-      gap: 20px !important;
+      gap: 60px;
     }
 
     .design-process-header {
@@ -587,20 +598,21 @@
 
     .design-process-subtitle-wrapper {
       display: flex;
-      flex-direction: column;
+      padding-left: 540px;
+      justify-content: flex-end;
+      align-items: center;
       gap: 10px;
-      align-items: flex-end;
-      justify-content: center;
+      align-self: stretch;
       width: 100%;
     }
 
     .design-process-subtitle {
+      flex: 1 0 0;
       font-size: 20px;
       color: var(--secondary-color);
       font-family: 'Naga Space', sans-serif;
       line-height: 1.4;
       margin: 0;
-      max-width: 800px;
       font-weight: 400;
     }
 
@@ -622,10 +634,20 @@
 
     /* Solutions Section */
     .solutions-section {
-      padding: 100px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2)) !important;
-      gap: 60px !important;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .solutions-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
+      gap: 60px;
     }
 
     .solutions-header {
@@ -653,23 +675,28 @@
 
     .solution-item {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      gap: 80px;
       padding-top: 22px;
       border-top: 1px solid var(--border-color);
-      align-items: flex-end;
-      justify-content: flex-end;
+      align-items: flex-start;
       width: 100%;
     }
 
     .solution-item-last {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      gap: 80px;
       padding: 22px 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       align-items: flex-start;
+      width: 100%;
+    }
+
+    .solution-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
     }
 
     .solution-content {
@@ -685,7 +712,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -695,13 +722,12 @@
       font-family: 'Naga Space', sans-serif;
       margin: 0;
       line-height: 1.4;
-      flex: 1 0 0;
       font-weight: 400;
     }
 
     .solution-item-image {
-      width: 580px;
-      height: 304px;
+      width: 100%;
+      height: auto;
       display: block;
       background: #f0f0f0;
       object-fit: cover;
@@ -709,14 +735,20 @@
 
     /* Progressive Disclosure Section */
     .progressive-disclosure-section {
-      max-width: 100%;
-      margin: 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
       padding: 140px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .progressive-disclosure-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 60px;
-      background: var(--light-background);
     }
 
     .progressive-disclosure-header {
@@ -752,42 +784,53 @@
       justify-content: flex-end;
     }
 
+    .progressive-disclosure-wrapper {
+      display: flex;
+      padding-left: 540px;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      width: 100%;
+    }
+
     .progressive-disclosure-description {
-      font-size: 18px;
+      flex: 1 0 0;
+      font-size: 20px;
       color: var(--secondary-color);
       line-height: 1.4;
       margin: 0;
-      max-width: 800px;
       font-family: 'Naga Space', sans-serif;
       font-weight: 400;
     }
 
     .progressive-disclosure-visual {
-      display: flex;
-      justify-content: center;
       width: 100%;
-      background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-      padding: 40px;
-      border-radius: 8px;
-      min-height: 300px;
+      margin-top: 40px;
     }
 
     .progressive-disclosure-image {
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      max-height: 500px;
+      display: block;
     }
 
     /* Predictable Experience Section */
     .predictable-experience-section {
-      max-width: 100%;
-      margin: 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
       padding: 140px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .predictable-experience-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 40px;
-      background: var(--light-background);
+      gap: 60px;
     }
 
     .predictable-experience-header {
@@ -823,25 +866,42 @@
       justify-content: flex-end;
     }
 
+    .predictable-experience-wrapper {
+      display: flex;
+      padding-left: 540px;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      width: 100%;
+    }
+
     .predictable-experience-description {
-      font-size: 18px;
+      flex: 1 0 0;
+      font-size: 20px;
       color: var(--secondary-color);
       line-height: 1.4;
       margin: 0;
-      max-width: 800px;
       font-family: 'Naga Space', sans-serif;
       font-weight: 400;
     }
 
     /* Conclusion Section */
     .conclusion-section {
-      max-width: 100%;
-      margin: 0;
-      padding: 100px max(58px, calc((100vw - 1324px) / 2));
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .conclusion-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 60px;
     }
 
     .conclusion-title {
@@ -905,25 +965,23 @@
 
     /* Final Overview Section */
     .final-overview-section {
-      max-width: 100%;
-      margin: 0;
-      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 120px;
-      box-sizing: border-box;
-      background: var(--light-background);
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      padding: 140px max(58px, calc((100vw - 1324px) / 2)) 120px max(58px, calc((100vw - 1324px) / 2));
+      background: var(--light-background);
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .final-overview-container {
       width: 100%;
-      max-width: 1100px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: flex-start;
-      gap: 80px;
-      position: relative;
+      gap: 100px;
+      min-height: 506px;
     }
 
     .final-overview-text {
@@ -1048,14 +1106,16 @@
 
       <section>
         <img src="assets/Portfolio%20Design%20Assests/Selp/Project%20Banner.png" alt="SELP MIS Platform Overview"
-          class="hero-image">
+          class="hero-image" loading="eager" decoding="async" fetchpriority="high">
       </section>
 
       <section class="project-overview">
-        <p class="overview-text">This case study reviews the SELP MIS Platform, a tool created to streamline legal and
-          social support for survivors. The platform integrates case management with social empowerment modules to
-          enhance service delivery and empower officers to work more efficiently. We will explore the key challenges,
-          solutions, and lessons learned during its development.</p>
+        <div class="project-overview-container">
+          <p class="overview-text">This case study reviews the SELP MIS Platform, a tool created to streamline legal and
+            social support for survivors. The platform integrates case management with social empowerment modules to
+            enhance service delivery and empower officers to work more efficiently. We will explore the key challenges,
+            solutions, and lessons learned during its development.</p>
+        </div>
       </section>
 
       <section class="problems-section">
@@ -1072,227 +1132,231 @@
       </section>
 
       <section class="section-block">
-        <h2 class="section-title">The Vision <span class="accent">Behind the selp mis platform</span></h2>
-        <div class="grid-4">
-          <div class="card">
-            <div class="card-icon">
-              <img src="assets/improve operational efficiency Icon.svg" alt="Efficiency">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Improve Operational Efficiency</h3>
-              <p class="card-text">Automate and streamline case management processes for faster response times.</p>
-            </div>
+        <div class="section-container">
+          <div class="section-header simple">
+            <h2 class="section-title">The Vision <span class="accent">Behind the selp mis platform</span></h2>
           </div>
-          <div class="card">
-            <div class="card-icon">
-              <img src="assets/Enhance Service Quality and Effectiveness Icon.svg" alt="Quality">
+          <div class="grid-4">
+            <div class="card">
+              <div class="card-icon">
+                <img src="assets/improve operational efficiency Icon.svg" alt="Efficiency">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Improve Operational Efficiency</h3>
+                <p class="card-text">Automate and streamline case management processes for faster response times.</p>
+              </div>
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Enhance Service Quality and Effectiveness</h3>
-              <p class="card-text">Automate and streamline case management processes for faster response times.</p>
+            <div class="card">
+              <div class="card-icon">
+                <img src="assets/Enhance Service Quality and Effectiveness Icon.svg" alt="Quality">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Enhance Service Quality and Effectiveness</h3>
+                <p class="card-text">Automate and streamline case management processes for faster response times.</p>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <img src="assets/Strengthen Strategic Decision-Making icon.svg" alt="Strategy">
+            <div class="card">
+              <div class="card-icon">
+                <img src="assets/Strengthen Strategic Decision-Making icon.svg" alt="Strategy">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Strengthen Strategic Decision-Making</h3>
+                <p class="card-text">Enable leadership with data-driven insights and analytics for resource allocation</p>
+              </div>
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Strengthen Strategic Decision-Making</h3>
-              <p class="card-text">Enable leadership with data-driven insights and analytics for resource allocation</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <img src="assets/Increase User Adoption and Satisfaction icon.svg" alt="Adoption">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Increase User Adoption and Satisfaction</h3>
-              <p class="card-text">Ensure that the system is intuitive and user-friendly to increase usage among
-                low-tech users.</p>
+            <div class="card">
+              <div class="card-icon">
+                <img src="assets/Increase User Adoption and Satisfaction icon.svg" alt="Adoption">
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Increase User Adoption and Satisfaction</h3>
+                <p class="card-text">Ensure that the system is intuitive and user-friendly to increase usage among
+                  low-tech users.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="section-block challenges-section-new">
-        <div class="challenges-header">
-          <h2 class="section-title">the challenges <span class="accent">we overcame</span></h2>
-        </div>
-        <div class="challenges-header-subtitle">
-          <p class="challenges-subtitle">The main challenges arose from both technical and emotional barriers that
-            affected the users' ability to adapt to the new system</p>
-        </div>
-        <div class="challenges-list">
-          <div class="challenge-item">
-            <h3 class="challenge-title">User Fear and the Digital Divide</h3>
-            <p class="challenge-description">Officers feared that adopting a digital system would threaten their jobs
-              due to low digital literacy and reliance on paper-based workflows.</p>
+        <div class="section-container">
+          <div class="challenges-header">
+            <h2 class="section-title">the challenges <span class="accent">we overcame</span></h2>
           </div>
-          <div class="challenge-item">
-            <h3 class="challenge-title">Balancing Simplicity with System Power</h3>
-            <p class="challenge-description">Balancing the need for a powerful case management system with simplicity
-              for first-time users posed a design challenge.</p>
+          <div class="challenges-header-subtitle">
+            <p class="challenges-subtitle">The main challenges arose from both technical and emotional barriers that
+              affected the users' ability to adapt to the new system</p>
           </div>
-          <div class="challenge-item">
-            <h3 class="challenge-title">Designing for a High-Stakes Environment</h3>
-            <p class="challenge-description">The platform had to function in rural areas with unreliable internet and
-              power, requiring resilience to avoid reverting to manual processes.</p>
+          <div class="challenges-list">
+            <div class="challenge-item">
+              <h3 class="challenge-title">User Fear and the Digital Divide</h3>
+              <p class="challenge-description">Officers feared that adopting a digital system would threaten their jobs
+                due to low digital literacy and reliance on paper-based workflows.</p>
+            </div>
+            <div class="challenge-item">
+              <h3 class="challenge-title">Balancing Simplicity with System Power</h3>
+              <p class="challenge-description">Balancing the need for a powerful case management system with simplicity
+                for first-time users posed a design challenge.</p>
+            </div>
+            <div class="challenge-item">
+              <h3 class="challenge-title">Designing for a High-Stakes Environment</h3>
+              <p class="challenge-description">The platform had to function in rural areas with unreliable internet and
+                power, requiring resilience to avoid reverting to manual processes.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section-block research-insights-section">
-        <div class="research-header">
-          <h2 class="section-title">Empathy-Driven, <span class="accent">Design for SELP</span><br><span
-              class="accent">Officers</span></h2>
-        </div>
-        <div class="research-content">
-          <div class="research-list">
-            <div class="research-item">
-              <h3 class="research-title">In-Depth Interviews & Field Visits</h3>
-              <p class="research-description">We conducted interviews and field visits to understand the challenges
-                faced by SELP officers in rural areas, gathering insights from their interactions with paper-based
-                systems and case management.</p>
-            </div>
-            <div class="research-item">
-              <h3 class="research-title">Emotional Barrier — Fear of Job Insecurity</h3>
-              <p class="research-description">A key discovery was that fear of job loss, due to low digital literacy and
-                reliance on operators, was a major barrier to adoption.</p>
-            </div>
-            <div class="research-item">
-              <h3 class="research-title">Low Digital Literacy & Operator Dependency</h3>
-              <p class="research-description">Rural officers, unfamiliar with computers, relied on external help for
-                data entry, causing hesitation and anxiety about adopting the digital system.</p>
-            </div>
-            <div class="research-item">
-              <h3 class="research-title">Shift in Approach — Focus on Empowerment</h3>
-              <p class="research-description">We shifted focus from efficiency to creating a user-friendly system that
-                builds confidence from the first interaction, empowering users and reducing anxiety.</p>
-            </div>
-            <div class="research-item research-item-last">
-              <h3 class="research-title">Design Goal — Empower Officers</h3>
-              <p class="research-description">The aim shifted to empowering officers with an approachable, intuitive
-                design that helps them feel in control while managing cases.</p>
-            </div>
+        <div class="section-container">
+          <div class="research-header">
+            <h2 class="section-title">Empathy-Driven, <span class="accent">Design for SELP</span><br><span
+                class="accent">Officers</span></h2>
           </div>
-          <div class="research-images">
-            <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/Selp/interview%201.png" alt="Research documentation"
-                class="research-image">
+          <div class="research-content">
+            <div class="research-list">
+              <div class="research-item">
+                <h3 class="research-title">In-Depth Interviews & Field Visits</h3>
+                <p class="research-description">We conducted interviews and field visits to understand the challenges
+                  faced by SELP officers in rural areas, gathering insights from their interactions with paper-based
+                  systems and case management.</p>
+              </div>
+              <div class="research-item">
+                <h3 class="research-title">Emotional Barrier — Fear of Job Insecurity</h3>
+                <p class="research-description">A key discovery was that fear of job loss, due to low digital literacy and
+                  reliance on operators, was a major barrier to adoption.</p>
+              </div>
+              <div class="research-item">
+                <h3 class="research-title">Low Digital Literacy & Operator Dependency</h3>
+                <p class="research-description">Rural officers, unfamiliar with computers, relied on external help for
+                  data entry, causing hesitation and anxiety about adopting the digital system.</p>
+              </div>
+              <div class="research-item">
+                <h3 class="research-title">Shift in Approach — Focus on Empowerment</h3>
+                <p class="research-description">We shifted focus from efficiency to creating a user-friendly system that
+                  builds confidence from the first interaction, empowering users and reducing anxiety.</p>
+              </div>
+              <div class="research-item research-item-last">
+                <h3 class="research-title">Design Goal — Empower Officers</h3>
+                <p class="research-description">The aim shifted to empowering officers with an approachable, intuitive
+                  design that helps them feel in control while managing cases.</p>
+              </div>
+            </div>
+            <div class="research-images">
+              <div class="reveal">
+                <img src="assets/Portfolio%20Design%20Assests/Selp/interview%201.png" alt="Research documentation"
+                  class="research-image" loading="lazy" decoding="async">
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="section-block design-process-section">
-        <div class="design-process-header">
-          <div class="design-process-title-wrapper">
-            <h2 class="section-title">The Iterative <span class="accent">Design Process</span></h2>
+        <div class="section-container">
+          <div class="design-process-header">
+            <div class="design-process-title-wrapper">
+              <h2 class="section-title">The Iterative <span class="accent">Design Process</span></h2>
+            </div>
+            <div class="design-process-subtitle-wrapper">
+              <p class="design-process-subtitle">We focused on quick iterations and user feedback, refining the design to
+                be intuitive and user-friendly. This approach led to a functional, empowering platform for officers.</p>
+            </div>
           </div>
-          <div class="design-process-subtitle-wrapper">
-            <p class="design-process-subtitle">We focused on quick iterations and user feedback, refining the design to
-              be intuitive and user-friendly. This approach led to a functional, empowering platform for officers.</p>
-          </div>
-        </div>
-        <div class="design-process-wireframes">
-          <div class="reveal">
-            <img src="assets/Portfolio%20Design%20Assests/Selp/Wireframe%201.png" alt="Design process wireframes"
-              class="design-process-image">
+          <div class="design-process-wireframes">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/Selp/Wireframe%201.png" alt="Design process wireframes"
+                class="design-process-image" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section-block solutions-section">
-        <div class="solutions-header">
-          <div class="solutions-title-wrapper">
-            <h2 class="section-title">How We Solved the Challenges, <br> <span class="accent">A User-Centered
-                Approach</span></h2>
-          </div>
-        </div>
-        <div class="solutions-list">
-          <div class="solution-item">
-            <div class="solution-content">
+      <section class="solutions-section">
+        <div class="solutions-container">
+          <h2 class="section-title">How We Solved the Challenges, <br> <span class="accent">A User-Centered
+              Approach</span></h2>
+          <div class="solutions-list">
+            <div class="solution-item">
               <h3 class="solution-title">Simplified Incident Collection</h3>
-              <p class="solution-description">To ease data entry for officers with low digital literacy, we simplified
-                the process into three steps: Incident Info, Informer Info, and Location Info.</p>
+              <div class="solution-content-wrapper">
+                <p class="solution-description">To ease data entry for officers with low digital literacy, we simplified
+                  the process into three steps: Incident Info, Informer Info, and Location Info.</p>
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Selp/Incident%20Report.png" alt="Data entry interface"
+                    class="solution-item-image" loading="lazy" decoding="async">
+                </div>
+              </div>
             </div>
-            <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/Selp/Incident%20Report.png" alt="Data entry interface"
-                class="solution-item-image">
-            </div>
-          </div>
-          <div class="solution-item">
-            <div class="solution-content">
+            <div class="solution-item">
               <h3 class="solution-title">Automated Incident Assignment</h3>
-              <p class="solution-description">Manual case assignment caused delays. Location-based algorithms now
-                auto-assign cases, streamlining workflow and speeding up handling.</p>
+              <div class="solution-content-wrapper">
+                <p class="solution-description">Manual case assignment caused delays. Location-based algorithms now
+                  auto-assign cases, streamlining workflow and speeding up handling.</p>
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Selp/Automated%20Incident%20Assignment.png"
+                  alt="Case assignment system" class="solution-item-image" loading="lazy" decoding="async">
+                </div>
+              </div>
             </div>
-            <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/Selp/Automated%20Incident%20Assignment.png"
-                alt="Case assignment system" class="solution-item-image">
-            </div>
-          </div>
-          <div class="solution-item">
-            <div class="solution-content">
+            <div class="solution-item">
               <h3 class="solution-title">Stepwise Case Progression</h3>
-              <p class="solution-description">Cases followed four stages: Court Case, Another Sitting, Out-of-Office
-                ADR, and Time Extension. We provided clear prompts for consistent updates and daily progress tracking.
-              </p>
+              <div class="solution-content-wrapper">
+                <p class="solution-description">Cases followed four stages: Court Case, Another Sitting, Out-of-Office
+                  ADR, and Time Extension. We provided clear prompts for consistent updates and daily progress tracking.
+                </p>
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Selp/Stepwise%20Case%20Progression.png"
+                    alt="Progressive UI design" class="solution-item-image" loading="lazy" decoding="async">
+                </div>
+              </div>
             </div>
-            <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/Selp/Stepwise%20Case%20Progression.png"
-                alt="Progressive UI design" class="solution-item-image">
-            </div>
-          </div>
-          <div class="solution-item">
-            <div class="solution-content">
+            <div class="solution-item">
               <h3 class="solution-title">Guided Workspace for Day-to-Day Updates</h3>
-              <p class="solution-description">We designed a dual-panel layout to separate case review and action. The
-                left panel serves as a scannable case file, while the right panel offers a guided, conversational
-                workflow, making tasks feel logical and step-by-step.</p>
+              <div class="solution-content-wrapper">
+                <p class="solution-description">We designed a dual-panel layout to separate case review and action. The
+                  left panel serves as a scannable case file, while the right panel offers a guided, conversational
+                  workflow, making tasks feel logical and step-by-step.</p>
+                <div class="reveal">
+                  <img src="assets/Portfolio%20Design%20Assests/Selp/Guided%20Workspace%20for%20Day-to-Day%20Updates.png"
+                    alt="Offline capabilities" class="solution-item-image" loading="lazy" decoding="async">
+                </div>
+              </div>
             </div>
-            <div class="reveal">
-              <img src="assets/Portfolio%20Design%20Assests/Selp/Guided%20Workspace%20for%20Day-to-Day%20Updates.png"
-                alt="Offline capabilities" class="solution-item-image">
-            </div>
-          </div>
-          <div class="solution-item-last">
-            <div class="solution-content">
+            <div class="solution-item-last">
               <h3 class="solution-title">Design Goal — Empower Officers</h3>
-              <p class="solution-description">The aim was to empower officers with an approachable, intuitive design
-                that helps them feel in control while managing cases.</p>
+              <div class="solution-content-wrapper">
+                <p class="solution-description">The aim was to empower officers with an approachable, intuitive design
+                  that helps them feel in control while managing cases.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="progressive-disclosure-section">
-        <div class="progressive-disclosure-header">
-          <div class="progressive-disclosure-title-wrapper">
-            <h2 class="progressive-disclosure-title"><span class="italic">progressive disclosure</span> to
-              reduce<br>cognitive load</h2>
-          </div>
-          <div class="progressive-disclosure-description-wrapper">
+        <div class="progressive-disclosure-container">
+          <h2 class="section-title"><span class="accent">progressive disclosure</span> to
+            reduce<br>cognitive load</h2>
+          <div class="progressive-disclosure-wrapper">
             <p class="progressive-disclosure-description">We used progressive disclosure to reveal steps only when
               needed, preventing overwhelm and making the platform more approachable for officers with limited tech
               experience.</p>
           </div>
-        </div>
-        <div class="progressive-disclosure-visual">
-          <div class="reveal">
-            <img src="assets/Portfolio%20Design%20Assests/Selp/progressive%20disclosure.png"
-              alt="Progressive disclosure workflow" class="progressive-disclosure-image">
+          <div class="progressive-disclosure-visual">
+            <div class="reveal">
+              <img src="assets/Portfolio%20Design%20Assests/Selp/progressive%20disclosure.png"
+                alt="Progressive disclosure workflow" class="progressive-disclosure-image" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </section>
 
       <section class="predictable-experience-section">
-        <div class="predictable-experience-header">
-          <div class="predictable-experience-title-wrapper">
-            <h2 class="predictable-experience-title"><span class="italic">creating a</span> predictable and
-              forgiving<br>experience</h2>
-          </div>
-          <div class="predictable-experience-description-wrapper">
+        <div class="predictable-experience-container">
+          <h2 class="section-title"><span class="accent">creating a</span> predictable and
+            forgiving<br>experience</h2>
+          <div class="predictable-experience-wrapper">
             <p class="predictable-experience-description">We used progressive disclosure to reveal steps one at a time,
               helping officers focus on tasks without feeling overwhelmed and making the platform more approachable for
               those with limited tech experience.</p>

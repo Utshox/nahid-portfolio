@@ -44,7 +44,7 @@
       display: flex;
       gap: 10px;
       align-items: center;
-      padding: 56px max(58px, calc((100vw - 1324px) / 2));
+      padding: 136px max(58px, calc((100vw - 1324px) / 2)) 56px max(58px, calc((100vw - 1324px) / 2));
       background: var(--light-background);
       box-sizing: border-box;
       width: 100%;
@@ -188,7 +188,7 @@
 
     .challenges-header-subtitle {
       display: flex;
-      padding-left: 560px;
+      padding-left: 540px;
       justify-content: flex-end;
       align-items: center;
       gap: 10px;
@@ -229,7 +229,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -241,6 +241,7 @@
       line-height: 1.4;
       flex: 1 0 0;
       font-weight: 400;
+      padding-right: 0;
     }
 
     /* Solution Section */
@@ -261,7 +262,7 @@
 
     .solution-header-subtitle {
       display: flex;
-      padding-left: 560px;
+      padding-left: 540px;
       justify-content: flex-end;
       align-items: center;
       gap: 10px;
@@ -340,7 +341,7 @@
 
     .member-management-content {
       display: flex;
-      gap: 145px;
+      gap: 80px;
       width: 100%;
       align-items: flex-start;
     }
@@ -351,7 +352,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -372,7 +373,7 @@
     }
 
     .member-management-image {
-      width: 580px;
+      width: 775px;
       height: auto;
       display: block;
       object-fit: cover;
@@ -419,7 +420,7 @@
 
     .approval-workflow-content {
       display: flex;
-      gap: 145px;
+      gap: 80px;
       width: 100%;
       align-items: flex-start;
     }
@@ -430,7 +431,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -451,7 +452,7 @@
     }
 
     .approval-workflow-image {
-      width: 580px;
+      width: 775px;
       height: auto;
       display: block;
       object-fit: cover;
@@ -552,7 +553,7 @@
 
     .results-impact-content {
       display: flex;
-      gap: 145px;
+      gap: 80px;
       width: 100%;
       align-items: flex-start;
     }
@@ -563,7 +564,7 @@
       color: var(--primary-black);
       margin: 0;
       font-family: 'Naga Space', sans-serif;
-      flex: 1 0 0;
+      flex: 0 0 460px;
       line-height: 1.4;
     }
 
@@ -664,7 +665,7 @@
       font-family: 'Naga Space', sans-serif;
       line-height: 1.4;
       margin: 0;
-      max-width: 540px;
+      max-width: 775px;
       font-weight: 400;
     }
 
@@ -764,7 +765,7 @@
     }
 
     .section-image {
-      width: 540px;
+      width: 775px;
       height: auto;
       display: block;
       object-fit: cover;
@@ -906,7 +907,7 @@
 
       <section>
         <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Project%20Banner.png"
-          alt="MF Web Portal Overview" class="hero-image">
+          alt="MF Web Portal Overview" class="hero-image" loading="eager" decoding="async" fetchpriority="high">
       </section>
 
       <section class="project-overview">
@@ -1033,7 +1034,7 @@
           <div class="section-image-wrapper">
             <div class="reveal">
               <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Dashboard.png" alt="Dashboard Overview"
-                class="section-image">
+                class="section-image" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1068,7 +1069,7 @@
         <div class="member-management-image-wrapper">
           <div class="reveal">
             <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Member%20Details.png"
-              alt="Member Management" class="member-management-image">
+              alt="Member Management" class="member-management-image" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
@@ -1102,7 +1103,7 @@
         <div class="approval-workflow-image-wrapper">
           <div class="reveal">
             <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Approval.png" alt="Approval Workflow"
-              class="approval-workflow-image">
+              class="approval-workflow-image" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
@@ -1122,7 +1123,7 @@
           <div class="section-image-wrapper">
             <div class="reveal">
               <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Buffer%20Loan.png"
-                alt="Buffer Loan Management" class="section-image">
+                alt="Buffer Loan Management" class="section-image" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1142,7 +1143,7 @@
           <div class="section-image-wrapper">
             <div class="reveal">
               <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Target%20Setup.png"
-                alt="Performance Tracking" class="section-image">
+                alt="Performance Tracking" class="section-image" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1163,7 +1164,7 @@
           <div class="section-image-wrapper">
             <div class="reveal">
               <img src="assets/Portfolio%20Design%20Assests/MF%20Web%20Portal/Report.png" alt="Reporting & Analytics"
-                class="section-image">
+                class="section-image" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
