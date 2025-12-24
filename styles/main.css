@@ -956,9 +956,11 @@ select {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 72px;
-  padding: 130px 58px 56px 58px;
+  gap: 68px;
+  padding: 36px 58px 56px 58px;
   margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .footer-top {
@@ -1019,31 +1021,34 @@ select {
 }
 
 .btn {
-  border: 1px solid rgba(244, 246, 250, 0.62);
-  color: rgba(244, 246, 250, 0.86);
+  border: 2px solid rgba(244, 246, 250, 0.62);
+  color: var(--Liight-Background, #F4F6FA);
   text-decoration: none;
-  padding: 16px 50px;
-  font-size: 19px;
-  font-weight: 500;
+  padding: 20px 30px;
+  font-family: "Naga Space", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 100%;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0;
   background: transparent;
   cursor: pointer;
-  transition: background-color 0.24s ease, color 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
+  transition: background-color 0.24s ease, color 0.24s ease, border-color 0.24s ease, padding 0.24s ease;
 }
 
 .btn:hover {
   background: #f4f6fa;
-  color: var(--bg-dark);
+  color: var(--Primary-Black, #101113);
   border-color: #f4f6fa;
-  transform: translateY(-1px);
+  padding: 22px 32px;
 }
 
 .footer-bottom {
-  width: calc(100% + 2 * max(58px, calc((100vw - 1324px) / 2)));
-  margin-left: calc(-1 * max(58px, calc((100vw - 1324px) / 2)));
-  margin-right: calc(-1 * max(58px, calc((100vw - 1324px) / 2)));
-  padding: 40px 0 20px 0;
+  width: 100vw;
+  margin-left: -58px;
+  margin-right: -58px;
+  margin-top: 132px;
+  padding: 40px 0 0 0;
   overflow: hidden;
   position: relative;
   background: transparent;
@@ -1068,13 +1073,13 @@ select {
   padding-right: 60px;
   flex-shrink: 0;
   font-family: 'Naga Space', Arial, sans-serif;
-  font-size: 100px;
+  font-size: 126px;
   color: #b7bcc8;
   margin: 0;
   line-height: 1.1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 @keyframes scroll-left {
@@ -1200,7 +1205,7 @@ select {
 .email-modal-container {
   display: flex;
   flex-direction: row;
-  gap: 90px;
+  gap: 60px;
   align-items: flex-start;
   width: 916px;
   height: 463px;
@@ -1211,7 +1216,6 @@ select {
   flex-direction: column;
   gap: 20px;
   width: 469px;
-  height: 322px;
   flex-shrink: 0;
 }
 
@@ -1254,10 +1258,10 @@ select {
   justify-content: left;
 }
 
+.email-modal-decoration img,
 .email-modal-decoration svg {
-  width: 111px;
-  height: 160px;
-  transform: rotate(270deg) scaleY(-1);
+  width: 130px;
+  height: 187px;
 }
 
 .email-modal-form {
@@ -1285,9 +1289,9 @@ select {
 }
 
 .form-input {
-  background: white;
-  border: 1px solid var(--grey);
-  border-radius: 4px;
+  background: #FFF;
+  border: 1px solid #D0D4DD;
+  border-radius: 0;
   padding: 14px 12px;
   font-family: 'Naga Space', 'Helvetica Neue', sans-serif;
   font-size: 18px;
@@ -1299,12 +1303,12 @@ select {
 }
 
 .form-input::placeholder {
-  color: #989ca6;
+  color: var(--grey);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: var(--black);
+  border: 1px solid var(--Secondary-Color, #454953);
 }
 
 .form-textarea {
@@ -1314,22 +1318,27 @@ select {
 }
 
 .email-modal-submit {
-  background: var(--black);
-  color: white;
-  border: none;
+  background: var(--Primary-Black, #101113);
+  color: var(--Liight-Background, #F4F6FA);
+  border: 2px solid var(--Primary-Black, #101113);
   padding: 20px 24px;
-  font-family: 'Naga Space', 'Helvetica Neue', sans-serif;
+  font-family: "Naga Space", sans-serif;
   font-size: 18px;
   font-weight: 600;
+  line-height: 100%;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s ease;
+  border-radius: 0;
+  transition: transform 0.24s ease;
+  width: fit-content;
+  align-self: flex-start;
+  transform-origin: bottom left;
+  margin-top: 36px;
 }
 
 .email-modal-submit:hover {
-  background: #333;
+  transform: scale(1.08);
 }
 
 .email-modal-submit:active {
@@ -2362,8 +2371,10 @@ select {
   display: inline-block;
   border: 2px solid var(--primary-black);
   padding: 22px 26px;
+  font-family: "Naga Space", sans-serif;
   font-size: 18px;
   font-weight: 600;
+  line-height: 100%;
   color: var(--primary-black);
   text-decoration: none;
   text-transform: uppercase;
@@ -2371,13 +2382,14 @@ select {
   transition: all 0.3s ease;
   width: fit-content;
   text-align: center;
-  font-family: 'Naga Space', Arial, sans-serif;
-  line-height: 1;
+  background: transparent;
+  transform-origin: bottom left;
 }
 
 .next-design-btn:hover {
   background: var(--primary-black);
-  color: white;
+  color: var(--Liight-Background, #F4F6FA);
+  transform: scale(1.08);
 }
 
 /* === BACK TO TOP BUTTON === */
